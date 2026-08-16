@@ -1324,12 +1324,6 @@
                         <h3 style="margin:0;">Apotek Medistra Farma</h3>
                     </div>
                     <p>Apotek yang hadir untuk melayani kebutuhan kesehatan masyarakat dengan produk terpercaya dan layanan yang ramah.</p>
-                    <div class="footer-socials">
-                        <a href="https://wa.me/6281345559456" class="social-circle social-whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="https://www.instagram.com/medistrafarmaketapang/" target="_blank" class="social-circle social-instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@apotekmedistrafarma" target="_blank" class="social-circle social-tiktok" aria-label="TikTok"><div style="width:22px;height:22px;background:white;border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="<?php echo e(asset('logo tiktok.avif')); ?>" alt="TikTok" style="width:18px;height:18px;object-fit:contain;"></div></a>
-                        <a href="https://shopee.co.id/" target="_blank" class="social-circle social-shopee" aria-label="Shopee"><div style="width:22px;height:22px;background:white;border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="<?php echo e(asset('logoshopee.jpeg')); ?>" alt="Shopee" style="width:18px;height:18px;object-fit:contain;"></div></a>
-                    </div>
                 </div>
                 <div>
                     <h3>Informasi</h3>
