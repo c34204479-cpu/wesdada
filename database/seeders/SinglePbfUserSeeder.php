@@ -15,18 +15,18 @@ class SinglePbfUserSeeder extends Seeder
      */
     public function run()
     {
-        $email = 'pbf@sumberindopontianak.com';
+        $email = 'apotekmedistrafarma@admin.com';
 
         // Delete all users except the PBF email
         DB::table('users')->where('email', '!=', $email)->delete();
 
         // Create or update the PBF user
-        $password = 'Pbf@12345'; // Please change after login
+        $password = 'MEDISTRAFARMA26'; // Please change after login
 
         User::updateOrCreate(
             ['email' => $email],
             [
-                'name' => 'PBF Admin',
+                'name' => 'PBF',
                 'username' => 'pbf',
                 'password' => $password,
                 'role' => 'admin',

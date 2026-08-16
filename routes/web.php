@@ -61,14 +61,26 @@ Route::get('/storage/{folder}/{filename}', function (string $folder, string $fil
 })->where(['folder' => 'banners|medicines|promos|principellogos|news', 'filename' => '.+'])->name('storage.image');
 
 // Products routes
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-Route::get('/products-pbf-gate', [ProductController::class, 'pbfGate'])->name('products.pbf.gate');
-Route::get('/products-pbf', [ProductController::class, 'pbf'])->name('products.pbf');
+Route::get('/products', function () {
+    return redirect()->route('partners');
+})->name('products.index');
+Route::get('/products/{id}', function () {
+    return redirect()->route('partners');
+})->name('products.show');
+Route::get('/products-pbf-gate', function () {
+    return redirect()->route('partners');
+})->name('products.pbf.gate');
+Route::get('/products-pbf', function () {
+    return redirect()->route('partners');
+})->name('products.pbf');
 Route::post('/products-pbf/verify', [ProductController::class, 'pbfVerify'])->name('products.pbf.verify');
 Route::post('/products-pbf/logout', [ProductController::class, 'pbfLogout'])->name('products.pbf.logout');
-Route::get('/products-apotek', [ProductController::class, 'apotek'])->name('products.apotek');
-Route::get('/products-apotek-select', [ProductController::class, 'apotekSelect'])->name('products.apotek.select');
+Route::get('/products-apotek', function () {
+    return redirect()->route('partners');
+})->name('products.apotek');
+Route::get('/products-apotek-select', function () {
+    return redirect()->route('partners');
+})->name('products.apotek.select');
 Route::post('/orders/history', [PurchaseHistoryController::class, 'store'])->name('orders.history.store');
 
 // Category routes (Layer 2 & 3)
@@ -91,7 +103,6 @@ Route::post('/customer/logout', [AuthController::class, 'customerLogout'])->name
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/stats', [AdminDashboardController::class, 'stats'])->name('dashboard.stats');
-    Route::get('/dashboard/global-stats', [AdminDashboardController::class, 'globalStats'])->name('dashboard.global-stats');
 
     // Medicines management
     Route::resource('medicines', AdminMedicineController::class);

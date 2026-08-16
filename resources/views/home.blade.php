@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title', 'Sumberindo Farma Tama - Distributor Farmasi Terpercaya')
+@section('title', 'Apotek Medistra Farma - Apotik Online Terpercaya')
 @section('styles')
 <style>
 /* ==============================================
@@ -21,15 +21,15 @@
     border: 1.5px solid #e5e7eb; background: #fff; min-width: 75px;
     transition: all 0.2s; font-size: 0;
 }
-.quick-btn:hover { background: #fef2f2; border-color: #fecaca; color: #991B1B; }
-.quick-btn.active { background: linear-gradient(135deg,#B91C1C,#991B1B); border-color: transparent; color: #fff; }
+.quick-btn:hover { background: #ecfeff; border-color: #99f6e4; color: #0f766e; }
+.quick-btn.active { background: linear-gradient(135deg,#0f766e,#2563eb); border-color: transparent; color: #fff; }
 .quick-btn i { font-size: 1.25rem; }
 .quick-btn span { font-size: 0.7rem; font-weight: 600; }
 
 /* PROMO CARDS */
 .promo-section { 
     padding: calc(var(--navbar-height, 65px) + 0.02rem) 0 0;
-    background: linear-gradient(135deg, #7F1D1D 0%, #991B1B 50%, #B91C1C 100%);
+    background: linear-gradient(135deg, #0f766e 0%, #0ea5e9 50%, #2563eb 100%);
     width: 100%;
     margin: 0;
     position: relative;
@@ -87,7 +87,7 @@
     width: min(100%, 220px);
     max-width: 220px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    background: rgba(153, 27, 27, 0.9);
+    background: rgba(15, 118, 110, 0.9);
     margin: 0 auto;
     z-index: 5;
 }
@@ -150,12 +150,12 @@
     position: relative;
     z-index: 2;
 }
-.promo-1 { background: linear-gradient(135deg, #991B1B 0%, #B91C1C 100%); }
-.promo-2 { background: linear-gradient(135deg, #991B1B 0%, #ef4444 100%); }
-.promo-3 { background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%); }
+.promo-1 { background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%); }
+.promo-2 { background: linear-gradient(135deg, #0f766e 0%, #2563eb 100%); }
+.promo-3 { background: linear-gradient(135deg, #0f766e 0%, #2563eb 100%); }
 
 .promo-contact {
-    background: linear-gradient(135deg, #991B1B 0%, #B91C1C 100%);
+    background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
 }
 
 .promo-goapotik {
@@ -220,9 +220,9 @@
 /* SECTION HEADER */
 .sec-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
 .sec-head-left { display: flex; flex-direction: column; gap: 0.25rem; }
-.sec-tag { display: inline-block; background: #fef2f2; color: #991B1B; padding: 0.2rem 0.75rem; border-radius: 50px; font-size: 0.72rem; font-weight: 600; }
+.sec-tag { display: inline-block; background: #ecfeff; color: #0f766e; padding: 0.2rem 0.75rem; border-radius: 50px; font-size: 0.72rem; font-weight: 600; }
 .sec-title { font-size: 1.2rem; font-weight: 800; color: #1f2937; margin: 0; }
-.sec-link { font-size: 0.82rem; color: #B91C1C; text-decoration: none; font-weight: 600; white-space: nowrap; }
+.sec-link { font-size: 0.82rem; color: #0f766e; text-decoration: none; font-weight: 600; white-space: nowrap; }
 .sec-link:hover { text-decoration: underline; }
 </style>
 <style>
@@ -230,9 +230,10 @@
 .prod-section { padding: 1.5rem 0; }
 .prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
 .prod-card {
-    background: #fff; border-radius: 14px; overflow: hidden;
-    border: 1.5px solid #e5e7eb; display: flex; flex-direction: column;
+    background: #ffffff; border-radius: 14px; overflow: hidden;
+    border: 1.5px solid rgba(15, 118, 110, 0.12); display: flex; flex-direction: column;
     transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    box-shadow: 0 6px 18px rgba(15, 118, 110, 0.08);
 }
 .prod-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(220,38,38,0.12); border-color: #fecaca; }
 .prod-img {
@@ -246,21 +247,21 @@
 .prod-img .no-img-icon { font-size: 2.5rem; color: #fecaca; }
 .prod-badge-label {
     position: absolute; top: 8px; left: 8px;
-    background: #B91C1C; color: #fff;
+    background: #0f766e; color: #fff;
     font-size: 0.62rem; font-weight: 700; padding: 0.18rem 0.45rem; border-radius: 6px;
 }
 .prod-badge-grade-a {
     position: absolute; top: 8px; right: 8px;
-    background: linear-gradient(135deg, #ef4444, #dc2626);
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
     color: #fff;
     font-size: 0.62rem; font-weight: 700; padding: 0.2rem 0.5rem;
     border-radius: 6px;
     display: inline-flex; align-items: center; gap: 0.2rem;
-    box-shadow: 0 2px 6px rgba(217,119,6,.35);
+    box-shadow: 0 2px 6px rgba(15,118,110,.35);
 }
 .prod-body { padding: 0.85rem; flex: 1; display: flex; flex-direction: column; }
 .prod-brand-tag {
-    font-size: 0.66rem; font-weight: 700; color: #991B1B; background: #fef2f2;
+    font-size: 0.66rem; font-weight: 700; color: #0f766e; background: #ecfeff;
     display: inline-block; padding: 0.15rem 0.5rem; border-radius: 20px; margin-bottom: 0.4rem;
 }
 .prod-name {
@@ -270,30 +271,30 @@
 }
   .prod-desc { color: #374151; font-size: 0.86rem; margin: 0 0 0.45rem; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   .prod-meta { font-size: 0.72rem; color: #6b7280; margin-bottom: 0.35rem; }
-.prod-price { font-size: 1rem; font-weight: 800; color: #B91C1C; margin-bottom: 0.35rem; }
-.stock-ok  { font-size: 0.65rem; font-weight: 600; color: #065f46; background: #fee2e2; padding: 0.15rem 0.5rem; border-radius: 20px; display: inline-block; margin-bottom: 0.6rem; }
-.stock-low { font-size: 0.65rem; font-weight: 600; color: #B91C1C; background: #fee2e2; padding: 0.15rem 0.5rem; border-radius: 20px; display: inline-block; margin-bottom: 0.6rem; }
-.stock-out { font-size: 0.65rem; font-weight: 600; color: #7f1d1d; background: #fee2e2; padding: 0.15rem 0.5rem; border-radius: 20px; display: inline-block; margin-bottom: 0.6rem; }
+.prod-price { font-size: 1rem; font-weight: 800; color: #0f766e; margin-bottom: 0.35rem; }
+.stock-ok  { font-size: 0.65rem; font-weight: 600; color: #065f46; background: #dff7f4; padding: 0.15rem 0.5rem; border-radius: 20px; display: inline-block; margin-bottom: 0.6rem; }
+.stock-low { font-size: 0.65rem; font-weight: 600; color: #0f766e; background: #ecfeff; padding: 0.15rem 0.5rem; border-radius: 20px; display: inline-block; margin-bottom: 0.6rem; }
+.stock-out { font-size: 0.65rem; font-weight: 600; color: #0f766e; background: #ecfeff; padding: 0.15rem 0.5rem; border-radius: 20px; display: inline-block; margin-bottom: 0.6rem; }
 .btn-detail {
     display: block; width: 100%; padding: 0.5rem;
-    background: linear-gradient(135deg, #B91C1C, #991B1B); color: #fff;
+    background: linear-gradient(135deg, #0f766e, #2563eb); color: #fff;
     border: none; border-radius: 9px; cursor: pointer; font-weight: 700;
     font-size: 0.78rem; text-align: center; text-decoration: none; transition: all 0.25s;
 }
-.btn-detail:hover { background: linear-gradient(135deg, #991B1B, #7F1D1D); transform: translateY(-1px); color: #fff; }
+.btn-detail:hover { background: linear-gradient(135deg, #0f766e, #0ea5e9); transform: translateY(-1px); color: #fff; }
 .btn-cart {
     display: block; width: 100%; padding: 0.42rem;
-    background: #fff; color: #B91C1C;
-    border: 1.5px solid #B91C1C; border-radius: 9px; cursor: pointer;
+    background: #fff; color: #0f766e;
+    border: 1.5px solid #0f766e; border-radius: 9px; cursor: pointer;
     font-weight: 700; font-size: 0.72rem; text-align: center;
     text-decoration: none; transition: all 0.2s; margin-top: 0.4rem;
 }
-.btn-cart:hover { background: #fef2f2; }
-.btn-cart.added { background: #fee2e2; color: #065f46; border-color: #34d399; }
+.btn-cart:hover { background: #ecfeff; }
+.btn-cart.added { background: #dff7f4; color: #065f46; border-color: #34d399; }
 </style>
 <style>
 /* WHY US */
-.why-section { background: #fff; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; padding: 1.25rem 0; }
+.why-section { background: #ffffff; border-top: 1px solid rgba(15, 118, 110, 0.12); border-bottom: 1px solid rgba(15, 118, 110, 0.12); padding: 1.25rem 0; }
 .why-grid { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
 .why-item { display: flex; align-items: center; gap: 0.75rem; }
 .why-icon { width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
@@ -301,30 +302,72 @@
 .why-text p  { font-size: 0.73rem; color: #6b7280; margin: 0; line-height: 1.4; }
 
 /* CTA */
-.cta-section { padding: 1.25rem 0; }
+.cta-section {
+    padding: 1.25rem 0;
+    background: linear-gradient(135deg, #e6fffb 0%, #ecfeff 30%, #dbeafe 100%);
+}
 .cta-box {
-    background: linear-gradient(135deg, #7F1D1D, #B91C1C);
-    border-radius: 20px; padding: 2rem 2.5rem;
+    background: #ffffff;
+    border: 1.5px solid rgba(15, 118, 110, 0.12);
+    border-radius: 34px;
+    padding: 2rem 2.5rem 1.7rem;
     display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+    box-shadow: 0 8px 24px rgba(15, 118, 110, 0.10);
+    opacity: 1;
+    position: relative;
+    overflow: hidden;
 }
-.cta-box h3 { font-size: 1.25rem; font-weight: 800; color: #fff; margin: 0 0 0.3rem; }
-.cta-box p  { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 0; }
+.cta-box::before,
+.cta-box::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: #dff7f4;
+    pointer-events: none;
+}
+.cta-box::before {
+    width: 220px; height: 220px;
+    right: -80px; top: -80px;
+}
+.cta-box::after {
+    width: 180px; height: 180px;
+    left: -50px; bottom: -70px;
+}
+.cta-box h3 {
+    font-size: clamp(1.6rem, 2vw, 2.1rem);
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 0.35rem;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.cta-box p {
+    color: #334155; font-size: 0.95rem; margin: 0; line-height: 1.6; max-width: 520px; position: relative; z-index: 1; }
 .btn-wa {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: #25D366; color: #fff; padding: 0.75rem 1.75rem;
-    border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.95rem;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+    background: linear-gradient(135deg, #5ecf68 0%, #2dbb62 100%);
+    color: #fff; padding: 0.9rem 1.9rem;
+    border-radius: 999px; text-decoration: none; font-weight: 800; font-size: 1.05rem;
     transition: all 0.25s; white-space: nowrap; flex-shrink: 0;
+    box-shadow: 0 12px 20px rgba(45, 187, 98, 0.25);
+    min-width: 220px;
+    position: relative; z-index: 1;
 }
-.btn-wa:hover { background: #1f8f4a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); color: #fff; }
+.btn-wa:hover { background: linear-gradient(135deg, #4ac35d, #1fa554); transform: translateY(-2px); box-shadow: 0 14px 28px rgba(45, 187, 98, 0.28); color: #fff; }
 
 /* CATEGORY GRID */
 .cat-section { padding: 1.5rem 0 1rem; }
 .cat-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.75rem; }
 .cat-card {
     display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    padding: 1rem 0.5rem; background: #fff; border-radius: 14px;
-    border: 1.5px solid #e5e7eb; text-decoration: none; color: #374151;
+    padding: 1rem 0.5rem; background: #ffffff; border-radius: 14px;
+    border: 1.5px solid rgba(15, 118, 110, 0.12); text-decoration: none; color: #374151;
     transition: all 0.25s; text-align: center;
+    box-shadow: 0 6px 18px rgba(15, 118, 110, 0.08);
 }
 .cat-card:hover { background: #fef2f2; border-color: #fecaca; color: #991B1B; transform: translateY(-3px); box-shadow: 0 6px 18px rgba(220,38,38,0.1); }
 .cat-icon { width: 50px; height: 50px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; }
@@ -336,12 +379,12 @@
     background: #ffffff !important;
     border-radius: 20px;
     padding: 1.75rem 2rem;
-    border: 2px solid #991B1B !important;
+    border: 2px solid #0f766e !important;
     display: flex;
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 8px 24px rgba(15, 118, 110, 0.12) !important;
     position: relative;
     z-index: 2;
 }
@@ -351,24 +394,24 @@
 .about-info p  { font-size: 0.85rem; color: #6b7280; line-height: 1.7; margin: 0 0 0.85rem; }
 .btn-about {
     display: inline-flex; align-items: center; gap: 0.4rem;
-    background: #fef2f2; color: #991B1B; padding: 0.45rem 1.1rem;
+    background: #ecfeff; color: #0f766e; padding: 0.45rem 1.1rem;
     border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.82rem; transition: all 0.2s;
 }
-.btn-about:hover { background: #991B1B; color: #fff; }
+.btn-about:hover { background: #0f766e; color: #fff; }
 .about-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.65rem; flex-shrink: 0; }
 .about-stat-item {
     text-align: center;
     padding: 0.75rem 1.2rem;
     background: #ffffff !important;
     border-radius: 12px;
-    border: 2px solid #991B1B !important;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25) !important;
+    border: 2px solid #99f6e4 !important;
+    box-shadow: 0 6px 16px rgba(15, 118, 110, 0.08) !important;
     position: relative;
     z-index: 2;
 }
-.about-stat-item .n { font-size: 1.3rem; font-weight: 800; color: #B91C1C; display: block; line-height: 1.2; }
+.about-stat-item .n { font-size: 1.3rem; font-weight: 800; color: #0f766e; display: block; line-height: 1.2; }
 .about-stat-item .l { font-size: 0.68rem; color: #6b7280; }
-.about-stat-item:nth-child(even) .n { color: #ef4444; }
+.about-stat-item:nth-child(even) .n { color: #2563eb; }
 
 /* PBF PROFILE + GALLERY TEMPLATE */
 .pbf-profile-section {
@@ -376,12 +419,12 @@
 }
 .pbf-profile-wrap {
     background: #ffffff !important;
-    border: 2px solid #991B1B !important;
+    border: 1px solid #d1fae5 !important;
     border-radius: 24px;
     padding: 1.8rem;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 8px 24px rgba(15, 118, 110, 0.08) !important;
     z-index: 2;
 }
 .pbf-profile-wrap::before {
@@ -391,7 +434,7 @@
     right: -80px;
     width: 220px;
     height: 220px;
-    background: radial-gradient(circle, rgba(220, 38, 38, 0.14), transparent 70%);
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.12), transparent 70%);
     pointer-events: none;
 }
 .pbf-profile-head {
@@ -406,7 +449,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    background: #B91C1C;
+    background: linear-gradient(135deg, #0f766e, #2563eb);
     color: #fff;
     border-radius: 999px;
     padding: 0.33rem 0.8rem;
@@ -417,7 +460,7 @@
 }
 .pbf-profile-head h3 {
     margin: 0 0 0.5rem;
-    color: #7f1d1d;
+    color: #0f172a;
     font-size: clamp(1.08rem, 2.5vw, 1.35rem);
     line-height: 1.35;
     font-weight: 900;
@@ -441,129 +484,109 @@
     gap: 0.35rem;
     padding: 0.3rem 0.7rem;
     border-radius: 999px;
-    background: #fff;
-    border: 1px solid #ffd4d4;
-    color: #991B1B;
+    background: #f0fdfa;
+    border: 1px solid #99f6e4;
+    color: #0f766e;
     font-size: 0.74rem;
     font-weight: 700;
 }
-.pbf-gallery-grid {
+.pbf-profile-layout {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-auto-flow: dense;
-    gap: 1rem;
-    align-items: stretch;
+    grid-template-columns: 1.05fr 1.35fr;
+    gap: 1.5rem;
+    align-items: center;
 }
-.pbf-photo-template {
-    background: #ffffff !important;
-    border: 2px solid #991B1B !important;
-    border-radius: 16px;
-    min-height: 0;
-    padding: 0.72rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    text-align: left;
-    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18) !important;
-    z-index: 2;
+.pbf-profile-copy {
+    padding-right: 0.5rem;
 }
-.pbf-gallery-grid > .pbf-photo-template:not(.pbf-photo-template-featured) {
-    min-height: 228px;
-    background: #ffffff;
-    box-shadow: 0 6px 16px rgba(185, 28, 28, 0.15);
-}
-.pbf-photo-template:hover {
-    border-color: #ef4444;
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(185, 28, 28, 0.14);
-    background: #fff;
-}
-.pbf-photo-template img {
-    width: 100%;
-    height: 122px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 1px solid #fee2e2;
-    margin-bottom: 0.62rem;
-    background: #fff5f5;
-}
-.pbf-photo-template-adelia img {
-    object-fit: cover;
-    object-position: center 78%;
-    background: #fff5f5;
-}
-.pbf-photo-template-featured {
-    grid-column: 2 / span 2;
-    grid-row: span 2;
-    min-height: 420px;
-    padding: 0.95rem;
-    border: 2px solid #991B1B !important;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25) !important;
-    background: #ffffff !important;
-    justify-content: center;
-    z-index: 2;
-}
-.pbf-photo-template-featured h4 {
-    width: 100%;
-    text-align: center;
-    font-size: 1.16rem;
-    margin-bottom: 0;
-}
-.pbf-photo-template-featured img {
-    width: 100%;
-    height: 380px;
-    object-fit: contain;
-    object-position: center center;
-    border-radius: 12px;
-    border: 1px solid #fecaca;
-    background: #fff;
-    padding: 0;
-    margin-bottom: 0.7rem;
-}
-.pbf-photo-empty {
-    width: 100%;
-    height: 300px;
-    border-radius: 12px;
-    border: 1px dashed #ef9f9f;
-    background: repeating-linear-gradient(
-        -45deg,
-        #fff8f8,
-        #fff8f8 10px,
-        #ffeaea 10px,
-        #ffeaea 20px
-    );
-    margin-bottom: 0.7rem;
-    position: relative;
-}
-.pbf-photo-empty::after {
-    content: 'FOTO MENYUSUL';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.76rem;
-    letter-spacing: 0.12em;
+.pbf-profile-copy h4 {
+    margin: 0 0 0.75rem;
+    font-size: 1.08rem;
     font-weight: 800;
-    color: #be123c;
-    background: rgba(255, 255, 255, 0.84);
-    border: 1px solid #fecaca;
-    border-radius: 999px;
-    padding: 0.35rem 0.7rem;
+    color: #0f172a;
 }
-.pbf-photo-template h4 {
-    margin: 0 0 0.3rem;
-    font-size: 0.83rem;
-    color: #374151;
-    font-weight: 800;
-    line-height: 1.35;
-}
-.pbf-photo-template p {
+.pbf-profile-copy p {
     margin: 0;
-    font-size: 0.72rem;
-    color: #94a3b8;
-    line-height: 1.5;
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+.pbf-profile-copy .pbf-keypoints {
+    margin-top: 1rem;
+}
+.pbf-visual-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid #dbeafe;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(15, 118, 110, 0.08);
+}
+.pbf-slider-track {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+.pbf-slider-slide {
+    min-width: 100%;
+}
+.pbf-slider-slide img {
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    background: #f8fafc;
+}
+.pbf-slider-caption {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    background: rgba(15, 23, 42, 0.38);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.16);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 0.55rem 0.75rem;
+}
+.pbf-slider-caption strong {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+.pbf-slider-caption span {
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+.pbf-slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+}
+.pbf-slider-dot {
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(15, 118, 110, 0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.pbf-slider-dot.active {
+    width: 24px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #0f766e, #2563eb);
+}
+@media (max-width: 768px) {
+    .pbf-profile-layout {
+        grid-template-columns: 1fr;
+    }
+    .pbf-slider-slide img {
+        height: 280px;
+    }
 }
 
 /* CART DRAWER */
@@ -571,7 +594,7 @@
 .cart-overlay.open { opacity: 1; pointer-events: all; }
 .cart-drawer { position: fixed; top: 0; right: -420px; width: 420px; max-width: 100vw; height: 100vh; background: #fff; z-index: 2001; display: flex; flex-direction: column; box-shadow: -8px 0 40px rgba(0,0,0,0.15); transition: right 0.35s cubic-bezier(.4,0,.2,1); }
 .cart-drawer.open { right: 0; }
-.cart-head { background: linear-gradient(135deg, #7F1D1D, #B91C1C); padding: 1.25rem 1.5rem; color: #fff; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+.cart-head { background: linear-gradient(135deg, #0f766e, #2563eb); padding: 1.25rem 1.5rem; color: #fff; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
 .cart-head h2 { font-size: 1.1rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 0.5rem; }
 .cart-close-btn { background: rgba(255,255,255,0.2); border: none; color: #fff; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
 .cart-close-btn:hover { background: rgba(255,255,255,0.35); }
@@ -579,21 +602,21 @@
 .cart-empty-msg { text-align: center; padding: 3rem 1rem; color: #9ca3af; }
 .cart-empty-msg i { font-size: 3rem; display: block; margin-bottom: 0.75rem; }
 .cart-item-row { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.85rem 0; border-bottom: 1px solid #f3f4f6; }
-.cart-item-thumb { width: 52px; height: 52px; border-radius: 10px; flex-shrink: 0; background: linear-gradient(135deg,#fef2f2,#fee2e2); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.cart-item-thumb { width: 52px; height: 52px; border-radius: 10px; flex-shrink: 0; background: linear-gradient(135deg,#ecfeff,#dbeafe); display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .cart-item-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .cart-item-info { flex: 1; min-width: 0; }
 .cart-item-name { font-size: 0.84rem; font-weight: 700; color: #1f2937; margin-bottom: 0.2rem; line-height: 1.3; }
-.cart-item-price { font-size: 0.8rem; color: #B91C1C; font-weight: 700; }
+.cart-item-price { font-size: 0.8rem; color: #0f766e; font-weight: 700; }
 .cart-qty-row { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.4rem; }
 .qty-btn { width: 26px; height: 26px; border-radius: 6px; border: 1.5px solid #e5e7eb; background: #fff; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #374151; transition: all 0.2s; }
-.qty-btn:hover { border-color: #B91C1C; color: #B91C1C; }
+.qty-btn:hover { border-color: #0f766e; color: #0f766e; }
 .qty-num { font-size: 0.85rem; font-weight: 700; min-width: 20px; text-align: center; }
 .cart-item-del { background: none; border: none; color: #d1d5db; cursor: pointer; font-size: 0.9rem; padding: 0.2rem; flex-shrink: 0; transition: color 0.2s; }
 .cart-item-del:hover { color: #ef4444; }
 .cart-foot { padding: 1.25rem 1.5rem; border-top: 2px solid #f3f4f6; flex-shrink: 0; background: #fafbff; }
 .cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
 .cart-total-row span { font-size: 0.9rem; color: #6b7280; }
-.cart-total-row strong { font-size: 1.2rem; color: #B91C1C; font-weight: 800; }
+.cart-total-row strong { font-size: 1.2rem; color: #0f766e; font-weight: 800; }
 .btn-order-wa { display: flex; align-items: center; justify-content: center; gap: 0.6rem; width: 100%; padding: 0.85rem; background: #25D366; color: #fff; border: none; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 1rem; transition: all 0.3s; }
 .btn-order-wa:hover { background: #1f8f4a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
 .btn-clear-cart { display: block; width: 100%; padding: 0.5rem; background: none; border: none; color: #9ca3af; font-size: 0.8rem; cursor: pointer; margin-top: 0.5rem; transition: color 0.2s; }
@@ -603,7 +626,7 @@
 /* ORDER MODAL */
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 3000; }
 .modal-box { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 92%; max-width: 480px; max-height: 90vh; overflow-y: auto; background: #fff; border-radius: 20px; z-index: 3001; box-shadow: 0 25px 60px rgba(0,0,0,0.25); }
-.modal-head { background: linear-gradient(135deg,#991B1B,#B91C1C); padding: 1.25rem 1.5rem; border-radius: 20px 20px 0 0; display: flex; justify-content: space-between; align-items: center; }
+.modal-head { background: linear-gradient(135deg,#0f766e,#2563eb); padding: 1.25rem 1.5rem; border-radius: 20px 20px 0 0; display: flex; justify-content: space-between; align-items: center; }
 .modal-head h3 { color: #fff; margin: 0; font-size: 1rem; font-weight: 700; }
 .modal-head p { color: rgba(255,255,255,0.8); margin: 0; font-size: 0.75rem; }
 .modal-close { background: rgba(255,255,255,0.2); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem; }
@@ -611,9 +634,9 @@
 .modal-form { padding: 1.25rem 1.5rem; }
 .form-lbl { display: block; font-size: 0.78rem; font-weight: 700; color: #374151; margin-bottom: 0.3rem; }
 .form-inp { width: 100%; padding: 0.6rem 0.85rem; border: 1.5px solid #e5e7eb; border-radius: 10px; font-size: 0.9rem; outline: none; transition: border-color 0.2s; margin-bottom: 0.75rem; }
-.form-inp:focus { border-color: #B91C1C; }
+.form-inp:focus { border-color: #0f766e; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-.form-error { display: none; background: #fee2e2; color: #7f1d1d; padding: 0.6rem; border-radius: 8px; font-size: 0.8rem; margin-bottom: 0.75rem; }
+.form-error { display: none; background: #ecfeff; color: #0f766e; padding: 0.6rem; border-radius: 8px; font-size: 0.8rem; margin-bottom: 0.75rem; }
 .btn-submit-wa { width: 100%; padding: 0.85rem; background: linear-gradient(135deg,#25D366,#1f8f4a); color: #fff; border: none; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
 
 /* RESPONSIVE */
@@ -848,7 +871,7 @@
     padding: 0.35rem 0.9rem;
     border-radius: 999px;
     background: rgba(255,255,255,0.94);
-    color: #B91C1C;
+    color: #0f766e;
     font-weight: 700;
     font-size: 0.78rem;
     margin-bottom: 0.75rem;
@@ -876,7 +899,7 @@
     padding: 0.65rem 1.4rem;
     border-radius: 999px;
     background: #fff;
-    color: #B91C1C;
+    color: #0f766e;
     font-weight: 800;
     font-size: 0.88rem;
     letter-spacing: 0.01em;
@@ -890,7 +913,7 @@
 }
 
 .banner-promo-btn:hover {
-    background: #fef2f2;
+    background: #ecfeff;
     transform: translateY(-2px);
     box-shadow: 0 8px 28px rgba(0,0,0,0.28);
 }
@@ -925,7 +948,7 @@
 }
 
 .banner-slider-dot.active {
-    background: #B91C1C;
+    background: #0f766e;
     transform: scale(1.15);
 }
 
@@ -1052,30 +1075,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-{{-- PROMO --}}
-<div class="promo-section">
-  <div class="container">
-    <div class="promo-grid">
-            <a href="{{ route('partners') }}" class="promo-card promo-contact">
-        <div class="promo-card-content">
-          <img src="{{ asset('logo pt sumber indo farma tama.png') }}" alt="Sumberindo Farma" class="promo-goapotik-logo">
-          <h4>Lihat Mitra Kami</h4>
-        </div>
-      </a>
-            <!-- Apotek cards removed per request; only PBF remains -->
-    </div>
-  </div>
-</div>
-
 <!-- NEWS SECTION -->
-<section style="padding: 2.5rem 0 3rem; background: linear-gradient(180deg, #0b0b0d 0%, #111827 100%); border-top: 1px solid rgba(255,255,255,0.08);">
-    <div class="container" style="max-width: 1500px; margin: 0 auto; padding: 0 1rem;">
+<section style="padding: 2.75rem 0 3.25rem; background: linear-gradient(135deg, #f8fffe 0%, #ecfeff 24%, #dffaf7 42%, #dbeafe 100%); position: relative; overflow: hidden; border-top: 1px solid rgba(14, 116, 144, 0.12);">
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(45, 212, 191, 0.18), transparent 24%), radial-gradient(circle at 80% 18%, rgba(59, 130, 246, 0.18), transparent 22%), radial-gradient(circle at 50% 85%, rgba(13, 148, 136, 0.10), transparent 26%); pointer-events: none;"></div>
+    <div class="container" style="max-width: 1500px; margin: 0 auto; padding: 0 1rem; position: relative; z-index: 1;">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
             <div>
-                <p style="margin: 0 0 0.35rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: #fbbf24; text-transform: uppercase;">Latest</p>
-                <h2 style="font-size: clamp(1.6rem, 2vw, 2.2rem); font-weight: 800; color: #ffffff; margin: 0;">Berita & Update</h2>
+                <p style="margin: 0 0 0.35rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: #0f766e; text-transform: uppercase;">Latest</p>
+                <h2 style="font-size: clamp(1.6rem, 2vw, 2.2rem); font-weight: 800; color: #0f172a; margin: 0;">Berita & Update</h2>
             </div>
-            <a href="{{ route('news.index') }}" style="text-decoration: none; color: #f9fafb; font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; background: rgba(255,255,255,0.03);">Lihat Semua</a>
+            <a href="{{ route('news.index') }}" style="text-decoration: none; color: #0f172a; font-weight: 700; font-size: 0.9rem; padding: 0.75rem 1.1rem; border: 2px solid rgba(15,118,110,0.20); border-radius: 999px; background: #ffffff; box-shadow: 0 10px 20px rgba(15,118,110,0.12);">Lihat Semua</a>
         </div>
 
         @php
@@ -1083,70 +1092,193 @@ document.addEventListener('DOMContentLoaded', function() {
         @endphp
 
         @if($latestNews->count() > 0)
-            <div style="display: flex; gap: 1rem; overflow-x: auto; overflow-y: hidden; white-space: nowrap; padding-bottom: 0.75rem; scroll-snap-type: x proximity; -ms-overflow-style: none; scrollbar-width: none;" class="news-scroll">
+            <div style="position: relative; border-radius: 28px; padding: 1.15rem 1.15rem 0.9rem; background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(15,118,110,0.04)); border: 1px solid rgba(15,118,110,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 18px 45px rgba(15,118,110,0.08); backdrop-filter: blur(2px);" class="news-shell">
+                <div style="position: absolute; inset: 0; border-radius: 28px; background: radial-gradient(circle at 15% 15%, rgba(45,212,191,0.18), transparent 26%), radial-gradient(circle at 85% 10%, rgba(96,165,250,0.16), transparent 24%), linear-gradient(135deg, rgba(255,255,255,0.45), rgba(221,244,241,0.18)); pointer-events: none;"></div>
+                <div style="display: flex; gap: 1rem; overflow-x: auto; overflow-y: hidden; white-space: nowrap; padding: 0.3rem 0.2rem 0.5rem; scroll-snap-type: x proximity; -ms-overflow-style: none; scrollbar-width: none; position: relative; z-index: 1;" class="news-scroll">
                 <style>
+                    .news-shell::before {
+                        content: "";
+                        position: absolute;
+                        width: 220px;
+                        height: 220px;
+                        right: -30px;
+                        top: -40px;
+                        background: radial-gradient(circle, rgba(14,165,233,0.12), transparent 68%);
+                        border-radius: 50%;
+                        pointer-events: none;
+                    }
+                    .news-shell::after {
+                        content: "";
+                        position: absolute;
+                        width: 220px;
+                        height: 220px;
+                        left: -30px;
+                        bottom: -50px;
+                        background: radial-gradient(circle, rgba(20,184,166,0.12), transparent 68%);
+                        border-radius: 50%;
+                        pointer-events: none;
+                    }
                     .news-scroll { width: 100%; }
                     .news-scroll::-webkit-scrollbar { display: none; }
                     .news-card {
                         flex: 0 0 calc((100% - 4rem) / 5);
                         min-width: 180px;
-                        max-width: 260px;
+                        max-width: 280px;
                         width: auto;
-                        background: #1a202c !important;
-                        border: 1.5px solid #4a5568 !important;
-                        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+                        background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(239,253,250,0.94) 100%) !important;
+                        border: 1.5px solid rgba(15,118,110,0.18) !important;
+                        border-radius: 18px !important;
+                        box-shadow: 0 14px 35px rgba(15, 118, 110, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+                        position: relative;
+                        isolation: isolate;
+                        overflow: hidden !important;
+                        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
                     }
-                    .news-card:hover { border-color: #f6ad55 !important; }
-                    .news-card:hover .news-media img, .news-card:hover .news-media video { transform: scale(1.03); }
+                    .news-card::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        height: 4px;
+                        background: linear-gradient(90deg, #0f766e 0%, #14b8a6 50%, #2563eb 100%);
+                        border-radius: 18px 18px 0 0;
+                        z-index: 10;
+                    }
+                    .news-card::after {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        border-radius: 16px;
+                        background: transparent;
+                        pointer-events: none;
+                        z-index: 1;
+                    }
+                    .news-card:hover {
+                        border-color: #14b8a6 !important;
+                        box-shadow: 0 20px 60px rgba(15, 118, 110, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+                        transform: translateY(-8px) scale(1.03);
+                    }
+                    .news-card:hover .news-media img,
+                    .news-card:hover .news-media video {
+                        transform: scale(1.12);
+                    }
+                    .news-card:hover {
+                        border-color: rgba(13, 148, 136, 0.6) !important;
+                        box-shadow: 0 20px 50px rgba(15, 118, 110, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+                        transform: translateY(-6px) scale(1.02);
+                    }
+                    .news-card:hover .news-media img, .news-card:hover .news-media video { transform: scale(1.08); }
+                    .news-card .news-media {
+                        border-bottom: none;
+                        position: relative;
+                        z-index: 2;
+                        background: linear-gradient(135deg, #a7f3d0 0%, #ecfeff 40%, #dbeafe 100%) !important;
+                    }
+                    .news-card .news-badge {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 0.45rem 0.95rem;
+                        border-radius: 999px;
+                        background: linear-gradient(135deg, #0f766e, #14b8a6);
+                        color: #ffffff;
+                        font-size: 0.7rem;
+                        font-weight: 900;
+                        letter-spacing: 0.08em;
+                        border: none;
+                        box-shadow: 0 8px 16px rgba(15, 118, 110, 0.25);
+                        text-transform: uppercase;
+                    }
+                    .news-card .news-meta {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 0.75rem;
+                        margin-bottom: 0.5rem;
+                    }
+                    .news-card .news-date {
+                        font-size: 0.72rem;
+                        color: #0f766e;
+                        font-weight: 900;
+                        letter-spacing: 0.03em;
+                        text-transform: capitalize;
+                    }
+                    .news-card .news-title {
+                        display: block;
+                        font-size: 0.92rem;
+                        font-weight: 900;
+                        color: #0f172a;
+                        line-height: 1.35;
+                        letter-spacing: -0.01em;
+                        margin: 0;
+                    }
+                    .news-card .news-desc {
+                        font-size: 0.78rem;
+                        color: #475569;
+                        line-height: 1.55;
+                        min-height: 2.9em;
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        margin: 0;
+                        font-weight: 500;
+                    }
                     @media (max-width: 991px) {
-                        .news-card { flex-basis: clamp(200px, 42vw, 260px); }
+                        .news-card { flex-basis: clamp(170px, 36vw, 240px); }
                     }
                     @media (max-width: 576px) {
-                        .news-card { flex-basis: clamp(150px, 72vw, 210px); }
+                        .news-card { flex-basis: clamp(140px, 60vw, 200px); }
+                        .news-card .news-media {
+                            min-height: 170px;
+                        }
                     }
                 </style>
                 @foreach($latestNews as $news)
-                    <a href="{{ route('news.index', ['news_id' => $news->id]) }}" class="news-card" style="text-decoration: none; color: inherit; display: block; min-width: 0; border-radius: 1.15rem; overflow: hidden; background: #1a202c; border: 1.5px solid #4a5568; box-shadow: 0 8px 20px rgba(0,0,0,0.4); transition: transform 0.2s ease, border-color 0.2s ease; scroll-snap-align: start;">
-                        <div class="news-media" style="position: relative; width: 100%; --news-ratio: {{ $news->ratio === '9:16' ? '9 / 16' : '3 / 4' }}; aspect-ratio: var(--news-ratio); background: #111827; overflow: hidden;">
+                    <a href="{{ route('news.index', ['news_id' => $news->id]) }}" class="news-card" style="text-decoration: none; color: inherit; display: block; min-width: 0; border-radius: 16px; overflow: hidden; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease; scroll-snap-align: start; position: relative; z-index: 2;">
+                        <div class="news-media" style="position: relative; width: 100%; --news-ratio: {{ $news->ratio === '9:16' ? '9 / 16' : '3 / 4' }}; aspect-ratio: var(--news-ratio); background: linear-gradient(135deg, #14b8a6 0%, #2dd4bf 50%, #0ea5e9 100%); overflow: hidden; display: flex; align-items: center; justify-content: center; border: none;">
                             @if($news->file)
                                 @if(str_contains(strtolower($news->file), '.mp4') || str_contains(strtolower($news->file), '.webm') || str_contains(strtolower($news->file), '.mov'))
-                                    <video src="{{ asset('storage/' . $news->file) }}" muted loop playsinline style="width: 100%; height: 100%; object-fit: contain; display: block; background: #dfeaf2; transition: transform 0.2s ease;"></video>
+                                    <video src="{{ asset('storage/' . $news->file) }}" muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"></video>
                                 @else
-                                    <img src="{{ asset('storage/' . $news->file) }}" alt="{{ $news->judul }}" style="width: 100%; height: 100%; object-fit: contain; display: block; background: #dfeaf2; padding: 0.25rem; transition: transform 0.2s ease;">
+                                    <img src="{{ asset('storage/' . $news->file) }}" alt="{{ $news->judul }}" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;">
                                 @endif
                             @else
-                                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2.6rem; background: linear-gradient(135deg, #fca5a5, #b91c1c); color: white;">
+                                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3.2rem; background: linear-gradient(135deg, #0f766e, #14b8a6, #2563eb);">
                                     @switch($news->tipe)
                                         @case('video') 🎥 @break
                                         @case('galeri') 📸 @break
-                                        @default 📄
+                                        @default 📰
                                     @endswitch
                                 </div>
                             @endif
 
-                            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.42));"></div>
+                            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.50)); z-index: 1;"></div>
 
-                            <div style="position: absolute; inset: auto 0 0 0; padding: 0.9rem 0.8rem 0.7rem; z-index: 1;">
-                                <div style="font-size: 0.72rem; font-weight: 700; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.6); line-height: 1.35;">
+                            <div style="position: absolute; inset: auto 0 0 0; padding: 1rem 0.9rem 0.85rem; z-index: 2;">
+                                <div class="news-title" style="color: #ffffff; text-shadow: 0 3px 10px rgba(15,23,42,0.70); font-weight: 900;">
                                     {{ $news->judul }}
                                 </div>
                             </div>
                         </div>
 
-                        <div style="padding: 0.8rem 0.7rem 0.75rem; background: rgba(17,24,39,0.98);">
-                            <div style="display: flex; align-items: center; justify-content: flex-start; gap: 0.5rem; margin-bottom: 0.4rem;">
-                                <div style="font-size: 0.7rem; color: #d1d5db;">{{ $news->created_at->translatedFormat('d M Y') }}</div>
+                        <div style="padding: 1.1rem 1rem 1.25rem; background: #ffffff; position: relative; z-index: 2; border-top: 1px solid rgba(15, 118, 110, 0.08);">
+                            <div class="news-meta">
+                                <div class="news-date">{{ $news->created_at->translatedFormat('d M Y') }}</div>
                             </div>
-                            <div style="font-size: 0.78rem; color: #f3f4f6; line-height: 1.4; min-height: 2.7em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                {{ $news->deskripsi }}
-                            </div>
+                            <p class="news-desc">{{ $news->deskripsi }}</p>
                         </div>
                     </a>
                 @endforeach
+                </div>
             </div>
         @else
-            <div style="background: rgba(255,255,255,0.04); color: #fff; border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 3rem; text-align: center;">
-                Belum ada berita yang dipublikasikan.
+            <div style="background: #ffffff; color: #0f172a; border: 1.5px solid rgba(15, 118, 110, 0.12); border-radius: 16px; padding: 3rem; text-align: center; box-shadow: 0 8px 24px rgba(15, 118, 110, 0.10); min-height: 220px; display: flex; align-items: center; justify-content: center;">
+                <div>
+                    <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">📰</div>
+                    <div style="font-weight: 700;">Belum ada berita yang dipublikasikan.</div>
+                </div>
             </div>
         @endif
     </div>
@@ -1160,7 +1292,7 @@ document.addEventListener('DOMContentLoaded', function() {
    ============================================= */
 .promo-products-section {
     padding: 3rem 0;
-    background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+    background: linear-gradient(135deg, #0f766e 0%, #2563eb 100%);
     position: relative;
     overflow: hidden;
     border-top: none;
@@ -1368,7 +1500,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .why-cards-section {
     margin-top: 0;
     padding: 5rem 0 5.5rem;
-    background: linear-gradient(160deg, #fef2f2 0%, #eef5ff 50%, #f6fbff 100%);
+    background: linear-gradient(160deg, #ecfeff 0%, #eef5ff 50%, #f6fbff 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1377,7 +1509,7 @@ document.addEventListener('DOMContentLoaded', function() {
     position: absolute;
     top: -120px; left: -120px;
     width: 420px; height: 420px;
-    background: radial-gradient(circle, rgba(220,38,38,.10) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(20,184,166,.10) 0%, transparent 70%);
     pointer-events: none;
 }
 .why-cards-section::after {
@@ -1385,7 +1517,7 @@ document.addEventListener('DOMContentLoaded', function() {
     position: absolute;
     bottom: -100px; right: -80px;
     width: 360px; height: 360px;
-    background: radial-gradient(circle, rgba(220,38,38,.09) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(37,99,235,.09) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -1396,13 +1528,13 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 .why-section-tag {
     display: inline-flex; align-items: center; gap: .45rem;
-    background: linear-gradient(135deg, #B91C1C, #991B1B);
+    background: linear-gradient(135deg, #0f766e, #2563eb);
     color: #fff;
     padding: .45rem 1.2rem;
     border-radius: 999px;
     font-size: .8rem; font-weight: 700;
     letter-spacing: .04em;
-    box-shadow: 0 6px 20px rgba(220,38,38,.3);
+    box-shadow: 0 6px 20px rgba(15,118,110,.25);
     margin-bottom: .85rem;
 }
 .why-section-title {
@@ -1432,8 +1564,8 @@ document.addEventListener('DOMContentLoaded', function() {
     background: #ffffff !important;
     border-radius: 20px;
     padding: 2.25rem 2rem;
-    border: 2px solid #991B1B !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+    border: 2px solid #d1fae5 !important;
+    box-shadow: 0 8px 24px rgba(15, 118, 110, 0.10) !important;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -1450,15 +1582,15 @@ document.addEventListener('DOMContentLoaded', function() {
     height: 4px;
     border-radius: 20px 20px 0 0;
 }
-.why-card:nth-child(1)::before { background: linear-gradient(90deg, #B91C1C 0%, #ef4444 100%); }
-.why-card:nth-child(2)::before { background: linear-gradient(90deg, #991B1B 0%, #ef4444 100%); }
-.why-card:nth-child(3)::before { background: linear-gradient(90deg, #b91c1c 0%, #ef4444 100%); }
+.why-card:nth-child(1)::before { background: linear-gradient(90deg, #0f766e 0%, #14b8a6 100%); }
+.why-card:nth-child(2)::before { background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%); }
+.why-card:nth-child(3)::before { background: linear-gradient(90deg, #0ea5e9 0%, #14b8a6 100%); }
 
 /* Hover lift */
 .why-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 48px rgba(15,23,42,.12), 0 4px 12px rgba(15,23,42,.06);
-    border-color: rgba(220,38,38,.25);
+    border-color: rgba(20,184,166,.25);
 }
 
 /* Icon circle */
@@ -1472,9 +1604,9 @@ document.addEventListener('DOMContentLoaded', function() {
     transition: transform .3s ease;
 }
 .why-card:hover .why-card-icon-wrap { transform: scale(1.08) rotate(-4deg); }
-.why-card:nth-child(1) .why-card-icon-wrap { background: linear-gradient(135deg, #fef2f2, #fee2e2); color: #991B1B; }
-.why-card:nth-child(2) .why-card-icon-wrap { background: linear-gradient(135deg, #fef2f2, #fee2e2); color: #991B1B; }
-.why-card:nth-child(3) .why-card-icon-wrap { background: linear-gradient(135deg, #fef2f2, #ffe0b2); color: #B91C1C; }
+.why-card:nth-child(1) .why-card-icon-wrap { background: linear-gradient(135deg, #ecfeff, #cffafe); color: #0f766e; }
+.why-card:nth-child(2) .why-card-icon-wrap { background: linear-gradient(135deg, #eff6ff, #dbeafe); color: #2563eb; }
+.why-card:nth-child(3) .why-card-icon-wrap { background: linear-gradient(135deg, #f0fdfa, #d1fae5); color: #0f766e; }
 
 /* Title */
 .why-card h4 {
@@ -1502,9 +1634,9 @@ document.addEventListener('DOMContentLoaded', function() {
     padding: .4rem .85rem;
     border-radius: 999px;
 }
-.why-card:nth-child(1) .why-card-badge { background: #fef2f2; color: #991B1B; }
-.why-card:nth-child(2) .why-card-badge { background: #fef2f2; color: #991B1B; }
-.why-card:nth-child(3) .why-card-badge { background: #fef2f2; color: #bf360c; }
+.why-card:nth-child(1) .why-card-badge { background: #ecfeff; color: #0f766e; }
+.why-card:nth-child(2) .why-card-badge { background: #eff6ff; color: #2563eb; }
+.why-card:nth-child(3) .why-card-badge { background: #f0fdfa; color: #0f766e; }
 
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
@@ -1551,8 +1683,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <div>
         <span class="why-section-tag"><i class="fa-solid fa-star"></i> Kenapa Pilih Kami?</span>
       </div>
-      <h2 class="why-section-title">Keunggulan Sumberindo Farma Tama</h2>
-      <p class="why-section-sub">Kami hadir sebagai mitra terpercaya untuk kebutuhan farmasi Anda</p>
+      <h2 class="why-section-title">Keunggulan Apotek Medistra Farma</h2>
+      <p class="why-section-sub">Kami hadir sebagai mitra kesehatan yang siap melayani kebutuhan masyarakat dengan baik</p>
     </div>
 
     <div class="why-cards-grid">
@@ -1581,8 +1713,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="why-card">
         <div class="why-card-icon-wrap"><i class="fa-solid fa-tag"></i></div>
         <div class="why-card-content">
-          <h4>Harga Distributor Terbaik</h4>
-          <p>Harga langsung dari distributor tanpa markup berlebih. Hemat lebih banyak dengan berbelanja langsung dari sumbernya.</p>
+          <h4>Harga Apotek Terjangkau</h4>
+          <p>Harga langsung dari apotek dengan kualitas terjamin. Dapatkan obat dan suplemen original dengan harga yang kompetitif dan layanan ramah.</p>
           <span class="why-card-badge"><i class="fa-solid fa-percent"></i> Harga Terjangkau</span>
         </div>
       </div>
@@ -1591,136 +1723,127 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </section>
 
-{{-- CTA WHATSAPP --}}
-<div class="cta-section">
-  <div class="container">
-    <div class="cta-box">
-      <div>
-        <h3>💬 Mau pesan via WhatsApp?</h3>
-        <p>Tim kami siap bantu proses pesanan Anda dengan cepat & mudah.</p>
-      </div>
-      <a href="https://wa.me/6285248965590?text=Halo%20Sumberindo%20Farma%20Tama%2C%20saya%20ingin%20memesan%20produk." target="_blank" class="btn-wa">
-        <i class="fa-brands fa-whatsapp" style="font-size:1.3rem;"></i> Chat WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
-
 {{-- TENTANG SINGKAT --}}
-<div class="about-strip">
+<div class="about-strip" style="background: rgba(15,118,110,0.04);">
   <div class="container">
     <div class="about-box">
-      <img src="{{ asset('logo pt sumber indo farma tama.png') }}" alt="Sumberindo Farma Tama" class="about-logo">
+      <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Apotek Medistra Farma" class="about-logo">
       <div class="about-info">
-        <h3>PT. SUMBERINDO FARMA TAMA — Distributor Farmasi Terpercaya</h3>
-        <p>Sejak 2016 melayani kebutuhan medis masyarakat & praktisi kesehatan di seluruh Indonesia. Produk original, harga distributor, pengiriman cepat.</p>
+        <h3>Apotek Medistra Farma — Layanan Kesehatan Yang Ramah & Terpercaya</h3>
+        <p>Apotek Medistra Farma menghadirkan produk kesehatan, obat-obatan, dan layanan yang siap membantu kebutuhan sehari-hari masyarakat dengan pelayanan yang cepat, aman, dan profesional.</p>
         <a href="{{ route('about') }}" class="btn-about"><i class="fa-solid fa-circle-info"></i> Selengkapnya Tentang Kami</a>
       </div>
       <div class="about-stats">
-        <div class="about-stat-item"><span class="n">15+</span><span class="l">Tahun Pengalaman</span></div>
-        <div class="about-stat-item"><span class="n">100+</span><span class="l">Brand Partner</span></div>
-        <div class="about-stat-item"><span class="n">50+</span><span class="l">Kota Jangkauan</span></div>
-        <div class="about-stat-item"><span class="n">24/7</span><span class="l">Layanan Aktif</span></div>
+        <div class="about-stat-item"><span class="n">24/7</span><span class="l">Layanan</span></div>
+        <div class="about-stat-item"><span class="n">100%</span><span class="l">Produk Aman</span></div>
+        <div class="about-stat-item"><span class="n">Banyak</span><span class="l">Pilihan Obat</span></div>
+        <div class="about-stat-item"><span class="n">Ramah</span><span class="l">Pelayanan</span></div>
       </div>
     </div>
   </div>
 </div>
 
-<section class="pbf-profile-section">
+<section class="pbf-profile-section" style="background: linear-gradient(180deg, #f0fdfa 0%, #fff 100%);">
     <div class="container">
         <div class="pbf-profile-wrap">
             <div class="pbf-profile-head">
                 <div>
-                    <span class="pbf-profile-tag"><i class="fa-solid fa-building-shield"></i> Profil PBF</span>
-                    <h3>PT. SUMBERINDO FARMA TAMA adalah Perusahaan Besar Farmasi (PBF)</h3>
+                    <span class="pbf-profile-tag"><i class="fa-solid fa-building-shield"></i> Profil Apotek</span>
+                    <h3>Apotek Medistra Farma hadir untuk mendukung kebutuhan kesehatan Anda dengan pelayanan yang dekat dan terpercaya.</h3>
+                </div>
+            </div>
+
+            <div class="pbf-profile-layout">
+                <div class="pbf-profile-copy">
+                    <h4>Pelayanan yang dekat, aman, dan ramah untuk kebutuhan kesehatan Anda</h4>
                     <p>
-                        PT. Sumberindo Farma Tama merupakan Pedagang Besar Farmasi (PBF) yang menyediakan layanan distribusi
-                        farmasi profesional. Dengan mengedepankan kepatuhan terhadap regulasi, kualitas layanan, dan integritas
-                        operasional, kami mendistribusikan obat dan alat kesehatan dari prinsipal kepada fasilitas pelayanan
-                        kesehatan melalui sistem distribusi yang aman, efisien, dan dapat diandalkan.
+                        Apotek Medistra Farma merupakan apotek modern yang berkomitmen menghadirkan produk kesehatan dan layanan yang cepat, aman, serta mudah dijangkau.
+                        Kami memprioritaskan kualitas produk, keamanan, serta keramahan pelayanan demi kenyamanan setiap pelanggan dalam setiap transaksi.
                     </p>
+
                     <div class="pbf-keypoints">
-                        <span><i class="fa-solid fa-circle-check"></i> Distributor Resmi</span>
-                        <span><i class="fa-solid fa-warehouse"></i> Sistem Gudang Terkelola</span>
-                        <span><i class="fa-solid fa-truck-fast"></i> Distribusi Terjadwal</span>
-                        <span><i class="fa-solid fa-shield-heart"></i> Komitmen Mutu & Kepatuhan</span>
+                        <span><i class="fa-solid fa-circle-check"></i> Produk Aman</span>
+                        <span><i class="fa-solid fa-warehouse"></i> Stok Tersedia</span>
+                        <span><i class="fa-solid fa-truck-fast"></i> Layanan Cepat</span>
+                        <span><i class="fa-solid fa-shield-heart"></i> Pelayanan Profesional</span>
+                    </div>
+                </div>
+
+                <div class="pbf-visual-slider" aria-label="Slider profil apotek">
+                    <div class="pbf-slider-track" id="pbfProfileTrack">
+                        <div class="pbf-slider-slide">
+                            <img src="{{ asset('APOTEK.jpeg') }}" alt="Tampak depan Apotek Medistra Farma">
+                        </div>
+                        <div class="pbf-slider-slide">
+                            <img src="{{ asset('APOTEK (1).jpeg') }}" alt="Area pelayanan Apotek Medistra Farma">
+                        </div>
+                        <div class="pbf-slider-slide">
+                            <img src="{{ asset('APOTEK (2).jpeg') }}" alt="Ruang layanan Apotek Medistra Farma">
+                        </div>
+                        <div class="pbf-slider-slide">
+                            <img src="{{ asset('TIM APOTEK MEDISTRA FARMA.jpeg') }}" alt="Tim Apotek Medistra Farma">
+                        </div>
+                    </div>
+
+                    <div class="pbf-slider-caption">
+                        <strong id="pbfSliderTitle">Tampak Depan</strong>
+                        <span id="pbfSliderSubtitle">Apotek Medistra Farma</span>
                     </div>
                 </div>
             </div>
 
-            <div class="pbf-gallery-grid">
-                <div class="pbf-photo-template">
-                    <img src="{{ asset('foto kantor utama SFT.jpg') }}" alt="Foto Kantor Utama Sumberindo Farma Tama">
-                    <h4>Kantor Utama</h4>
-                    <p>Fasad kantor utama PT. Sumberindo Farma Tama.</p>
-                </div>
-                <div class="pbf-photo-template">
-                    <img src="{{ asset('foto kantor utama SFT (2).jpg') }}" alt="Foto Kantor Utama Sumberindo Farma Tama Sudut Lain">
-                    <h4>Kantor Utama - Sudut Lain</h4>
-                    <p>Tampilan area kantor dari sisi berbeda.</p>
-                </div>
-                <div class="pbf-photo-template mobile-order-2">
-                    <img src="{{ asset('foto gudang distribusi SFT.jpeg') }}" alt="Foto Gudang Distribusi Sumberindo Farma Tama">
-                    <h4>Gudang Distribusi</h4>
-                    <p>Gudang penyimpanan dan area distribusi farmasi.</p>
-                </div>
-                <div class="pbf-photo-template">
-                    <img src="{{ asset('foto gudang distribusi SFT (2).jpeg') }}" alt="Foto Gudang Distribusi Area Penyimpanan">
-                    <h4>Gudang Distribusi - Penyimpanan</h4>
-                    <p>Area penyimpanan produk dengan tata kelola rapi.</p>
-                </div>
-                <div class="pbf-photo-template pbf-photo-template-featured mobile-order-1">
-                    <img src="{{ asset('STRUKTUR PT SFT.png') }}" alt="Struktur PT Sumberindo Farma Tama">
-                    <h4>Tim Profesional</h4>
-                </div>
-                <div class="pbf-photo-template">
-                    <img src="{{ asset('foto gudang distribusi SFT (3).jpeg') }}" alt="Foto Gudang Distribusi Area Loading">
-                    <h4>Gudang Distribusi - Area Loading</h4>
-                    <p>Dokumentasi area loading untuk proses keluar-masuk barang.</p>
-                </div>
-                <div class="pbf-photo-template">
-                    <img src="{{ asset('BAGIAN PICKER.jpg') }}" alt="Foto Aktivitas Operasional Sumberindo Farma Tama">
-                    <h4>Aktivitas Operasional - Picker</h4>
-                    <p>Proses picking produk pada operasional harian.</p>
-                </div>
-                <div class="pbf-photo-template">
-                    <img src="{{ asset('BAGIAN CHECKER.jpg') }}" alt="Foto Aktivitas Operasional Bagian Checker">
-                    <h4>Aktivitas Operasional - Checker</h4>
-                    <p>Proses pengecekan barang sebelum distribusi.</p>
-                </div>
-                <div class="pbf-photo-template mobile-order-3">
-                    <img src="{{ asset('MOBIL BOX.jpg') }}" alt="Foto Armada Pengiriman Sumberindo Farma Tama">
-                    <h4>Armada Pengiriman - Mobil Box</h4>
-                    <p>Armada box untuk distribusi produk farmasi.</p>
-                </div>
-                <div class="pbf-photo-template">
-                    <img src="{{ asset('AKTIVITAS KARYAWAN SFT.jpg') }}" alt="Foto Aktivitas Karyawan Sumberindo Farma Tama">
-                    <h4>Aktivitas Karyawan</h4>
-                    <p>Dokumentasi kegiatan karyawan di lingkungan kerja SFT.</p>
-                </div>
-                <div class="pbf-photo-template">
-                    <img src="{{ asset('MOBIL LUXIO HITAM.jpg') }}" alt="Foto Armada Pengiriman Mobil Luxio Hitam">
-                    <h4>Armada Pengiriman - Luxio</h4>
-                    <p>Kendaraan distribusi pendukung pengiriman harian.</p>
-                </div>
-                <div class="pbf-photo-template pbf-photo-template-adelia">
-                    <img src="{{ asset('MOBIL EKSPEDISI ADELIA .png') }}" alt="Foto Armada Pengiriman Mobil Ekspedisi Adelia">
-                    <h4>Armada Pengiriman - Ekspedisi Adelia</h4>
-                    <p>Armada ekspedisi untuk mendukung distribusi produk ke pelanggan.</p>
-                </div>
-                <div class="pbf-photo-template">
-                    <img src="{{ asset('MOBIL TOSA.jpg') }}" alt="Foto Armada Pengiriman Mobil Tosa">
-                    <h4>Armada Pengiriman - Tosa</h4>
-                    <p>Armada operasional untuk rute distribusi tertentu.</p>
-                </div>
+            <div class="pbf-slider-dots" aria-label="Navigasi foto profil">
+                <button type="button" class="pbf-slider-dot active" data-slide-index="0" aria-label="Gambar 1"></button>
+                <button type="button" class="pbf-slider-dot" data-slide-index="1" aria-label="Gambar 2"></button>
+                <button type="button" class="pbf-slider-dot" data-slide-index="2" aria-label="Gambar 3"></button>
+                <button type="button" class="pbf-slider-dot" data-slide-index="3" aria-label="Gambar 4"></button>
             </div>
 
         </div>
     </div>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const track = document.getElementById('pbfProfileTrack');
+    const dots = Array.from(document.querySelectorAll('.pbf-slider-dot'));
+    const sliderTitle = document.getElementById('pbfSliderTitle');
+    const sliderSubtitle = document.getElementById('pbfSliderSubtitle');
 
+    if (!track || dots.length === 0) return;
 
+    const captions = [
+        { title: 'Tampak Depan', subtitle: 'Apotek Medistra Farma' },
+        { title: 'Area Pelayanan', subtitle: 'Produk & layanan kesehatan' },
+        { title: 'Ruang Layanan', subtitle: 'Nyaman untuk pelanggan' },
+        { title: 'Tim Profesional', subtitle: 'Pelayanan yang ramah' }
+    ];
 
+    let currentIndex = 0;
 
+    function updateSlider(index) {
+        currentIndex = (index + dots.length) % dots.length;
+        track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+
+        if (sliderTitle && sliderSubtitle) {
+            sliderTitle.textContent = captions[currentIndex].title;
+            sliderSubtitle.textContent = captions[currentIndex].subtitle;
+        }
+    }
+
+    dots.forEach((dot) => {
+        dot.addEventListener('click', function () {
+            updateSlider(Number(this.dataset.slideIndex || 0));
+        });
+    });
+
+    setInterval(function () {
+        updateSlider(currentIndex + 1);
+    }, 3500);
+});
+</script>
 

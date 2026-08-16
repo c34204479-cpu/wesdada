@@ -34,12 +34,12 @@
 @section('content')
 <div class="mitra-hero">
     <div class="container">
-        <div style="background:linear-gradient(135deg,#991B1B,#B91C1C);color:white;padding:2rem;border-radius:18px;">
+        <div style="background:linear-gradient(135deg,#0f766e,#2563eb);color:white;padding:2rem;border-radius:18px;">
             <div style="display:flex;gap:1rem;align-items:center;">
-                <img src="{{ asset('logo pt sumber indo farma tama.png') }}" alt="Sumberindo" style="height:84px;border-radius:12px;background:white;padding:0.5rem;" />
+                <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Apotek Medistra Farma" style="height:84px;border-radius:12px;background:white;padding:0.5rem;" />
                 <div>
                     <h1 style="margin:0;font-size:2rem;font-weight:800;">Mitra Kami</h1>
-                    <p style="margin:0.4rem 0 0;color:rgba(255,255,255,0.9);">Daftar mitra yang mempercayakan distribusi produknya kepada PT Sumberindo Farma Tama. Sebagai perusahaan distribusi (PBF) yang dipercaya para principal dan mitra, kami menghadirkan produk berkualitas dan layanan andal untuk menjangkau apotek serta distributor di seluruh wilayah.</p>
+                    <p style="margin:0.4rem 0 0;color:rgba(255,255,255,0.9);">Apotek Medistra Farma mengajak para mitra usaha, principal, dan komunitas kesehatan untuk bekerja sama dalam menghadirkan layanan farmasi yang aman, terpercaya, dan bermanfaat bagi masyarakat.</p>
                 </div>
             </div>
         </div>

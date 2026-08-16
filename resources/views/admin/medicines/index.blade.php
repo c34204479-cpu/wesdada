@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Manajemen Obat - Admin Sumberindo Farma Tama')
+@section('title', 'Manajemen Obat - Admin Apotek Medistra Farma')
 @section('page-title', 'Manajemen Obat')
 
 @section('styles')

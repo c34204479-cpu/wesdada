@@ -223,20 +223,21 @@
         
         /* Footer */
         footer {
-            background-color: var(--text-dark);
+            background: linear-gradient(135deg, #0f766e 0%, #14b8a6 45%, #2563eb 100%);
             color: white;
             padding: 60px 0 20px 0;
             margin-top: 80px;
+            border-top: 2px solid rgba(124, 179, 66, 0.4);
         }
         
         .footer-section h5 {
             font-weight: 600;
             margin-bottom: 20px;
-            color: var(--primary-color);
+            color: #ecfeff;
         }
         
         .footer-link {
-            color: #d1d5db;
+            color: rgba(255,255,255,0.9);
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
@@ -244,16 +245,16 @@
         }
         
         .footer-link:hover {
-            color: var(--primary-color);
+            color: white;
             margin-left: 5px;
         }
         
         .footer-bottom {
-            border-top: 1px solid #374151;
+            border-top: 1px solid rgba(255,255,255,0.18);
             margin-top: 30px;
             padding-top: 30px;
             text-align: center;
-            color: #9ca3af;
+            color: rgba(255,255,255,0.82);
         }
         
         /* Badge */

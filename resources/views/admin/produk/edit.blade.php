@@ -3,6 +3,20 @@
 @section('title', 'Edit Principle Logo')
 @section('page-title', 'Edit Principle Logo')
 
+@section('styles')
+<style>
+  .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 8px 20px rgba(15, 118, 110, 0.06); }
+  .form-group { margin-bottom: 1rem; }
+  .form-label { display: block; margin-bottom: 0.45rem; font-weight: 700; color: #1f2937; }
+  .form-control { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid #d1d5db; border-radius: 0.5rem; background: #fafafa; transition: all 0.2s; }
+  .form-control:focus { outline: none; border-color: #0f766e; box-shadow: 0 0 0 3px rgba(20,184,166,0.10); background: #fff; }
+  .form-errors { margin-top: 0.35rem; color: #dc2626; font-size: 0.8rem; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.7rem 1.25rem; border-radius: 0.5rem; text-decoration: none; border: none; font-weight: 700; cursor: pointer; }
+  .btn-primary { background: linear-gradient(135deg, #0f766e 0%, #14b8a6 35%, #2563eb 100%); color: #fff; }
+  .btn-secondary { background: #f3f4f6; color: #374151; border: 1px solid #e5e7eb; }
+</style>
+@endsection
+
 @section('content')
 
 <div class="mb-6">

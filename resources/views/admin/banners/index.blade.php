@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Banner Slideshow - Admin Sumberindo Farma Tama')
+@section('title', 'Banner Slideshow - Admin Apotek Medistra Farma')
 @section('page-title', '🖼️ Banner Slideshow')
 
 @section('styles')
@@ -7,30 +7,30 @@
 .page-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; gap:1rem; flex-wrap:wrap; }
 .page-header h2 { font-size:1.1rem; font-weight:700; color:#1f2937; margin:0 0 0.2rem; }
 .page-header p  { font-size:0.85rem; color:#6b7280; margin:0; }
-.btn-add { display:inline-flex; align-items:center; gap:0.4rem; padding:0.6rem 1.25rem; background:#B91C1C; color:#fff; border-radius:0.5rem; font-size:0.875rem; font-weight:600; text-decoration:none; transition:all 0.2s; }
-.btn-add:hover { background:#991B1B; color:#fff; transform:translateY(-1px); }
+.btn-add { display:inline-flex; align-items:center; gap:0.4rem; padding:0.6rem 1.25rem; background:linear-gradient(135deg, #0f766e 0%, #14b8a6 35%, #2563eb 100%); color:#fff; border-radius:0.5rem; font-size:0.875rem; font-weight:600; text-decoration:none; transition:all 0.2s; }
+.btn-add:hover { background:linear-gradient(135deg, #0f766e 0%, #0ea5e9 100%); color:#fff; transform:translateY(-1px); }
 
 .banner-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.25rem; }
 .banner-card { background:#fff; border-radius:1rem; overflow:hidden; border:1px solid #e5e7eb; box-shadow:0 1px 4px rgba(0,0,0,0.06); transition:box-shadow 0.2s; }
-.banner-card:hover { box-shadow:0 4px 16px rgba(0,0,0,0.1); }
-.banner-img { width:100%; height:160px; object-fit:cover; display:block; background:#fef2f2; }
+.banner-card:hover { box-shadow:0 4px 16px rgba(15,118,110,0.12); }
+.banner-img { width:100%; height:160px; object-fit:cover; display:block; background:#ecfeff; }
 .banner-body { padding:1rem; }
 .banner-title { font-size:0.95rem; font-weight:700; color:#1f2937; margin:0 0 0.25rem; }
 .banner-sub   { font-size:0.8rem; color:#6b7280; margin:0 0 0.5rem; }
 .banner-meta  { display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.85rem; }
-.badge-aktif   { padding:0.2rem 0.65rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#fee2e2; color:#065f46; }
-.badge-nonaktif{ padding:0.2rem 0.65rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#fee2e2; color:#991b1b; }
-.badge-urutan  { padding:0.2rem 0.65rem; border-radius:20px; font-size:0.72rem; font-weight:600; background:#fef2f2; color:#991B1B; }
+.badge-aktif   { padding:0.2rem 0.65rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#dff7f4; color:#0f766e; }
+.badge-nonaktif{ padding:0.2rem 0.65rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#ecfeff; color:#0f766e; }
+.badge-urutan  { padding:0.2rem 0.65rem; border-radius:20px; font-size:0.72rem; font-weight:600; background:#ecfeff; color:#0f766e; }
 .banner-actions { display:flex; gap:0.5rem; align-items:center; }
-.btn-edit { display:inline-flex; align-items:center; gap:0.3rem; padding:0.4rem 0.85rem; background:#fef2f2; color:#991B1B; border-radius:0.4rem; font-size:0.78rem; font-weight:600; text-decoration:none; transition:all 0.2s; border:none; cursor:pointer; }
-.btn-edit:hover { background:#B91C1C; color:#fff; }
-.btn-del  { display:inline-flex; align-items:center; gap:0.3rem; padding:0.4rem 0.85rem; background:#fee2e2; color:#991b1b; border-radius:0.4rem; font-size:0.78rem; font-weight:600; text-decoration:none; transition:all 0.2s; border:none; cursor:pointer; }
-.btn-del:hover  { background:#ef4444; color:#fff; }
+.btn-edit { display:inline-flex; align-items:center; gap:0.3rem; padding:0.4rem 0.85rem; background:#ecfeff; color:#0f766e; border-radius:0.4rem; font-size:0.78rem; font-weight:600; text-decoration:none; transition:all 0.2s; border:none; cursor:pointer; }
+.btn-edit:hover { background:#0f766e; color:#fff; }
+.btn-del  { display:inline-flex; align-items:center; gap:0.3rem; padding:0.4rem 0.85rem; background:#ecfeff; color:#0f766e; border-radius:0.4rem; font-size:0.78rem; font-weight:600; text-decoration:none; transition:all 0.2s; border:none; cursor:pointer; }
+.btn-del:hover  { background:#0f766e; color:#fff; }
 .btn-toggle { display:inline-flex; align-items:center; gap:0.3rem; padding:0.4rem 0.85rem; border-radius:0.4rem; font-size:0.78rem; font-weight:600; border:none; cursor:pointer; transition:all 0.2s; }
-.btn-toggle-on  { background:#fee2e2; color:#B91C1C; }
-.btn-toggle-on:hover  { background:#ef4444; color:#fff; }
-.btn-toggle-off { background:#fee2e2; color:#065f46; }
-.btn-toggle-off:hover { background:#ef4444; color:#fff; }
+.btn-toggle-on  { background:#dff7f4; color:#0f766e; }
+.btn-toggle-on:hover  { background:#0f766e; color:#fff; }
+.btn-toggle-off { background:#ecfeff; color:#0f766e; }
+.btn-toggle-off:hover { background:#0f766e; color:#fff; }
 
 .empty-state { text-align:center; padding:4rem 2rem; background:#fff; border-radius:1rem; border:1px solid #e5e7eb; }
 .empty-state i { font-size:3rem; color:#d1d5db; display:block; margin-bottom:1rem; }
@@ -43,7 +43,7 @@
 .modal-box p  { font-size:0.875rem; color:#6b7280; margin:0 0 1.5rem; }
 .modal-actions { display:flex; gap:0.6rem; justify-content:center; }
 .btn-cancel { padding:0.6rem 1.5rem; background:#fff; color:#374151; border:1.5px solid #e5e7eb; border-radius:0.5rem; font-size:0.875rem; font-weight:600; cursor:pointer; }
-.btn-danger { padding:0.6rem 1.5rem; background:#ef4444; color:#fff; border:none; border-radius:0.5rem; font-size:0.875rem; font-weight:600; cursor:pointer; }
+.btn-danger { padding:0.6rem 1.5rem; background:linear-gradient(135deg, #0f766e 0%, #2563eb 100%); color:#fff; border:none; border-radius:0.5rem; font-size:0.875rem; font-weight:600; cursor:pointer; }
 </style>
 @endsection
 

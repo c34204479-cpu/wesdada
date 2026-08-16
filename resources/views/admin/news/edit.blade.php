@@ -1,7 +1,20 @@
 @extends('layouts.admin')
 
-@section('title', 'Edit Berita - Admin Sumberindo Farma Tama')
+@section('title', 'Edit Berita - Admin Apotek Medistra Farma')
 @section('page-title', '📰 Edit Berita')
+
+@section('styles')
+<style>
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:0.35rem; padding:0.7rem 1.2rem; border-radius:0.5rem; font-weight:700; text-decoration:none; border:none; cursor:pointer; }
+    .btn-primary { background:linear-gradient(135deg, #0f766e 0%, #14b8a6 35%, #2563eb 100%); color:#fff; }
+    .btn-secondary { background:#f3f4f6; color:#374151; border:1px solid #e5e7eb; }
+    .btn-danger { background:linear-gradient(135deg, #0f766e 0%, #2563eb 100%); color:#fff; }
+    textarea, input, select { border-color:#d1d5db; }
+    textarea:focus, input:focus, select:focus { border-color:#0f766e !important; box-shadow:0 0 0 3px rgba(20,184,166,0.10); outline:none; }
+    #dropZoneMain, #galleryDropZone { border-color:#d1d5db; background:#f9fafb; }
+    #dropZoneMain:hover, #galleryDropZone:hover { border-color:#0f766e; background:#ecfeff; }
+</style>
+@endsection
 
 @section('content')
 <div style="background: white; padding: 2rem; border-radius: 0.75rem; max-width: 900px;">

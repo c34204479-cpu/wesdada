@@ -21,7 +21,7 @@
     overflow: hidden;
 }
 .pbf-gate-header {
-    background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #991B1B 100%);
+    background: linear-gradient(135deg, #0f766e 0%, #14b8a6 50%, #2563eb 100%);
     padding: 2.5rem 2rem 2rem;
     text-align: center;
     position: relative;
@@ -84,7 +84,7 @@
 .pbf-step:last-child { margin-bottom: 0; }
 .pbf-step-num {
     width: 22px; height: 22px; flex-shrink: 0;
-    background: #ef4444; color: #fff;
+    background: #0f766e; color: #fff;
     border-radius: 50%; font-size: 0.72rem; font-weight: 800;
     display: flex; align-items: center; justify-content: center;
     margin-top: 1px;
@@ -172,15 +172,15 @@
     color: #1f2937;
     text-align: center;
 }
-.code-input:focus { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(245,158,11,0.15); }
-.code-input.is-invalid { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
+.code-input:focus { border-color: #0f766e; box-shadow: 0 0 0 3px rgba(15,118,110,0.15); }
+.code-input.is-invalid { border-color: #0f766e; box-shadow: 0 0 0 3px rgba(15,118,110,0.1); }
 .code-input-label {
     display: block; font-size: 0.8rem; font-weight: 700;
     color: #374151; margin-bottom: 0.5rem;
 }
 .btn-verify {
     width: 100%; padding: 0.85rem;
-    background: linear-gradient(135deg, #ef4444, #dc2626);
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
     color: #fff; border: none; border-radius: 12px;
     font-weight: 700; font-size: 1rem; cursor: pointer;
     margin-top: 0.75rem; transition: all 0.25s;
@@ -188,7 +188,7 @@
     box-shadow: 0 4px 14px rgba(217,119,6,0.3);
 }
 .btn-verify:hover {
-    background: linear-gradient(135deg, #dc2626, #991B1B);
+    background: linear-gradient(135deg, #14b8a6, #2563eb);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(180,83,9,0.35);
 }
@@ -212,15 +212,15 @@
 }
 
 .code-input.is-invalid {
-    border-color: #ef4444;
+    border-color: #0f766e;
     box-shadow: 0 0 0 3px rgba(239,68,68,0.1);
     animation: shake 0.5s ease-in-out;
 }
 
 .alert-error {
-    background: #fee2e2; 
-    color: #7f1d1d;
-    border: 2px solid #ef4444; 
+    background: #ecfeff; 
+    color: #0f172a;
+    border: 2px solid #14b8a6; 
     border-radius: 10px;
     padding: 1rem 1.25rem; 
     font-size: 0.9rem; 
@@ -241,19 +241,19 @@
     top: 0;
     bottom: 0;
     width: 4px;
-    background: #dc2626;
+    background: #0f766e;
     border-radius: 8px 0 0 8px;
 }
 
 .alert-error i {
     font-size: 1.2rem;
-    color: #dc2626;
+    color: #0f766e;
     flex-shrink: 0;
 }
 .alert-success {
-    background: #fee2e2; 
-    color: #065f46;
-    border: 2px solid #ef4444; 
+    background: #ecfeff; 
+    color: #0f172a;
+    border: 2px solid #14b8a6; 
     border-radius: 10px;
     padding: 1rem 1.25rem; 
     font-size: 0.9rem; 
@@ -274,13 +274,13 @@
     top: 0;
     bottom: 0;
     width: 4px;
-    background: #ef4444;
+    background: #14b8a6;
     border-radius: 8px 0 0 8px;
 }
 
 .alert-success i {
     font-size: 1.2rem;
-    color: #dc2626;
+    color: #0f766e;
     flex-shrink: 0;
 }
 .pbf-info-note {
@@ -288,7 +288,7 @@
     text-align: center; margin-top: 1rem;
     line-height: 1.5;
 }
-.pbf-info-note a { color: #dc2626; text-decoration: none; }
+.pbf-info-note a { color: #0f766e; text-decoration: none; }
 .pbf-info-note a:hover { text-decoration: underline; }
 
 @media (max-width: 400px) {
@@ -306,7 +306,7 @@
 @section('content')
 
 {{-- Page Header --}}
-<div class="products-header" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #991B1B 100%); padding: 3rem 0; position: relative; overflow: hidden;">
+<div class="products-header" style="background: linear-gradient(135deg, #0f766e 0%, #14b8a6 50%, #2563eb 100%); padding: 3rem 0; position: relative; overflow: hidden;">
     <div class="container">
         <div class="breadcrumb-custom">
             <a href="{{ route('home') }}"><i class="fa-solid fa-house"></i> Home</a>
@@ -413,7 +413,7 @@
             <form action="{{ route('products.pbf.verify') }}" method="POST">
                 @csrf
                 <label class="code-input-label" for="kode">
-                    <i class="fa-solid fa-key" style="color:#ef4444;"></i>
+                    <i class="fa-solid fa-key" style="color:#0f766e;"></i>
                     Kode Akses
                 </label>
                 <input

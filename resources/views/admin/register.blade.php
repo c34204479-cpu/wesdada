@@ -7,7 +7,7 @@
         $faviconV = @filemtime(public_path('favicon.ico')) ?: '20260804-01';
     @endphp
     <meta name="theme-color" content="#991B1B">
-    <title>Admin Register - Sumberindo Farma Tama</title>
+    <title>Admin Register - Apotek Medistra Farma</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
     <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
 
@@ -148,7 +148,7 @@
             <div class="register-logo">
                 <img src="{{ asset('logo pt sumber indo farma tama.png') }}" alt="Sumberindo Farma Tama" style="max-height: 80px; max-width: 100%; object-fit: contain;">
             </div>
-            <h1>Sumberindo Farma Tama Admin</h1>
+            <h1>Apotek Medistra Farma Admin</h1>
             <p>Daftar akun admin baru</p>
         </div>
 

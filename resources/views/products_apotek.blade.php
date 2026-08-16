@@ -92,7 +92,7 @@
     }
 
     .btn-filter {
-        background: #ef4444;
+        background: #0f766e;
         color: #fff;
     }
 
@@ -214,7 +214,7 @@
         justify-content: center;
         gap: .4rem;
         padding: .7rem .9rem;
-        background: #ef4444;
+        background: #0f766e;
         color: #fff;
         border-radius: 10px;
         text-decoration: none;

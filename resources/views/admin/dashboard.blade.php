@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard - Admin Sumberindo Farma Tama')
+@section('title', 'Dashboard - Admin Apotek Medistra Farma')
 @section('page-title', '📊 Dashboard')
 
 @section('content')
 <style>
     .dashboard-shell {
-        --dash-red: #b91c1c;
+        --dash-red: #0f766e;
         --dash-ink: #0f172a;
         --dash-muted: #64748b;
         --dash-border: #e2e8f0;
@@ -18,11 +18,11 @@
         position: relative;
         overflow: hidden;
         background: radial-gradient(circle at top right, rgba(255,255,255,0.22), transparent 35%),
-                    linear-gradient(135deg, #7f1d1d 0%, #991b1b 36%, #b91c1c 100%);
+                    linear-gradient(135deg, #0f766e 0%, #14b8a6 32%, #2563eb 100%);
         border-radius: 18px;
         padding: 1.35rem 1.4rem;
         color: #fff;
-        box-shadow: 0 16px 34px rgba(153, 27, 27, 0.22);
+        box-shadow: 0 16px 34px rgba(15, 118, 110, 0.22);
         margin-bottom: 1rem;
     }
 
@@ -216,8 +216,8 @@
         border-radius: 999px;
         font-size: 0.7rem;
         font-weight: 700;
-        background: #fee2e2;
-        color: #991b1b;
+        background: #dff7f4;
+        color: #0f766e;
     }
 
     .dash-table {

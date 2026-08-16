@@ -6,8 +6,8 @@
     @php
         $faviconV = @filemtime(public_path('favicon.ico')) ?: '20260804-01';
     @endphp
-    <meta name="theme-color" content="#991B1B">
-    <title>Admin Login - Sumberindo Farma Tama</title>
+    <meta name="theme-color" content="#0F766E">
+    <title>Admin Login - Apotek Medistra Farma</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
     <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
 
@@ -22,22 +22,23 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+            background: linear-gradient(135deg, #0f766e 0%, #14b8a6 45%, #2563eb 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #1f2937;
+            color: #0f172a;
         }
 
         .login-container {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 1.2rem;
+            box-shadow: 0 20px 35px rgba(15, 118, 110, 0.18);
             width: 100%;
             max-width: 450px;
-            padding: 3rem;
+            padding: 2.5rem 2rem;
             overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.25);
         }
 
         .login-header {
@@ -46,7 +47,6 @@
         }
 
         .login-logo {
-            font-size: 3rem;
             margin-bottom: 1rem;
             display: flex;
             justify-content: center;
@@ -56,11 +56,11 @@
         .login-header h1 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            color: #B91C1C;
+            color: #0f766e;
         }
 
         .login-header p {
-            color: #6b7280;
+            color: #475569;
             font-size: 0.975rem;
         }
 
@@ -86,34 +86,34 @@
 
         .form-control:focus {
             outline: none;
-            border-color: #B91C1C;
-            box-shadow: 0 0 0 3px rgba(220,38,38,0.1);
+            border-color: #0f766e;
+            box-shadow: 0 0 0 3px rgba(20,184,166,0.12);
         }
 
         .form-errors {
-            color: #ef4444;
+            color: #dc2626;
             font-size: 0.875rem;
             margin-top: 0.25rem;
         }
 
         .btn-login {
             width: 100%;
-            padding: 0.75rem;
-            background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #0f766e 0%, #14b8a6 45%, #2563eb 100%);
             color: white;
             border: none;
-            border-radius: 0.5rem;
+            border-radius: 0.75rem;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(220,38,38,0.18);
+            box-shadow: 0 10px 20px rgba(14, 165, 164, 0.2);
         }
 
         .btn-login:hover {
-            background: linear-gradient(135deg, #991B1B 0%, #7F1D1D 100%);
+            background: linear-gradient(135deg, #0f766e 0%, #0ea5e9 100%);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(220,38,38,0.4);
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.22);
         }
 
         .login-footer {
@@ -124,7 +124,7 @@
         }
 
         .login-footer a {
-            color: #B91C1C;
+            color: #0f766e;
             text-decoration: none;
             font-weight: 600;
         }
@@ -143,13 +143,13 @@
         .alert-error {
             background: #fee2e2;
             color: #7f1d1d;
-            border-left-color: #ef4444;
+            border-left-color: #dc2626;
         }
 
         .alert-info {
-            background: #fef2f2;
-            color: #991B1B;
-            border-left-color: #ef4444;
+            background: #ecfeff;
+            color: #0f766e;
+            border-left-color: #0ea5e9;
         }
 
         @media (max-width: 480px) {
@@ -168,9 +168,9 @@
     <div class="login-container">
         <div class="login-header">
             <div class="login-logo">
-                <img src="{{ asset('logo pt sumber indo farma tama.png') }}" alt="Sumberindo Farma Tama" style="max-height: 100px; max-width: 150px; object-fit: contain;">
+                <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Apotek Medistra Farma" style="max-height: 110px; max-width: 170px; object-fit: contain; border-radius: 18px; background: rgba(255,255,255,0.9); padding: 0.6rem; box-shadow: 0 10px 20px rgba(15,118,110,0.12);">
             </div>
-            <h1>Sumberindo Farma Tama Admin</h1>
+            <h1>Apotek Medistra Farma</h1>
             <p>Masuk ke panel administrasi</p>
         </div>
 
@@ -196,7 +196,7 @@
                     id="email"
                     name="email" 
                     class="form-control @error('email') is-invalid @enderror"
-                    placeholder="admin@sumberindofarmatama.com"
+                    placeholder="admin@medistrafarma.com"
                     required
                     value="{{ old('email') }}"
                 >

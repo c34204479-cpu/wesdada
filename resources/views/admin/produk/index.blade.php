@@ -5,11 +5,15 @@
 
 @section('styles')
 <style>
-  .list-card { background:white; border-radius:8px; padding:1rem; border:1px solid #eef2f7; }
+  .list-card { background: white; border-radius: 1rem; padding: 1rem; border: 1px solid #e5e7eb; box-shadow: 0 8px 20px rgba(15, 118, 110, 0.06); }
   .logo-img { width:96px; height:56px; object-fit:contain; border:1px solid #f3f4f6; background:#fff; }
   .row { display:flex; gap:1rem; align-items:center; padding:0.6rem 0; border-bottom:1px solid #f5f7fa; }
   .row:last-child { border-bottom:none; }
   .actions a, .actions form { display:inline-block; margin-left:0.5rem; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; padding: 0.55rem 1rem; border-radius: 0.5rem; font-weight: 700; text-decoration:none; border: 1px solid transparent; }
+  .btn-primary { background: linear-gradient(135deg, #0f766e 0%, #14b8a6 35%, #2563eb 100%); color:#fff; }
+  .btn-secondary { background:#f3f4f6; color:#374151; border-color:#e5e7eb; }
+  .btn-danger { background:#0f766e; color:#fff; }
 </style>
 @endsection
 

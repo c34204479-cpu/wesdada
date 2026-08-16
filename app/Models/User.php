@@ -62,7 +62,7 @@ class User extends Authenticatable
 
     public function isSuperAdmin(): bool
     {
-        return $this->isAdmin() && $this->outlet_name === null;
+        return false;
     }
 
     public function getOutletNameAttribute(): ?string
@@ -91,7 +91,8 @@ class User extends Authenticatable
             'alfa.jungkat@sumberindopontianak.com'       => 'Alfa Jungkat',
             'alfa.mempawah@sumberindopontianak.com'      => 'Alfa Mempawah',
             'pbf@sumberindopontianak.com'                => 'PBF',
-            'apotek.medistrafarma@sumberindopontianak.com' => 'Apotek Medistra Farma',
+            'apotekmedistrafarma@admin.com'              => 'PBF',
+            'apotek.medistrafarma@sumberindopontianak.com' => 'PBF',
             default => null,
         };
     }

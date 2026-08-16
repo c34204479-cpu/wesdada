@@ -12,7 +12,7 @@
     @php
         $faviconV = @filemtime(public_path('favicon.ico')) ?: '20260803-13';
     @endphp
-    <title>@yield('title', 'Admin - Sumberindo Farma Tama')</title>
+    <title>@yield('title', 'Admin - Apotek Medistra Farma')</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
     <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
@@ -20,12 +20,12 @@
 
     <style>
         :root {
-            --primary: #B91C1C;
-            --secondary: #991B1B;
-            --accent: #ef4444;
-            --dark: #1f2937;
-            --light: #f3f4f6;
-            --sidebar: #111827;
+            --primary: #0f766e;
+            --secondary: #155e75;
+            --accent: #0ea5e9;
+            --dark: #0f172a;
+            --light: #f3f8fb;
+            --sidebar: #0f172a;
         }
 
         * {
@@ -47,7 +47,7 @@
 
         /* Sidebar */
         .sidebar {
-            background: linear-gradient(180deg, #991B1B 0%, var(--sidebar) 100%);
+            background: linear-gradient(180deg, #0f766e 0%, #0f172a 100%);
             color: white;
             width: 250px;
             padding: 2rem 0;
@@ -56,18 +56,18 @@
             left: 0;
             top: 0;
             overflow-y: auto;
-            box-shadow: 2px 0 12px rgba(0,0,0,0.3);
+            box-shadow: 2px 0 12px rgba(15,118,110,0.25);
         }
 
         .sidebar-brand {
             padding: 0 1.5rem;
             margin-bottom: 2rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: white;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         .sidebar-menu {
@@ -90,14 +90,14 @@
         }
 
         .sidebar-menu a:hover {
-            background: rgba(255,255,255,0.1);
+            background: rgba(14,165,233,0.12);
             color: white;
             border-left-color: var(--accent);
         }
 
         .sidebar-menu a.active {
-            background: rgba(239,68,68,0.1);
-            color: var(--accent);
+            background: rgba(14,165,233,0.12);
+            color: #bae6fd;
             border-left-color: var(--accent);
         }
 
@@ -614,8 +614,8 @@
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-brand">
-                <img src="{{ asset('logo pt sumber indo farma tama.png') }}" alt="Sumberindo Farma Tama" style="height: 35px; object-fit: contain;">
-                <span style="white-space: nowrap;">Admin</span>
+                <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Apotek Medistra Farma" style="height: 38px; width: 38px; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.9); padding: 0.22rem;">
+                <span style="white-space: nowrap; line-height:1.2;">Apotek Medistra<br><small style="font-size:0.7rem; opacity:0.8;">Admin</small></span>
             </div>
             <ul class="sidebar-menu">
                 <li>
@@ -664,9 +664,9 @@
                 </div>
                 <div class="topbar-right">
                     <div class="user-info">
-                        <div class="user-avatar">{{ strtoupper(substr(auth()->user()->name, 0, 1)) }}</div>
+                        <div class="user-avatar">A</div>
                         <div>
-                            <div style="font-weight: 600;">{{ auth()->user()->name }}</div>
+                            <div style="font-weight: 600;">Apotek Medistra Farma</div>
                             <div style="font-size: 0.875rem; color: #6b7280;">Admin</div>
                         </div>
                     </div>

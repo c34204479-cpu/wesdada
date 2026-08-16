@@ -14,8 +14,8 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         $admins = [
-            ['name' => 'pbf admin', 'email' => 'pbf@sumberindopontianak.com', 'password' => Hash::make('SumberfarmaPBF2026!'), 'role' => 'admin'],
-            ];
+            ['name' => 'PBF', 'email' => 'apotekmedistrafarma@admin.com', 'password' => Hash::make('MEDISTRAFARMA26'), 'role' => 'admin'],
+        ];
 
         foreach ($admins as $admin) {
             User::updateOrCreate(

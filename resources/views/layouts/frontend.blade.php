@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="theme-color" content="#991B1B">
-    <meta name="msapplication-TileColor" content="#991B1B">
+    <meta name="theme-color" content="#0F766E">
+    <meta name="msapplication-TileColor" content="#0F766E">
     @php
         $faviconV = @filemtime(public_path('favicon.ico')) ?: '20260803-13';
     @endphp
-    <meta property="og:image" content="{{ asset('logo pt sumber indo farma tama.png') }}?v=20260803-8">
-    <meta property="og:image:secure_url" content="{{ asset('logo pt sumber indo farma tama.png') }}?v=20260803-8">
-    <meta name="twitter:image" content="{{ asset('logo pt sumber indo farma tama.png') }}?v=20260803-8">
-    <title>@yield('title', 'Sumberindo Farma Tama - Apotik Online')</title>
+    <meta property="og:image" content="{{ asset('logo apotek medistra farma.png') }}?v=20260803-8">
+    <meta property="og:image:secure_url" content="{{ asset('logo apotek medistra farma.png') }}?v=20260803-8">
+    <meta name="twitter:image" content="{{ asset('logo apotek medistra farma.png') }}?v=20260803-8">
+    <title>@yield('title', 'Apotek Medistra Farma - Apotik Online')</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
     <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
     
@@ -299,6 +299,29 @@
             opacity: var(--o, 0.18);
         }
 
+        /* Leaf / daun dekoratif */
+        .mp-leaf {
+            position: absolute;
+            width: var(--w, 120px);
+            height: var(--h, 68px);
+            border-radius: 70% 0 70% 0;
+            background: linear-gradient(135deg, rgba(110, 231, 183, 0.48), rgba(20, 184, 166, 0.28), rgba(14, 116, 144, 0.20));
+            border: 1px solid rgba(16, 185, 129, 0.22);
+            box-shadow: inset -8px -12px 16px rgba(255,255,255,0.18), 0 10px 18px rgba(15,118,110,0.08);
+            transform: rotate(var(--r, 30deg));
+            opacity: 0.82;
+            filter: blur(0.2px);
+        }
+
+        .mp-leaf::before {
+            content: '';
+            position: absolute;
+            inset: 18% 45% 18% 45%;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.24);
+            transform: rotate(90deg);
+        }
+
         /* Ring / cincin outline */
         .mp-ring {
             position: absolute;
@@ -337,11 +360,11 @@
     
     <style>
         :root {
-            --primary: #B91C1C;
-            --secondary: #991B1B;
-            --accent: #ef4444;
-            --dark: #1f2937;
-            --light: #f3f4f6;
+            --primary: #0F766E;
+            --secondary: #0EA5A4;
+            --accent: #2563EB;
+            --dark: #0f172a;
+            --light: #ecfeff;
         }
 
         * {
@@ -404,10 +427,17 @@
             z-index: 2001 !important;
         }
 
-        /* Global card style - minimal, non-overriding */
-        .farma-sidebar, .disease-card, .farma-stat-card {
-            background: rgba(255,255,255,0.94);
-            backdrop-filter: blur(8px);
+        /* Global card style - solid agar tidak tembus pandang */
+        .farma-sidebar, .disease-card, .farma-stat-card,
+        .stats-bar, .about-section, .visi-misi-section,
+        .team-section, .news-preview-section,
+        .section-card, .feature-item, .value-item,
+        .info-card, .detail-container, .news-detail-content,
+        .about-image-main, .float-stat {
+            background: #ffffff !important;
+            border: 1px solid rgba(15, 118, 110, 0.08) !important;
+            box-shadow: 0 12px 30px rgba(15, 118, 110, 0.06) !important;
+            backdrop-filter: none !important;
         }
 
         /* Section backgrounds */
@@ -415,27 +445,21 @@
         .news-main, .about-main, .contact-main,
         .products-section, .features-section,
         .search-section-wrap {
-            background: transparent !important;
-        }
-
-        .stats-bar, .about-section, .visi-misi-section,
-        .team-section, .news-preview-section {
-            background: rgba(255,255,255,0.55) !important;
-            backdrop-filter: blur(6px);
+            background: #ffffff !important;
         }
 
         /* Navbar */
         .navbar {
-            background: linear-gradient(135deg, #991B1B 0%, #B91C1C 50%, #B91C1C 100%);
-            box-shadow: 0 4px 20px rgba(220,38,38,0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            padding: 0;
+            background: linear-gradient(135deg, #f6fffe 0%, #ebfffb 28%, #e6f8f4 52%, #eef7ff 100%);
+            box-shadow: 0 12px 28px rgba(15, 118, 110, 0.12), inset 0 1px 0 rgba(255,255,255,0.9);
+            padding: 0.8rem 0;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             margin: 0 !important;
             z-index: 1100;
-            border-bottom: 2px solid rgba(124, 179, 66, 0.4);
+            border-bottom: 1px solid rgba(15, 118, 110, 0.12);
         }
 
         body {
@@ -468,31 +492,37 @@
         }
 
         .navbar-container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0.75rem 1rem;
+            padding: 0.72rem 1.1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 1rem;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(15, 118, 110, 0.12);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 10px 28px rgba(15, 118, 110, 0.08);
         }
 
         .navbar-brand {
-            font-size: 1.45rem;
-            font-weight: 700;
-            color: white;
+            font-size: 1.22rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            color: #0f172a;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.65rem;
-            transition: transform 0.25s ease;
+            gap: 0.7rem;
+            transition: transform 0.25s ease, filter 0.25s ease;
             flex-shrink: 0;
             white-space: nowrap;
+            text-shadow: none;
         }
 
         .navbar-brand:hover {
-            transform: scale(1.05);
-            text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+            transform: translateY(-1px);
+            filter: brightness(1.03);
         }
 
         .navbar-brand img {
@@ -501,15 +531,15 @@
             object-fit: contain;
             margin-left: -4px;
             background: rgba(255, 255, 255, 0.96);
-            border-radius: 1rem;
-            padding: 0.4rem;
+            border-radius: 0.95rem;
+            padding: 0.42rem;
             box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
             border: 1px solid rgba(255, 255, 255, 0.75);
         }
 
         .navbar-menu {
             display: flex;
-            gap: 0.75rem;
+            gap: 0.5rem;
             align-items: center;
             list-style: none;
             flex-wrap: wrap;
@@ -521,27 +551,35 @@
 
         .navbar-menu li {
             margin: 0;
-        }
-
-        .navbar-menu li {
             list-style: none;
         }
 
         .navbar-menu a,
         .navbar-menu .logout-btn {
-            color: white;
+            color: #0f172a;
             text-decoration: none;
-            transition: transform 0.2s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
-            font-weight: 500;
+            transition: transform 0.2s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
-            gap: 0.45rem;
-            padding: 0.55rem 0.9rem;
-            border-radius: 0.65rem;
-            font-size: 0.95rem;
+            gap: 0.5rem;
+            padding: 0.7rem 1rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
             white-space: nowrap;
             position: relative;
             overflow: hidden;
+            background: #ffffff;
+            border: 1px solid rgba(15, 118, 110, 0.12);
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.06);
+        }
+
+        .navbar-menu a i,
+        .navbar-menu .logout-btn i {
+            font-size: 0.9rem;
+            width: 1.05rem;
+            text-align: center;
+            opacity: 0.95;
         }
 
         .navbar-menu a::before,
@@ -549,43 +587,44 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(255,255,255,0.08);
+            background: linear-gradient(135deg, rgba(236,254,255,0.9), rgba(255,255,255,0.3));
             opacity: 0;
-            transition: opacity 0.25s ease, transform 0.25s ease;
-            transform: scale(0.95);
-            border-radius: 0.65rem;
+            transition: opacity 0.25s ease;
             pointer-events: none;
         }
 
         .navbar-menu a:hover::before,
         .navbar-menu .logout-btn:hover::before {
             opacity: 1;
-            transform: scale(1);
         }
 
         .navbar-menu a:hover,
         .navbar-menu .logout-btn:hover {
-            background: rgba(255, 255, 255, 0.16);
-            color: #fff;
+            background: #f0fdfa;
+            border-color: rgba(15, 118, 110, 0.16);
+            color: #0f766e;
             transform: translateY(-1px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 12px 22px rgba(15, 118, 110, 0.08);
         }
 
         .navbar-menu .logout-btn {
-            background: rgba(220, 38, 38, 0.2);
-            border: 1px solid rgba(220, 38, 38, 0.4);
+            background: #fff5f5;
+            border: 1px solid rgba(239, 68, 68, 0.14);
             cursor: pointer;
             width: auto;
             text-align: center;
-            font-size: 1rem;
+            font-size: 0.9rem;
+            color: #991b1b;
         }
 
         .navbar-menu .logout-btn:hover {
-            background: rgba(220, 38, 38, 0.3);
+            background: #fff1f2;
+            border-color: rgba(239, 68, 68, 0.22);
+            color: #7f1d1d;
         }
 
         .navbar-menu .admin-link {
-            color: #fee2e2;
+            color: #0f766e;
         }
 
         .footer-socials {
@@ -667,10 +706,10 @@
         }
         
         .social-circle.social-shopee {
-            background: #EE3131;
+            background: #0f766e;
         }
         .social-circle.social-shopee:hover {
-            background: #C41C1C;
+            background: #14b8a6;
             transform: scale(1.1);
         }
 
@@ -685,34 +724,37 @@
         .navbar-menu .dropdown-menu-nav {
             display: none;
             position: absolute;
-            top: 100%;
+            top: calc(100% + 0.45rem);
             left: 0;
-            background: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            min-width: 200px;
-            padding: 0.5rem 0;
+            background: rgba(255,255,255,0.98);
+            border-radius: 1rem;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+            min-width: 210px;
+            padding: 0.55rem;
             z-index: 999;
             list-style: none;
             margin: 0;
-            border: 1px solid #e5e7eb;
+            border: 1px solid rgba(15, 118, 110, 0.08);
+            overflow: hidden;
         }
         .navbar-menu .has-dropdown:hover .dropdown-menu-nav { display: block; }
         .navbar-menu .dropdown-menu-nav li a {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.6rem 1rem;
-            color: #374151 !important;
+            padding: 0.72rem 0.9rem;
+            color: #1f2937 !important;
             font-size: 0.875rem;
             font-weight: 600;
             background: transparent !important;
-            border-radius: 0;
+            border-radius: 0.75rem;
             white-space: nowrap;
+            border: none;
+            box-shadow: none;
         }
         .navbar-menu .dropdown-menu-nav li a:hover {
-            background: #f3f4f6 !important;
-            color: #B91C1C !important;
+            background: linear-gradient(135deg, #ecfeff, #f0fdf4) !important;
+            color: #0f766e !important;
         }
 
         .admin-login-item a {
@@ -730,7 +772,7 @@
         .cart-nav-btn:hover { background: rgba(255,255,255,0.2); }
         .cart-badge {
             position: absolute; top: 2px; right: 2px;
-            background: #ef4444; color: white; font-size: 0.6rem; font-weight: 800;
+            background: #14b8a6; color: white; font-size: 0.6rem; font-weight: 800;
             width: 16px; height: 16px; border-radius: 50%;
             display: none; align-items: center; justify-content: center;
         }
@@ -739,32 +781,63 @@
         .hamburger-menu {
             display: none;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             gap: 5px;
             cursor: pointer;
-            background: none;
-            border: none;
+            background: #ffffff;
+            border: 1px solid rgba(15, 118, 110, 0.14);
+            border-radius: 14px;
             z-index: 1001;
-            padding: 0.5rem;
+            padding: 0.7rem 0.72rem;
+            box-shadow: 0 10px 24px rgba(15, 118, 110, 0.14);
+            transition: all 0.25s ease;
+            width: 46px;
+            height: 46px;
+        }
+
+        .hamburger-menu:hover,
+        .hamburger-menu:active {
+            background: #111827;
+            transform: translateY(-1px);
         }
 
         .hamburger-menu span {
-            width: 25px;
+            width: 22px;
             height: 3px;
-            background: white;
-            border-radius: 2px;
-            transition: all 0.3s;
+            background: #111827;
+            border-radius: 999px;
+            transition: all 0.25s ease;
+            display: block;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .hamburger-menu:hover span,
+        .hamburger-menu:active span {
+            background: #ffffff;
+        }
+
+        .hamburger-menu.active {
+            background: #111827;
+            box-shadow: 0 10px 24px rgba(15, 118, 110, 0.22);
+        }
+
+        .hamburger-menu.active span {
+            background: #ffffff;
         }
 
         .hamburger-menu.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
+            transform: rotate(45deg) translate(5.5px, 5.5px);
         }
 
         .hamburger-menu.active span:nth-child(2) {
             opacity: 0;
+            transform: scaleX(0.1);
         }
 
         .hamburger-menu.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
+            transform: rotate(-45deg) translate(5.5px, -5.5px);
         }
 
         /* Container */
@@ -776,13 +849,15 @@
 
         /* Footer */
         .footer {
-            background: linear-gradient(180deg, #7F1D1D 0%, #B91C1C 100%) !important;
+            background: linear-gradient(135deg, #0f766e 0%, #14b8a6 45%, #2563eb 100%) !important;
             color: white;
             padding: 3rem 0;
             margin-top: auto;
             flex-shrink: 0;
             position: relative;
             z-index: 1;
+            box-shadow: 0 -4px 20px rgba(14,165,164,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
+            border-top: 2px solid rgba(124, 179, 66, 0.4);
         }
 
         .footer-content {
@@ -799,7 +874,7 @@
         .footer-content h3 {
             font-size: 1.1rem;
             margin-bottom: 1rem;
-            color: #fecaca;
+            color: #ecfeff;
         }
 
         .footer-content ul {
@@ -813,7 +888,7 @@
         }
 
         .footer-content a {
-            color: #d1d5db;
+            color: rgba(255,255,255,0.92);
             text-decoration: none;
             transition: color 0.25s ease;
             display: flex;
@@ -955,16 +1030,16 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.12);
+            border-top: 1px solid rgba(255,255,255,0.18);
             padding-top: 1.5rem;
             text-align: center;
-            color: #9ca3af;
+            color: rgba(255,255,255,0.82);
             font-size: 0.95rem;
         }
 
         .footer h3 {
             margin-bottom: 1rem;
-            color: var(--accent);
+            color: #ecfeff;
         }
 
         .footer ul {
@@ -976,7 +1051,7 @@
         }
 
         .footer ul a {
-            color: #d1d5db;
+            color: rgba(255,255,255,0.9);
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -986,10 +1061,10 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid #374151;
+            border-top: 1px solid rgba(255,255,255,0.18);
             padding-top: 2rem;
             text-align: center;
-            color: #9ca3af;
+            color: rgba(255,255,255,0.82);
         }
 
         /* Alert */
@@ -1008,7 +1083,7 @@
         .alert-error {
             background: #fee2e2;
             color: #7f1d1d;
-            border-left: 4px solid #ef4444;
+            border-left: 4px solid #14b8a6;
         }
 
         @media (max-width: 768px) {
@@ -1024,62 +1099,61 @@
                 position: fixed;
                 left: 0;
                 top: var(--navbar-height, 65px);
-                width: 100%;
-                background: linear-gradient(135deg, #991B1B 0%, #B91C1C 50%, #B91C1C 100%);
+                width: min(92vw, 430px);
+                right: 0;
+                margin: 0 auto;
+                background: rgba(8, 47, 73, 0.9);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255,255,255,0.12);
+                border-radius: 0 0 22px 22px;
+                box-shadow: 0 20px 42px rgba(15, 118, 110, 0.18);
                 flex-direction: column;
                 justify-content: flex-start;
-                gap: 0;
-                padding: 0 1rem;
+                gap: 0.25rem;
+                padding: 0 0.85rem;
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.35s ease, padding 0.35s ease;
+                transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.25s ease;
                 z-index: 999;
-                box-shadow: 0 8px 24px rgba(13,71,161,0.35);
+                opacity: 0;
             }
 
             .navbar-menu.active {
-                max-height: 100vh;
-                padding: 1rem 1rem 1.5rem;
+                max-height: 80vh;
+                padding: 0.9rem 0.85rem 1.15rem;
+                opacity: 1;
             }
 
             .navbar-menu li {
                 width: 100%;
-                margin-bottom: 0.4rem;
+                margin-bottom: 0.2rem;
             }
 
             .navbar-menu a,
             .navbar-menu .logout-btn {
-                padding: 0.95rem 1rem;
-                font-size: 1rem;
-                display: block;
+                padding: 0.9rem 1rem;
+                font-size: 0.96rem;
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                border-radius: 12px;
+                background: #ffffff;
+                border: 1px solid rgba(15, 118, 110, 0.12);
+                color: #0f172a;
+                transition: all 0.2s ease;
+                box-shadow: 0 6px 16px rgba(15, 118, 110, 0.08);
             }
 
-            .navbar-menu li {
-                width: 100%;
-                margin-bottom: 0.4rem;
-            }
-
-            .navbar-menu a,
-            .navbar-menu .logout-btn {
-                padding: 0.95rem 1rem;
-                font-size: 1rem;
-                display: block;
-            }
-
-            .navbar-menu li {
-                width: 100%;
-                margin-bottom: 0.25rem;
-            }
-
-            .navbar-menu a,
-            .navbar-menu .logout-btn {
-                padding: 0.875rem 1rem;
-                font-size: 1rem;
-                display: block;
-            }
-
-            .navbar-brand {
-                font-size: 1rem;
+            .navbar-menu a:hover,
+            .navbar-menu .logout-btn:hover,
+            .navbar-menu a:active,
+            .navbar-menu .logout-btn:active {
+                background: #111827;
+                border-color: rgba(17, 24, 39, 0.3);
+                color: #ffffff;
+                transform: translateX(2px) scale(1.01);
+                box-shadow: 0 10px 20px rgba(17, 24, 39, 0.18);
             }
 
             .navbar-brand img {
@@ -1154,13 +1228,21 @@
         <span class="mp-dotgrid" style="width:180px;height:180px;top:5%;right:5%;--o:0.45;"></span>
         <span class="mp-dotgrid" style="width:140px;height:140px;bottom:8%;left:4%;--o:0.40;"></span>
 
+        {{-- Daun dekoratif lembut --}}
+        <span class="mp-leaf" style="top:10%;left:8%;--w:110px;--h:62px;--r:-28deg;"></span>
+        <span class="mp-leaf" style="top:18%;right:10%;--w:130px;--h:72px;--r:24deg;"></span>
+        <span class="mp-leaf" style="top:44%;left:20%;--w:100px;--h:58px;--r:28deg;"></span>
+        <span class="mp-leaf" style="bottom:14%;right:18%;--w:120px;--h:70px;--r:-18deg;"></span>
+        <span class="mp-leaf" style="bottom:18%;left:38%;--w:90px;--h:54px;--r:38deg;"></span>
+        <span class="mp-leaf" style="top:60%;right:36%;--w:88px;--h:50px;--r:-34deg;"></span>
+
     </div>
 
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="{{ route('login') }}" class="navbar-brand" title="Login Admin PT SUMBERINDO FARMA TAMA">
-                <img src="{{ asset('logo pt sumber indo farma tama.png') }}" alt="Sumberindo Farma Logo">
-                PT SUMBERINDO FARMA TAMA
+            <a href="{{ route('login') }}" class="navbar-brand" title="Login Admin Apotek Medistra Farma">
+                <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Apotek Medistra Farma Logo">
+                APOTEK MEDISTRA FARMA
             </a>
             
             <!-- Hamburger Menu Button -->
@@ -1171,18 +1253,18 @@
             </button>
 
             <ul class="navbar-menu" id="navbarMenu">
-                <li><a href="{{ route('home') }}"><i class="fa-solid fa-house"></i> Home</a></li>
-                <li><a href="{{ route('about') }}"><i class="fa-solid fa-circle-info"></i> Tentang Kami</a></li>
-                <li><a href="{{ route('contact') }}"><i class="fa-solid fa-headset"></i> Hubungi Kami</a></li>
-                <li><a href="{{ route('partners') }}"><i class="fa-solid fa-handshake"></i> Mitra Kami</a></li>
+                <li><a href="{{ route('home') }}"><i class="fa-solid fa-house-medical"></i> Home</a></li>
+                <li><a href="{{ route('about') }}"><i class="fa-solid fa-user-doctor"></i> Tentang Kami</a></li>
+                <li><a href="{{ route('contact') }}"><i class="fa-solid fa-phone-volume"></i> Hubungi Kami</a></li>
+                <li><a href="{{ route('partners') }}"><i class="fa-solid fa-handshake-angle"></i> Mitra Kami</a></li>
 
                 @auth
                     @if(auth()->user()->isAdmin())
-                        <li><a href="{{ route('admin.dashboard') }}" class="admin-link"><i class="fa-solid fa-gauge"></i> Admin Panel</a></li>
+                        <li><a href="{{ route('admin.dashboard') }}" class="admin-link"><i class="fa-solid fa-chart-column"></i> Admin Panel</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
                                 @csrf
-                                <button type="submit" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+                                <button type="submit" class="logout-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
                             </form>
                         </li>
                     @elseif(auth()->user()->isUser())
@@ -1190,7 +1272,7 @@
                             <form action="{{ route('customer.logout') }}" method="POST" style="margin: 0;">
                                 @csrf
                                 <button type="submit" class="logout-btn">
-                                    <i class="fa-solid fa-right-from-bracket"></i> Logout ({{ auth()->user()->name }})
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout ({{ auth()->user()->name }})
                                 </button>
                             </form>
                         </li>
@@ -1235,36 +1317,42 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <h3><i class="fa-solid fa-pills"></i> Sumberindo Farma Tama</h3>
-                    <p>Perusahaan distribusi farmasi (PBF) yang menyediakan produk resmi untuk apotek dan fasilitas kesehatan.</p>
+                    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+                        <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Logo Apotek Medistra Farma" style="width:52px; height:52px; object-fit:contain; border-radius:12px; background:rgba(255,255,255,0.7); padding:0.35rem; box-shadow:0 8px 16px rgba(15,118,110,0.12);">
+                        <h3 style="margin:0;">Apotek Medistra Farma</h3>
+                    </div>
+                    <p>Apotek yang hadir untuk melayani kebutuhan kesehatan masyarakat dengan produk terpercaya dan layanan yang ramah.</p>
                     <div class="footer-socials">
-                        <a href="https://www.instagram.com/sumberindofarma?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-circle social-instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://wa.me/6285248965590" class="social-circle social-whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="https://www.tiktok.com/@ptsumberindofarmatama" target="_blank" class="social-circle social-tiktok" aria-label="TikTok"><div style="width:22px;height:22px;background:white;border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logo tiktok.avif') }}" alt="TikTok" style="width:18px;height:18px;object-fit:contain;"></div></a>
-                        <a href="#" class="social-circle social-shopee" aria-label="Shopee"><div style="width:22px;height:22px;background:white;border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logoshopee.jpeg') }}" alt="Shopee" style="width:18px;height:18px;object-fit:contain;"></div></a>
+                        <a href="https://wa.me/6281345559456" class="social-circle social-whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/medistrafarmaketapang/" target="_blank" class="social-circle social-instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@apotekmedistrafarma" target="_blank" class="social-circle social-tiktok" aria-label="TikTok"><div style="width:22px;height:22px;background:white;border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logo tiktok.avif') }}" alt="TikTok" style="width:18px;height:18px;object-fit:contain;"></div></a>
+                        <a href="https://shopee.co.id/" target="_blank" class="social-circle social-shopee" aria-label="Shopee"><div style="width:22px;height:22px;background:white;border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logoshopee.jpeg') }}" alt="Shopee" style="width:18px;height:18px;object-fit:contain;"></div></a>
                     </div>
                 </div>
                 <div>
                     <h3>Informasi</h3>
                     <ul>
                         <li><a href="{{ route('contact') }}"><i class="fa-solid fa-headset fa-fw footer-icon"></i>Hubungi Kami</a></li>
-                        <li><a href="#"><i class="fa-solid fa-shield-halved fa-fw footer-icon"></i>Kebijakan Privasi</a></li>
+                        <li><a href="{{ route('about') }}"><i class="fa-solid fa-circle-info fa-fw footer-icon"></i>Tentang Kami</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3>Kontak</h3>
                     <ul>
                         <li>
-                            <a href="tel:+6285248965590"><i class="fa-solid fa-phone footer-icon"></i>+62 852-4896-5590</a>
+                            <a href="tel:+6281345559456"><i class="fa-solid fa-phone footer-icon"></i>+62 813-4555-9456</a>
                         </li>
                         <li>
-                            <a href="mailto:pt.sumberindofarmatama@sumberindopontianak.com"><i class="fa-solid fa-envelope footer-icon"></i>pt.sumberindofarmatama@sumberindopontianak.com</a>
+                            <a href="https://wa.me/6281345559456"><i class="fa-brands fa-whatsapp footer-icon"></i>WhatsApp</a>
+                        </li>
+                        <li>
+                            <a href="https://www.google.com/maps/place/Apotik+Medistra+Farma/@-1.8424851,109.9688892,15z/data=!3m1!4b1!4m6!3m5!1s0x2e051868c6b622a1:0x2fc87b2c88183a37!8m2!3d-1.8424851!4d109.9688892!16s%2Fg%2F11c27qz84k?entry=ttu" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot footer-icon"></i>Lihat di Maps</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Sumberindo Farma Tama. Semua hak dilindungi.</p>
+                <p>&copy; 2026 Apotek Medistra Farma. Semua hak dilindungi.</p>
             </div>
         </div>
     </footer>
@@ -1297,13 +1385,34 @@
 
         /* Toggle button (mobile only) */
         .float-toggle {
-            width:50px; height:50px; border-radius:50%; background:linear-gradient(135deg,#991B1B,#B91C1C);
-            border:none; color:white; font-size:1.3rem; cursor:pointer;
-            display:none; align-items:center; justify-content:center;
-            box-shadow:0 4px 16px rgba(13,71,161,0.45); transition:transform 0.3s;
+            width:58px; height:58px; border-radius:50%; border:none; color:white; font-size:1.1rem; cursor:pointer;
+            display:none; align-items:center; justify-content:center; position:relative; overflow:visible;
+            background: radial-gradient(circle at 30% 30%, #5eead4 0%, #14b8a6 22%, #0f766e 46%, #2563eb 100%);
+            box-shadow:0 16px 28px rgba(15,118,110,0.32), 0 0 0 6px rgba(255,255,255,0.18), 0 0 0 12px rgba(14,116,144,0.08);
+            transition:transform 0.3s ease, box-shadow 0.25s ease, filter 0.25s ease;
             flex-shrink:0;
+            z-index: 2;
         }
-        .float-toggle.open { transform:rotate(45deg); }
+        .float-toggle::before {
+            content:"";
+            position:absolute;
+            inset:-8px;
+            border:1px solid rgba(255,255,255,0.45);
+            border-radius:50%;
+            opacity:0.9;
+            animation: floatOrbPulse 2.4s infinite ease-in-out;
+        }
+        @keyframes floatOrbPulse {
+            0% { transform:scale(0.96); opacity:0.65; }
+            50% { transform:scale(1.08); opacity:0.25; }
+            100% { transform:scale(0.96); opacity:0.65; }
+        }
+        .float-toggle:hover {
+            transform:translateY(-2px) scale(1.02);
+            filter:brightness(1.04);
+            box-shadow:0 20px 32px rgba(37,99,235,0.34), 0 0 0 6px rgba(255,255,255,0.2), 0 0 0 12px rgba(14,116,144,0.1);
+        }
+        .float-toggle.open { transform:rotate(180deg); }
 
         /* Mobile */
         @media (max-width: 768px) {
@@ -1316,9 +1425,14 @@
                 max-height:600px; opacity:1; pointer-events:auto;
             }
             .float-wrap { gap:0.6rem; align-items:flex-end; }
-            .float-btn { width:50px !important; height:50px !important; font-size:1.4rem !important; }
-            .float-btn-wa { width:50px !important; height:50px !important; font-size:1.6rem !important; margin-top:0; }
-            .float-toggle { display:flex; }
+            .float-btn { width:46px !important; height:46px !important; font-size:1.25rem !important; }
+            .float-btn-wa { width:46px !important; height:46px !important; font-size:1.5rem !important; margin-top:0; }
+            .float-toggle {
+                width:48px !important;
+                height:48px !important;
+                font-size:1rem !important;
+                display:flex;
+            }
             .float-item { gap:0.5rem; flex-direction:row; align-items:center; }
             .float-label-mobile {
                 background:#1f2937; color:white; font-size:0.72rem; font-weight:600;
@@ -1336,7 +1450,7 @@
             <div class="float-item">
                 <span class="float-tooltip">Instagram</span>
                 <span class="float-label-mobile">Instagram</span>
-                <a href="https://www.instagram.com/sumberindofarma?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="float-btn"
+                <a href="https://www.instagram.com/medistrafarmaketapang/" target="_blank" class="float-btn"
                    style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:white;font-size:1.4rem;box-shadow:0 4px 16px rgba(220,39,67,0.45);">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
@@ -1346,7 +1460,7 @@
             <div class="float-item">
                 <span class="float-tooltip">TikTok</span>
                 <span class="float-label-mobile">TikTok</span>
-                <a href="https://www.tiktok.com/@ptsumberindofarmatama" target="_blank" class="float-btn"
+                <a href="https://www.tiktok.com/@apotekmedistrafarma" target="_blank" class="float-btn"
                    style="background:#000;color:white;box-shadow:0 4px 16px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
                     <div style="width:24px;height:24px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logo tiktok.avif') }}" alt="TikTok" style="width:20px;height:20px;object-fit:cover;border-radius:4px;"></div>
                 </a>
@@ -1356,7 +1470,7 @@
             <div class="float-item">
                 <span class="float-tooltip">Shopee</span>
                 <span class="float-label-mobile">Shopee</span>
-                <a href="#" class="float-btn"
+                <a href="https://shopee.co.id/" target="_blank" class="float-btn"
                    style="background:#EE3131;color:white;box-shadow:0 4px 16px rgba(238,49,49,0.25);display:flex;align-items:center;justify-content:center;">
                     <div style="width:24px;height:24px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logoshopee.jpeg') }}" alt="Shopee" style="width:20px;height:20px;object-fit:cover;border-radius:4px;"></div>
                 </a>
@@ -1366,7 +1480,7 @@
             <div class="float-item">
                 <span class="float-tooltip">Chat WhatsApp</span>
                 <span class="float-label-mobile">WhatsApp</span>
-                <a href="https://wa.me/6285248965590?text=Halo%20Sumberindo%20Farma%20Tama%2C%20saya%20ingin%20bertanya%20tentang%20produk%20obat."
+                <a href="https://wa.me/6281345559456?text=Halo%20Apotek%20Medistra%20Farma%2C%20saya%20ingin%20bertanya%20tentang%20produk%20obat."
                    target="_blank" class="float-btn float-btn-wa"
                    style="background:#25D366;color:white;font-size:1.9rem;box-shadow:0 6px 24px rgba(37,211,102,0.55);">
                     <i class="fa-brands fa-whatsapp"></i>
@@ -1375,8 +1489,8 @@
         </div>
 
         <!-- Toggle button (mobile only) -->
-        <button class="float-toggle" id="floatToggle" onclick="toggleFloat()">
-            <i class="fa-solid fa-plus"></i>
+        <button class="float-toggle" id="floatToggle" onclick="toggleFloat()" aria-label="Buka menu cepat">
+            <i class="fa-solid fa-bolt"></i>
         </button>
     </div>
 
