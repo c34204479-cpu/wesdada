@@ -1701,11 +1701,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
       
       <div class="why-card">
-        <div class="why-card-icon-wrap"><i class="fa-solid fa-truck-fast"></i></div>
+        <div class="why-card-icon-wrap"><i class="fa-solid fa-stethoscope"></i></div>
         <div class="why-card-content">
-          <h4>Pengiriman Cepat & Aman</h4>
-                    <p>Didukung sistem distribusi yang efisien dan mitra logistik terpercaya untuk memastikan pesanan tiba tepat waktu, aman, dan dalam kondisi terbaik.</p>
-          <span class="why-card-badge"><i class="fa-solid fa-location-dot"></i> Seluruh Indonesia</span>
+          <h4>Pelayanan Kesehatan Terpercaya</h4>
+          <p>Kami menyediakan berbagai kebutuhan obat dan produk kesehatan dengan pelayanan yang cepat, ramah, dan terpercaya untuk membantu memenuhi kebutuhan kesehatan Anda.</p>
+          <span class="why-card-badge"><i class="fa-solid fa-location-dot"></i> 📍 Melayani Kebutuhan Kesehatan Anda</span>
         </div>
       </div>
 
