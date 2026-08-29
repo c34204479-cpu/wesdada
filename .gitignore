@@ -1,1 +1,31 @@
+
 .env
+.env.*
+!.env.example
+!.env.testing
+
+# Local database and runtime files
+/database/*.sqlite
+/database/*.sqlite-journal
+/storage/*.key
+/storage/*.pem
+/storage/*.crt
+
+# Dependency / build output
+/vendor/
+/node_modules/
+/public/build/
+/public/hot
+
+# Test / cache output
+.phpunit.result.cache
+phpunit.result.cache
+npm-debug.log*
+
+# OS/editor artifacts
+.DS_Store
+Thumbs.db
+
+# Optional: keep Laravel logs local
+/storage/logs/*.log
+
