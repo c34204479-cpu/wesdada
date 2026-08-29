@@ -1108,10 +1108,17 @@ document.addEventListener('DOMContentLoaded', function() {
             setActiveDot(currentIndex);
         };
 
+        slider.style.overflow = 'hidden';
+        slider.style.borderRadius = '30px';
         track.style.width = (slides.length * 100) + '%';
+        track.style.borderRadius = '30px';
+        track.style.overflow = 'hidden';
         slides.forEach(function(slide) {
             slide.style.flex = '0 0 ' + (100 / slides.length) + '%';
             slide.style.width = (100 / slides.length) + '%';
+            slide.style.borderRadius = '30px';
+            slide.style.overflow = 'hidden';
+            slide.style.display = 'block';
         });
 
         const startAutoSlide = function() {

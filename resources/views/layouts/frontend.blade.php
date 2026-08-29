@@ -1459,8 +1459,8 @@
                 <span class="float-tooltip">TikTok</span>
                 <span class="float-label-mobile">TikTok</span>
                 <a href="https://www.tiktok.com/@apotekmedistrafarma" target="_blank" class="float-btn"
-                   style="background:#000;color:white;box-shadow:0 4px 16px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
-                    <div style="width:24px;height:24px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logo tiktok.avif') }}" alt="TikTok" style="width:20px;height:20px;object-fit:cover;border-radius:4px;"></div>
+                   style="background:#000;color:white;box-shadow:0 4px 16px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;padding:0;">
+                    <img src="{{ asset('logo tiktok.avif') }}" alt="TikTok" style="width:20px;height:20px;object-fit:contain;display:block;border-radius:4px;">
                 </a>
             </div>
 
@@ -1469,8 +1469,8 @@
                 <span class="float-tooltip">Shopee</span>
                 <span class="float-label-mobile">Shopee</span>
                 <a href="https://shopee.co.id/" target="_blank" class="float-btn"
-                   style="background:#EE3131;color:white;box-shadow:0 4px 16px rgba(238,49,49,0.25);display:flex;align-items:center;justify-content:center;">
-                    <div style="width:24px;height:24px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logoshopee.jpeg') }}" alt="Shopee" style="width:20px;height:20px;object-fit:cover;border-radius:4px;"></div>
+                   style="background:#EE3131;color:white;box-shadow:0 4px 16px rgba(238,49,49,0.25);display:flex;align-items:center;justify-content:center;padding:0;">
+                    <img src="{{ asset('logoshopee.jpeg') }}" alt="Shopee" style="width:20px;height:20px;object-fit:contain;display:block;border-radius:4px;">
                 </a>
             </div>
 
