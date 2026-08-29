@@ -17,13 +17,22 @@
     @if(session('error'))
         <div class="alert alert-error">{{ session('error') }}</div>
     @endif
+    @if($errors->any())
+        <div class="alert alert-error">
+            @foreach($errors->all() as $error)
+                <div>{{ $error }}</div>
+            @endforeach
+        </div>
+    @endif
 
-    <div style="margin-bottom:1rem;display:flex;align-items:center;gap:1rem;">
-        <form action="{{ route('admin.principals.store') }}" method="POST" enctype="multipart/form-data">
+    <div style="margin-bottom:1rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <form action="{{ route('admin.principals.store') }}" method="POST" enctype="multipart/form-data" style="display:flex;align-items:flex-end;gap:0.75rem;flex-wrap:wrap;">
             @csrf
-            <label class="form-lbl">Unggah logo principal (max 2MB)</label>
-            <input type="file" name="image" accept="image/*" required>
-            <button class="btn btn-primary" style="margin-left:0.5rem;">Unggah</button>
+            <div>
+                <label class="form-lbl">Unggah logo principal (maks 10 file sekaligus, max 2MB/file)</label>
+                <input type="file" name="image[]" accept="image/*" multiple required>
+            </div>
+            <button class="btn btn-primary">Unggah</button>
         </form>
         <small style="color:#6b7280;">Setelah diunggah, logo akan otomatis tampil di halaman <strong>Mitra Kami</strong>.</small>
     </div>

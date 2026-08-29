@@ -34,10 +34,11 @@
     </div>
 
     <div class="form-group">
-      <label class="form-label">Foto Logo (opsional)</label>
-      <input type="file" id="fileInput" name="gambar" accept="image/*" class="form-control" style="padding:0.4rem;" />
-      <div style="font-size:0.85rem;color:#6b7280;margin-top:0.4rem;">Maks 2MB. Format: jpg, png, webp</div>
+      <label class="form-label">Foto Logo (opsional, bisa banyak sampai 10 file)</label>
+      <input type="file" id="fileInput" name="gambar[]" accept="image/*" multiple class="form-control" style="padding:0.4rem;" />
+      <div style="font-size:0.85rem;color:#6b7280;margin-top:0.4rem;">Maks 10 file sekaligus. Maks 2MB per file. Format: jpg, png, webp.</div>
       @error('gambar') <div class="form-errors">{{ $message }}</div> @enderror
+      @error('gambar.*') <div class="form-errors">{{ $message }}</div> @enderror
     </div>
 
     <div style="display:flex;gap:0.5rem;">
@@ -46,106 +47,6 @@
     </div>
   </div>
 </form>
-
-@section('scripts')
-<!-- Cropper.js CDN -->
-<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
-<script>
-  (function(){
-    let cropper;
-    const fileInput = document.getElementById('fileInput');
-    const modalImage = document.createElement('img');
-    modalImage.style.maxWidth = '100%';
-
-    const previewBox = document.createElement('div');
-    previewBox.style.marginTop = '0.5rem';
-
-    const previewThumb = document.createElement('img');
-    previewThumb.style.maxWidth = '160px';
-    previewThumb.style.maxHeight = '90px';
-    previewThumb.style.objectFit = 'contain';
-    previewThumb.style.display = 'none';
-    previewBox.appendChild(previewThumb);
-
-    fileInput.parentNode.appendChild(previewBox);
-
-    const hiddenInput = document.createElement('input');
-    hiddenInput.type = 'hidden';
-    hiddenInput.name = 'cropped_image';
-    fileInput.form.appendChild(hiddenInput);
-
-    fileInput.addEventListener('change', function(e){
-      const file = e.target.files && e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(ev){
-        // open simple cropper UI in a new window-like overlay
-        const overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.inset = 0;
-        overlay.style.background = 'rgba(0,0,0,0.6)';
-        overlay.style.display = 'flex';
-        overlay.style.alignItems = 'center';
-        overlay.style.justifyContent = 'center';
-        overlay.style.zIndex = 9999;
-
-        const box = document.createElement('div');
-        box.style.width = '80%';
-        box.style.maxWidth = '900px';
-        box.style.background = '#fff';
-        box.style.padding = '12px';
-        box.style.borderRadius = '8px';
-        box.style.boxShadow = '0 6px 24px rgba(0,0,0,0.2)';
-
-        modalImage.src = ev.target.result;
-        box.appendChild(modalImage);
-
-        const btnRow = document.createElement('div');
-        btnRow.style.marginTop = '8px';
-        btnRow.style.display = 'flex';
-        btnRow.style.gap = '8px';
-
-        const cropBtn = document.createElement('button');
-        cropBtn.type = 'button';
-        cropBtn.className = 'btn btn-primary';
-        cropBtn.textContent = 'Crop & Gunakan';
-
-        const cancelBtn = document.createElement('button');
-        cancelBtn.type = 'button';
-        cancelBtn.className = 'btn btn-secondary';
-        cancelBtn.textContent = 'Batal';
-
-        btnRow.appendChild(cropBtn);
-        btnRow.appendChild(cancelBtn);
-        box.appendChild(btnRow);
-
-        overlay.appendChild(box);
-        document.body.appendChild(overlay);
-
-        cropper = new Cropper(modalImage, { viewMode: 1, aspectRatio: NaN });
-
-        cancelBtn.addEventListener('click', function(){
-          cropper.destroy();
-          document.body.removeChild(overlay);
-          fileInput.value = '';
-        });
-
-        cropBtn.addEventListener('click', function(){
-          const canvas = cropper.getCroppedCanvas({ maxWidth: 1200, maxHeight: 800, imageSmoothingQuality: 'high' });
-          const dataUrl = canvas.toDataURL('image/png');
-          hiddenInput.value = dataUrl;
-          previewThumb.src = dataUrl;
-          previewThumb.style.display = 'inline-block';
-          cropper.destroy();
-          document.body.removeChild(overlay);
-        });
-      };
-      reader.readAsDataURL(file);
-    });
-  })();
-</script>
-@endsection
 
 @endsection
 

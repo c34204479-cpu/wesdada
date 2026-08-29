@@ -110,14 +110,13 @@ class AdminProdukController extends Controller
             return $redirect;
         }
 
-        // For Principle Logo management we only accept a name, link (stored in `brand`) and an optional image
         $rules = [
             'nama_obat' => ['required', 'string', 'max:255'],
-            'brand'     => ['nullable', 'string', 'max:1024'], // used to store partner link
-            // 'gambar' may be a file upload OR we accept a base64 string in 'cropped_image'
-            'gambar'    => ['nullable'],
-            'cropped_image' => ['nullable', 'regex:#^data:image/(gif|jpeg|png|webp);base64,([A-Za-z0-9+/=]+)$#'],
+            'brand' => ['nullable', 'string', 'max:1024'],
+            'gambar' => ['nullable', 'array', 'max:10'],
+            'gambar.*' => ['image', 'mimes:jpg,jpeg,png,webp,avif', 'max:2048'],
         ];
+
         /** @var \App\Models\User|null $user */
         $user = Auth::user();
         if ($user?->isSuperAdmin()) {
@@ -125,46 +124,51 @@ class AdminProdukController extends Controller
         }
 
         $validated = $request->validate($rules);
-
-        // If frontend provided a cropped image (base64), prefer that over raw upload
-        if ($request->filled('cropped_image')) {
-            try {
-                $validated['gambar'] = ImageHelper::storeBase64PrincipleImage($request->input('cropped_image'));
-            } catch (\Exception $e) {
-                // ignore and continue without gambar
-            }
-        } elseif ($request->hasFile('gambar') && $request->file('gambar')->isValid()) {
-            // validate uploaded file explicitly to produce proper messages
-            $request->validate(['gambar' => ['file', 'image', 'max:10240']]);
-            $validated['gambar'] = ImageHelper::storePrincipleImage($request->file('gambar'));
-        }
+        $files = $request->file('gambar', []);
 
         if ($outlet = $user?->outlet_name) {
             $validated['kategori'] = $outlet;
         }
 
-        // Only store fields relevant to principle logos
-        $toCreate = array_intersect_key($validated, array_flip(['nama_obat', 'brand', 'gambar', 'kategori']));
+        $createdCount = 0;
 
-        // Ensure non-nullable columns in medicines table have safe defaults
-        if (!array_key_exists('harga', $toCreate)) {
+        if (!empty($files)) {
+            foreach ($files as $file) {
+                if (!$file || !$file->isValid()) {
+                    continue;
+                }
+
+                $toCreate = [
+                    'nama_obat' => $validated['nama_obat'],
+                    'brand' => $validated['brand'] ?? null,
+                    'gambar' => ImageHelper::storePrincipleImage($file),
+                    'kategori' => $validated['kategori'] ?? null,
+                    'harga' => 0,
+                    'stok' => 0,
+                    'terjual' => 0,
+                    'deskripsi' => '',
+                ];
+
+                Medicine::create($toCreate);
+                $createdCount++;
+            }
+        } else {
+            $toCreate = array_intersect_key($validated, array_flip(['nama_obat', 'brand', 'kategori']));
             $toCreate['harga'] = 0;
-        }
-        if (!array_key_exists('stok', $toCreate)) {
             $toCreate['stok'] = 0;
-        }
-        if (!array_key_exists('terjual', $toCreate)) {
             $toCreate['terjual'] = 0;
-        }
-        // Some older migrations require `deskripsi` to be non-null — provide empty default
-        if (!array_key_exists('deskripsi', $toCreate)) {
             $toCreate['deskripsi'] = '';
+
+            Medicine::create($toCreate);
+            $createdCount = 1;
         }
 
-        Medicine::create($toCreate);
+        $message = $createdCount > 1
+            ? 'Berhasil menambahkan ' . $createdCount . ' logo mitra.'
+            : 'Logo mitra berhasil ditambahkan.';
 
         return redirect()->route('admin.produk.index')
-                         ->with('success', 'Produk berhasil ditambahkan!');
+                         ->with('success', $message);
     }
 
     public function edit(Medicine $produk)

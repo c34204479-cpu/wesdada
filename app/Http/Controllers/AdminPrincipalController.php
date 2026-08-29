@@ -25,18 +25,37 @@ class AdminPrincipalController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|max:2048',
+            'image' => ['required', 'array', 'max:10'],
+            'image.*' => ['image', 'mimes:jpg,jpeg,png,webp,avif', 'max:2048'],
         ]);
 
-        $file = $request->file('image');
-        $name = time() . '-' . preg_replace('/[^A-Za-z0-9._-]/', '-', $file->getClientOriginalName());
+        $files = $request->file('image', []);
+        if (empty($files)) {
+            return back()->withErrors(['image' => 'Pilih minimal satu logo principal.']);
+        }
+
         $dir = storage_path('principellogos');
         if (!is_dir($dir)) {
             mkdir($dir, 0755, true);
         }
-        $file->move($dir, $name);
 
-        return back()->with('success', 'Logo berhasil diunggah.');
+        $uploaded = 0;
+        foreach ($files as $file) {
+            if (!$file || !$file->isValid()) {
+                continue;
+            }
+
+            $originalName = preg_replace('/[^A-Za-z0-9._-]/', '-', $file->getClientOriginalName());
+            $name = time() . '-' . ($uploaded + 1) . '-' . $originalName;
+            $file->move($dir, $name);
+            $uploaded++;
+        }
+
+        if ($uploaded === 0) {
+            return back()->withErrors(['image' => 'Tidak ada file logo yang valid untuk diunggah.']);
+        }
+
+        return back()->with('success', 'Berhasil mengunggah ' . $uploaded . ' logo principal.');
     }
 
     public function destroy($filename)
