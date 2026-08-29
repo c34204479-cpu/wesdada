@@ -40,8 +40,13 @@ class HomeController extends Controller
                                   ->groupBy($categoryColumn)
                                   ->pluck('total', $categoryColumn);
 
-        // Banner promo aktif
-        $banners = Schema::hasTable('banners') ? Banner::aktif()->get() : collect();
+        // Banner promo: tampilkan semua banner yang memiliki media valid agar slider bisa menampilkan slide berikutnya.
+        $banners = Schema::hasTable('banners')
+            ? Banner::orderBy('urutan')->orderBy('id')
+                ->whereNotNull('gambar')
+                ->where('gambar', '!=', '')
+                ->get()
+            : collect();
 
         // Promo produk aktif
         $promoProducts = Schema::hasTable('promo_products') ? PromoProduct::aktif()->get() : collect();

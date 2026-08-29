@@ -860,34 +860,40 @@
     margin: var(--navbar-height, 65px) 0 0;
     padding: 0;
     z-index: 1;
+    border-radius: 30px;
+    box-shadow: 0 12px 30px rgba(15, 118, 110, 0.12);
+    background: #fff;
 }
 
 .banner-promo-track {
     display: flex;
-    width: 100%;
+    width: 200%;
     transition: transform 0.55s cubic-bezier(.4, 0, .2, 1);
     will-change: transform;
-    border-radius: 20px;
+    border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    box-shadow: 0 12px 30px rgba(15, 118, 110, 0.12);
+    background: #0f172a;
 }
 
 .banner-promo-item {
-    flex: 0 0 100%;
+    flex: 0 0 50%;
     position: relative;
     overflow: hidden;
-    border-radius: 0;
+    border-radius: 30px;
     display: block;
     color: #fff;
     text-decoration: none;
     background: #111;
     box-shadow: none;
-    aspect-ratio: 19 / 6;
-    min-height: 180px;
+    aspect-ratio: 18 / 6;
+    min-height: 230px;
+    max-height: 420px;
     height: auto;
     cursor: default;
     margin: 0;
     padding: 0;
+    border: 1px solid rgba(255,255,255,0.08);
 }
 
 .banner-promo-bg {
@@ -896,11 +902,12 @@
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
-    filter: brightness(0.88);
+    filter: brightness(0.88) saturate(1.05);
     transition: transform 0.45s ease;
     object-fit: cover;
+    border-radius: 30px;
 }
 
 .banner-promo-item:hover .banner-promo-bg {
@@ -1096,9 +1103,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const goToSlide = function(index) {
             currentIndex = (index + slides.length) % slides.length;
-            track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+            const percentPerSlide = 100 / slides.length;
+            track.style.transform = 'translateX(-' + (currentIndex * percentPerSlide) + '%)';
             setActiveDot(currentIndex);
         };
+
+        track.style.width = (slides.length * 100) + '%';
+        slides.forEach(function(slide) {
+            slide.style.flex = '0 0 ' + (100 / slides.length) + '%';
+            slide.style.width = (100 / slides.length) + '%';
+        });
 
         const startAutoSlide = function() {
             if (autoTimer) clearInterval(autoTimer);
