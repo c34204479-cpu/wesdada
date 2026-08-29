@@ -21,9 +21,9 @@ define('LARAVEL_START', microtime(true));
 |   - basePath  = project/           (= __DIR__.'/..')
 |   - publicPath = project/public/   (= __DIR__)
 */
-$hasRootIndex = file_exists(dirname(__DIR__) . '/index.php') && !file_exists(dirname(__DIR__) . '/public/index.php');
-$isHosting = $hasRootIndex && file_exists(dirname(__DIR__) . '/vendor/autoload.php');
-$basePath  = $isHosting ? dirname(__DIR__) : dirname(__DIR__);
+$basePath = file_exists(__DIR__ . '/vendor/autoload.php')
+    ? __DIR__
+    : dirname(__DIR__);
 
 // Maintenance mode check
 if (file_exists($maintenance = $basePath . '/storage/framework/maintenance.php')) {
@@ -33,15 +33,7 @@ if (file_exists($maintenance = $basePath . '/storage/framework/maintenance.php')
 // Register the Composer autoloader
 require $basePath . '/vendor/autoload.php';
 
-// Bootstrap Laravel — override publicPath agar public_path() selalu = __DIR__
+// Bootstrap Laravel
 $app = (require_once $basePath . '/bootstrap/app.php');
-
-// Saat hosting: basePath = publicPath = __DIR__
-// Saat lokal:   basePath = project/, publicPath = project/public/
-if ($isHosting) {
-    // public_path() harus tetap = __DIR__ (public_html/)
-    // storage_path() harus = public_html/storage/ ← sudah benar karena basePath = __DIR__
-    // Tidak perlu override apapun, basePath sudah benar
-}
 
 $app->handleRequest(Request::capture());
