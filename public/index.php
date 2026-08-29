@@ -21,8 +21,9 @@ define('LARAVEL_START', microtime(true));
 |   - basePath  = project/           (= __DIR__.'/..')
 |   - publicPath = project/public/   (= __DIR__)
 */
-$isHosting = file_exists(__DIR__ . '/vendor/autoload.php');
-$basePath  = $isHosting ? __DIR__ : dirname(__DIR__);
+$hasRootIndex = file_exists(dirname(__DIR__) . '/index.php') && !file_exists(dirname(__DIR__) . '/public/index.php');
+$isHosting = $hasRootIndex && file_exists(dirname(__DIR__) . '/vendor/autoload.php');
+$basePath  = $isHosting ? dirname(__DIR__) : dirname(__DIR__);
 
 // Maintenance mode check
 if (file_exists($maintenance = $basePath . '/storage/framework/maintenance.php')) {

@@ -12,8 +12,8 @@ class AppServiceProvider extends ServiceProvider
         // Di hosting public_html = root project, path.public tetap base_path()
         // Di lokal, path.public = base_path('public')
         $this->app->bind('path.public', function () {
-            if (file_exists(base_path('vendor/autoload.php')) &&
-                file_exists(base_path('index.php'))) {
+            $rootIndexExists = file_exists(base_path('index.php')) && !file_exists(base_path('public/index.php'));
+            if ($rootIndexExists && file_exists(base_path('vendor/autoload.php'))) {
                 return base_path(); // hosting: public_html adalah root
             }
             return base_path('public'); // lokal: subfolder public/
