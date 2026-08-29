@@ -1,6 +1,6 @@
-@extends('layouts.frontend')
-@section('title', 'Apotek Medistra Farma - Apotik Online Terpercaya')
-@section('styles')
+
+<?php $__env->startSection('title', 'Apotek Medistra Farma - Apotik Online Terpercaya'); ?>
+<?php $__env->startSection('styles'); ?>
 <style>
 /* ==============================================
    HOME PAGE - Clean GoApotik Style
@@ -1032,50 +1032,49 @@
 
 </style>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
-{{-- ============================================================
-     BANNER PROMO SLIDESHOW
-     ============================================================ --}}
-@if($banners->count())
+
+<?php if($banners->count()): ?>
     <div class="banner-promo-top">
         <div class="banner-promo-track" id="bannerPromoTrack">
-            @foreach($banners as $banner)
-                {{-- Selalu div — klik hanya lewat tombol --}}
+            <?php $__currentLoopData = $banners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                
                 <div class="banner-promo-item">
-                    @if($banner->is_video)
+                    <?php if($banner->is_video): ?>
                         <video class="banner-promo-bg" autoplay muted loop playsinline>
-                            <source src="{{ $banner->image_url }}">
+                            <source src="<?php echo e($banner->image_url); ?>">
                         </video>
                         <button type="button" class="banner-volume-toggle" aria-label="Toggle volume">🔈</button>
-                    @else
-                        <div class="banner-promo-bg" style="background-image: url('{{ $banner->image_url }}');"></div>
-                    @endif
+                    <?php else: ?>
+                        <div class="banner-promo-bg" style="background-image: url('<?php echo e($banner->image_url); ?>');"></div>
+                    <?php endif; ?>
                     <div class="banner-promo-copy">
-                        @if($banner->url_tujuan && $banner->label_tombol)
+                        <?php if($banner->url_tujuan && $banner->label_tombol): ?>
                         <div class="banner-promo-btn-wrap">
-                            <a href="{{ $banner->url_tujuan }}"
+                            <a href="<?php echo e($banner->url_tujuan); ?>"
                                class="banner-promo-btn"
-                               target="{{ str_starts_with($banner->url_tujuan, '/') || str_starts_with($banner->url_tujuan, '#') ? '_self' : '_blank' }}"
+                               target="<?php echo e(str_starts_with($banner->url_tujuan, '/') || str_starts_with($banner->url_tujuan, '#') ? '_self' : '_blank'); ?>"
                                rel="noopener noreferrer">
-                                {{ $banner->label_tombol }}
+                                <?php echo e($banner->label_tombol); ?>
+
                                 <i class="fa-solid fa-arrow-right" style="font-size:0.75rem;"></i>
                             </a>
                         </div>
-                        @endif
+                        <?php endif; ?>
                     </div>
                 </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
-        @if($banners->count() > 1)
+        <?php if($banners->count() > 1): ?>
             <div class="banner-slider-dots" id="bannerSliderDots" aria-label="Navigasi banner">
-                @foreach($banners as $banner)
-                    <button type="button" class="banner-slider-dot {{ $loop->first ? 'active' : '' }}" data-slide-index="{{ $loop->index }}" aria-label="Banner {{ $loop->iteration }}"></button>
-                @endforeach
+                <?php $__currentLoopData = $banners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <button type="button" class="banner-slider-dot <?php echo e($loop->first ? 'active' : ''); ?>" data-slide-index="<?php echo e($loop->index); ?>" aria-label="Banner <?php echo e($loop->iteration); ?>"></button>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
-        @endif
+        <?php endif; ?>
     </div>
-@endif
+<?php endif; ?>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -1157,7 +1156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <section style="padding: 0.2rem 0 0; margin-top: -0.1rem; background: linear-gradient(135deg, #f8efe7 0%, #ecfff8 32%, #e8f5ff 100%); position: relative; overflow: hidden;">
     <div class="container" style="max-width: 1500px; margin: 0 auto; padding: 0 1rem; position: relative; z-index: 1;">
         <a href="https://play.google.com/store/apps/details?id=com.canggihsoftware.b2btokopro" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 0.85rem; width: min(100%, 540px); margin: 0 auto; padding: 0.8rem 1.1rem; border-radius: 18px; text-decoration: none; background: linear-gradient(135deg, #ffffff 0%, #ecfeff 50%, #dbeafe 100%); border: 1px solid rgba(14, 116, 144, 0.15); box-shadow: 0 16px 36px rgba(15, 118, 110, 0.12); transition: transform 0.22s ease, box-shadow 0.22s ease;">
-            <img src="{{ asset('logo b2b.png') }}" alt="Logo TokoPro B2B" style="width: 48px; height: 48px; object-fit: contain; border-radius: 12px; background: rgba(255,255,255,0.9); padding: 0.35rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);">
+            <img src="<?php echo e(asset('logo b2b.png')); ?>" alt="Logo TokoPro B2B" style="width: 48px; height: 48px; object-fit: contain; border-radius: 12px; background: rgba(255,255,255,0.9); padding: 0.35rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);">
             <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; flex: 1; min-width: 0;">
                 <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: #0f766e; text-transform: uppercase;">Akses aplikasi</span>
                 <span style="font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight: 800; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">B2B TokoPro</span>
@@ -1178,14 +1177,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p style="margin: 0 0 0.35rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: #0f766e; text-transform: uppercase;">Latest</p>
                 <h2 style="font-size: clamp(1.6rem, 2vw, 2.2rem); font-weight: 800; color: #0f172a; margin: 0;">Berita & Update</h2>
             </div>
-            <a href="{{ route('news.index') }}" style="text-decoration: none; color: #0f172a; font-weight: 700; font-size: 0.9rem; padding: 0.75rem 1.1rem; border: 2px solid rgba(15,118,110,0.20); border-radius: 999px; background: #ffffff; box-shadow: 0 10px 20px rgba(15,118,110,0.12);">Lihat Semua</a>
+            <a href="<?php echo e(route('news.index')); ?>" style="text-decoration: none; color: #0f172a; font-weight: 700; font-size: 0.9rem; padding: 0.75rem 1.1rem; border: 2px solid rgba(15,118,110,0.20); border-radius: 999px; background: #ffffff; box-shadow: 0 10px 20px rgba(15,118,110,0.12);">Lihat Semua</a>
         </div>
 
-        @php
+        <?php
             $latestNews = App\Models\News::published()->latest()->get();
-        @endphp
+        ?>
 
-        @if($latestNews->count() > 0)
+        <?php if($latestNews->count() > 0): ?>
             <div style="position: relative; border-radius: 28px; padding: 1.15rem 1.15rem 0.9rem; background: linear-gradient(135deg, rgba(255,248,241,0.96), rgba(224,255,240,0.95), rgba(232,246,255,0.95)); border: 1px solid rgba(15,118,110,0.15); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 18px 45px rgba(15,118,110,0.14); backdrop-filter: blur(2px);" class="news-shell">
                 <div style="position: absolute; inset: 0; border-radius: 28px; background: radial-gradient(circle at 15% 15%, rgba(45,212,191,0.18), transparent 26%), radial-gradient(circle at 85% 10%, rgba(96,165,250,0.16), transparent 24%), linear-gradient(135deg, rgba(255,255,255,0.45), rgba(221,244,241,0.18)); pointer-events: none;"></div>
                 <div style="display: flex; gap: 1rem; overflow-x: auto; overflow-y: hidden; white-space: nowrap; padding: 0.3rem 0.2rem 0.5rem; scroll-snap-type: x proximity; -ms-overflow-style: none; scrollbar-width: none; position: relative; z-index: 1;" class="news-scroll">
@@ -1329,57 +1328,58 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     }
                 </style>
-                @foreach($latestNews as $news)
-                    <a href="{{ route('news.index', ['news_id' => $news->id]) }}" class="news-card" style="text-decoration: none; color: inherit; display: block; min-width: 0; border-radius: 16px; overflow: hidden; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease; scroll-snap-align: start; position: relative; z-index: 2;">
-                        <div class="news-media" style="position: relative; width: 100%; --news-ratio: {{ $news->ratio === '9:16' ? '9 / 16' : '3 / 4' }}; aspect-ratio: var(--news-ratio); background: linear-gradient(135deg, #14b8a6 0%, #2dd4bf 50%, #0ea5e9 100%); overflow: hidden; display: flex; align-items: center; justify-content: center; border: none;">
-                            @if($news->file)
-                                @if(str_contains(strtolower($news->file), '.mp4') || str_contains(strtolower($news->file), '.webm') || str_contains(strtolower($news->file), '.mov'))
-                                    <video src="{{ asset('storage/' . $news->file) }}" muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"></video>
-                                @else
-                                    <img src="{{ asset('storage/' . $news->file) }}" alt="{{ $news->judul }}" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;">
-                                @endif
-                            @else
+                <?php $__currentLoopData = $latestNews; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $news): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="<?php echo e(route('news.index', ['news_id' => $news->id])); ?>" class="news-card" style="text-decoration: none; color: inherit; display: block; min-width: 0; border-radius: 16px; overflow: hidden; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease; scroll-snap-align: start; position: relative; z-index: 2;">
+                        <div class="news-media" style="position: relative; width: 100%; --news-ratio: <?php echo e($news->ratio === '9:16' ? '9 / 16' : '3 / 4'); ?>; aspect-ratio: var(--news-ratio); background: linear-gradient(135deg, #14b8a6 0%, #2dd4bf 50%, #0ea5e9 100%); overflow: hidden; display: flex; align-items: center; justify-content: center; border: none;">
+                            <?php if($news->file): ?>
+                                <?php if(str_contains(strtolower($news->file), '.mp4') || str_contains(strtolower($news->file), '.webm') || str_contains(strtolower($news->file), '.mov')): ?>
+                                    <video src="<?php echo e(asset('storage/' . $news->file)); ?>" muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"></video>
+                                <?php else: ?>
+                                    <img src="<?php echo e(asset('storage/' . $news->file)); ?>" alt="<?php echo e($news->judul); ?>" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;">
+                                <?php endif; ?>
+                            <?php else: ?>
                                 <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3.2rem; background: linear-gradient(135deg, #0f766e, #14b8a6, #2563eb);">
-                                    @switch($news->tipe)
-                                        @case('video') 🎥 @break
-                                        @case('galeri') 📸 @break
-                                        @default 📰
-                                    @endswitch
+                                    <?php switch($news->tipe):
+                                        case ('video'): ?> 🎥 <?php break; ?>
+                                        <?php case ('galeri'): ?> 📸 <?php break; ?>
+                                        <?php default: ?> 📰
+                                    <?php endswitch; ?>
                                 </div>
-                            @endif
+                            <?php endif; ?>
 
                             <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.50)); z-index: 1;"></div>
 
                             <div style="position: absolute; inset: auto 0 0 0; padding: 1rem 0.9rem 0.85rem; z-index: 2;">
                                 <div class="news-title" style="color: #ffffff; text-shadow: 0 3px 10px rgba(15,23,42,0.70); font-weight: 900;">
-                                    {{ $news->judul }}
+                                    <?php echo e($news->judul); ?>
+
                                 </div>
                             </div>
                         </div>
 
                         <div style="padding: 1.1rem 1rem 1.25rem; background: #ffffff; position: relative; z-index: 2; border-top: 1px solid rgba(15, 118, 110, 0.08);">
                             <div class="news-meta">
-                                <div class="news-date">{{ $news->created_at->translatedFormat('d M Y') }}</div>
+                                <div class="news-date"><?php echo e($news->created_at->translatedFormat('d M Y')); ?></div>
                             </div>
-                            <p class="news-desc">{{ $news->deskripsi }}</p>
+                            <p class="news-desc"><?php echo e($news->deskripsi); ?></p>
                         </div>
                     </a>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>
-        @else
+        <?php else: ?>
             <div style="background: #ffffff; color: #0f172a; border: 1.5px solid rgba(15, 118, 110, 0.12); border-radius: 16px; padding: 3rem; text-align: center; box-shadow: 0 8px 24px rgba(15, 118, 110, 0.10); min-height: 220px; display: flex; align-items: center; justify-content: center;">
                 <div>
                     <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">📰</div>
                     <div style="font-weight: 700;">Belum ada berita yang dipublikasikan.</div>
                 </div>
             </div>
-        @endif
+        <?php endif; ?>
     </div>
 </section>
 
-{{-- PROMO PRODUK --}}
-@if(isset($promoProducts) && $promoProducts->count())
+
+<?php if(isset($promoProducts) && $promoProducts->count()): ?>
 <style>
 /* =============================================
    PROMO PRODUK — Simple & Elegant Background
@@ -1587,26 +1587,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="promo-products-track-wrap">
       <div class="promo-products-track">
-        @foreach($promoProducts as $promo)
-          @if($promo->url_tujuan)
-            <a href="{{ $promo->url_tujuan }}" class="promo-photo-card" title="{{ $promo->judul }}" data-tooltip="{{ $promo->judul }}">
-          @else
-            <span class="promo-photo-card" title="{{ $promo->judul }}" data-tooltip="{{ $promo->judul }}">
-          @endif
-            <img src="{{ url('storage/'.$promo->gambar) }}" alt="{{ $promo->judul }}" loading="lazy">
-          @if($promo->url_tujuan)
+        <?php $__currentLoopData = $promoProducts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $promo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <?php if($promo->url_tujuan): ?>
+            <a href="<?php echo e($promo->url_tujuan); ?>" class="promo-photo-card" title="<?php echo e($promo->judul); ?>" data-tooltip="<?php echo e($promo->judul); ?>">
+          <?php else: ?>
+            <span class="promo-photo-card" title="<?php echo e($promo->judul); ?>" data-tooltip="<?php echo e($promo->judul); ?>">
+          <?php endif; ?>
+            <img src="<?php echo e(url('storage/'.$promo->gambar)); ?>" alt="<?php echo e($promo->judul); ?>" loading="lazy">
+          <?php if($promo->url_tujuan): ?>
             </a>
-          @else
+          <?php else: ?>
             </span>
-          @endif
-        @endforeach
+          <?php endif; ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </div>
     </div>
   </div>
 </section>
-@endif
+<?php endif; ?>
 
-{{-- WHY US --}}
+
 <style>
 /* =============================================
    KENAPA PILIH KAMI — Modern Card Section
@@ -1792,7 +1792,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <section class="why-cards-section">
   <div class="container">
 
-    {{-- Section heading --}}
+    
     <div class="why-section-head">
       <div>
         <span class="why-section-tag"><i class="fa-solid fa-star"></i> Kenapa Pilih Kami?</span>
@@ -1803,7 +1803,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="why-cards-grid">
 
-      {{-- Card 1 --}}
+      
       <div class="why-card">
         <div class="why-card-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
         <div class="why-card-content">
@@ -1813,7 +1813,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
 
-      {{-- Card 2 --}}
+      
       <div class="why-card">
         <div class="why-card-icon-wrap"><i class="fa-solid fa-stethoscope"></i></div>
         <div class="why-card-content">
@@ -1823,7 +1823,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
 
-      {{-- Card 3 --}}
+      
       <div class="why-card">
         <div class="why-card-icon-wrap"><i class="fa-solid fa-tag"></i></div>
         <div class="why-card-content">
@@ -1837,15 +1837,15 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </section>
 
-{{-- TENTANG SINGKAT --}}
+
 <div class="about-strip" style="background: rgba(15,118,110,0.04);">
   <div class="container">
     <div class="about-box">
-      <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Apotek Medistra Farma" class="about-logo">
+      <img src="<?php echo e(asset('logo apotek medistra farma.png')); ?>" alt="Apotek Medistra Farma" class="about-logo">
       <div class="about-info">
         <h3>Apotek Medistra Farma — Layanan Kesehatan Yang Ramah & Terpercaya</h3>
         <p>Apotek Medistra Farma menghadirkan produk kesehatan, obat-obatan, dan layanan yang siap membantu kebutuhan sehari-hari masyarakat dengan pelayanan yang cepat, aman, dan profesional.</p>
-        <a href="{{ route('about') }}" class="btn-about"><i class="fa-solid fa-circle-info"></i> Selengkapnya Tentang Kami</a>
+        <a href="<?php echo e(route('about')); ?>" class="btn-about"><i class="fa-solid fa-circle-info"></i> Selengkapnya Tentang Kami</a>
       </div>
       <div class="about-stats">
         <div class="about-stat-item"><span class="n">24/7</span><span class="l">Layanan</span></div>
@@ -1886,16 +1886,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="pbf-visual-slider" aria-label="Slider profil apotek">
                     <div class="pbf-slider-track" id="pbfProfileTrack">
                         <div class="pbf-slider-slide">
-                            <img src="{{ asset('APOTEK.jpeg') }}" alt="Tampak depan Apotek Medistra Farma">
+                            <img src="<?php echo e(asset('APOTEK.jpeg')); ?>" alt="Tampak depan Apotek Medistra Farma">
                         </div>
                         <div class="pbf-slider-slide">
-                            <img src="{{ asset('APOTEK (1).jpeg') }}" alt="Area pelayanan Apotek Medistra Farma">
+                            <img src="<?php echo e(asset('APOTEK (1).jpeg')); ?>" alt="Area pelayanan Apotek Medistra Farma">
                         </div>
                         <div class="pbf-slider-slide">
-                            <img src="{{ asset('APOTEK (2).jpeg') }}" alt="Ruang layanan Apotek Medistra Farma">
+                            <img src="<?php echo e(asset('APOTEK (2).jpeg')); ?>" alt="Ruang layanan Apotek Medistra Farma">
                         </div>
                         <div class="pbf-slider-slide">
-                            <img src="{{ asset('TIM APOTEK MEDISTRA FARMA.jpeg') }}" alt="Tim Apotek Medistra Farma">
+                            <img src="<?php echo e(asset('TIM APOTEK MEDISTRA FARMA.jpeg')); ?>" alt="Tim Apotek Medistra Farma">
                         </div>
                     </div>
 
@@ -1961,3 +1961,5 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+
+<?php echo $__env->make('layouts.frontend', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\Ali Attaziri\medistrafarma\resources\views/home.blade.php ENDPATH**/ ?>

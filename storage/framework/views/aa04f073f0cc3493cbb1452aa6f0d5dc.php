@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <meta name="theme-color" content="#0F766E">
     <meta name="msapplication-TileColor" content="#0F766E">
-    @php
+    <?php
         $faviconV = @filemtime(public_path('favicon.ico')) ?: '20260803-13';
-    @endphp
-    <meta property="og:image" content="{{ asset('logo apotek medistra farma.png') }}?v=20260803-8">
-    <meta property="og:image:secure_url" content="{{ asset('logo apotek medistra farma.png') }}?v=20260803-8">
-    <meta name="twitter:image" content="{{ asset('logo apotek medistra farma.png') }}?v=20260803-8">
-    <title>@yield('title', 'Apotek Medistra Farma - Apotik Online')</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
-    <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
+    ?>
+    <meta property="og:image" content="<?php echo e(asset('logo apotek medistra farma.png')); ?>?v=20260803-8">
+    <meta property="og:image:secure_url" content="<?php echo e(asset('logo apotek medistra farma.png')); ?>?v=20260803-8">
+    <meta name="twitter:image" content="<?php echo e(asset('logo apotek medistra farma.png')); ?>?v=20260803-8">
+    <title><?php echo $__env->yieldContent('title', 'Apotek Medistra Farma - Apotik Online'); ?></title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=<?php echo e($faviconV); ?>">
+    <link rel="shortcut icon" href="/favicon.ico?v=<?php echo e($faviconV); ?>">
     
     <!-- FIX CURSOR - MUST BE FIRST TO OVERRIDE EVERYTHING -->
     <style>
@@ -36,7 +36,7 @@
             cursor: not-allowed !important;
         }
     </style>
-    <link rel="stylesheet" href="{{ asset('css/fix-cursor.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/fix-cursor.css')); ?>">
     
     <!-- Fix Cursor Script - Load ASAP -->
     <script>
@@ -60,7 +60,7 @@
     <!-- Font Awesome (switched to jsDelivr mirror to avoid CDN font issues) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
     
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 
     <style>
         /* ===== BOOTSTRAP GRID REPLACEMENT ===== */
@@ -1190,20 +1190,20 @@
         }
     </style>
 
-    @yield('styles')
+    <?php echo $__env->yieldContent('styles'); ?>
 </head>
 <body>
 
     <!-- ===== BACKGROUND DEKORATIF ===== -->
     <div class="med-particles" aria-hidden="true">
 
-        {{-- Blob warna hangat di sudut-sudut --}}
+        
         <span class="mp-blob" style="width:700px;height:700px;top:-200px;left:-200px;background:radial-gradient(circle,#fca5a5,#fee2e2);--o:0.04;"></span>
         <span class="mp-blob" style="width:500px;height:500px;top:30%;right:-180px;background:radial-gradient(circle,#fecaca,transparent);--o:0.03;"></span>
         <span class="mp-blob" style="width:600px;height:400px;bottom:-100px;left:20%;background:radial-gradient(circle,#fde8e8,transparent);--o:0.04;"></span>
         <span class="mp-blob" style="width:300px;height:300px;top:55%;left:40%;background:radial-gradient(circle,#fca5a5,transparent);--o:0.02;"></span>
 
-        {{-- Ring / cincin outline berlapis --}}
+        
         <span class="mp-ring" style="width:520px;height:520px;top:-80px;right:-100px;--bo:0.08;"></span>
         <span class="mp-ring" style="width:360px;height:360px;top:-40px;right:-60px;--bo:0.06;"></span>
         <span class="mp-ring" style="width:280px;height:280px;top:38%;left:-60px;--bo:0.07;"></span>
@@ -1213,22 +1213,22 @@
         <span class="mp-ring" style="width:160px;height:160px;top:22%;left:32%;--bo:0.06;"></span>
         <span class="mp-ring" style="width:90px;height:90px;top:65%;right:22%;--bo:0.09;"></span>
 
-        {{-- Persegi miring halus --}}
+        
         <span class="mp-rect" style="width:80px;height:80px;top:18%;left:8%;--r:20deg;--o:0.04;"></span>
         <span class="mp-rect" style="width:50px;height:50px;top:60%;right:10%;--r:-15deg;--o:0.05;"></span>
         <span class="mp-rect" style="width:120px;height:40px;top:80%;left:55%;--r:30deg;--o:0.04;"></span>
         <span class="mp-rect" style="width:60px;height:60px;top:8%;left:60%;--r:45deg;--o:0.04;"></span>
 
-        {{-- Garis diagonal panjang --}}
+        
         <span class="mp-line" style="width:600px;top:28%;left:-50px;--r:-18deg;"></span>
         <span class="mp-line" style="width:400px;top:62%;right:0;--r:-22deg;"></span>
         <span class="mp-line" style="width:300px;top:45%;left:30%;--r:12deg;"></span>
 
-        {{-- Dot grid kecil di pojok --}}
+        
         <span class="mp-dotgrid" style="width:180px;height:180px;top:5%;right:5%;--o:0.45;"></span>
         <span class="mp-dotgrid" style="width:140px;height:140px;bottom:8%;left:4%;--o:0.40;"></span>
 
-        {{-- Daun dekoratif lembut --}}
+        
         <span class="mp-leaf" style="top:10%;left:8%;--w:110px;--h:62px;--r:-28deg;"></span>
         <span class="mp-leaf" style="top:18%;right:10%;--w:130px;--h:72px;--r:24deg;"></span>
         <span class="mp-leaf" style="top:44%;left:20%;--w:100px;--h:58px;--r:28deg;"></span>
@@ -1240,8 +1240,8 @@
 
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="{{ route('login') }}" class="navbar-brand" title="Login Admin Apotek Medistra Farma">
-                <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Apotek Medistra Farma Logo">
+            <a href="<?php echo e(route('login')); ?>" class="navbar-brand" title="Login Admin Apotek Medistra Farma">
+                <img src="<?php echo e(asset('logo apotek medistra farma.png')); ?>" alt="Apotek Medistra Farma Logo">
                 APOTEK MEDISTRA FARMA
             </a>
             
@@ -1253,63 +1253,65 @@
             </button>
 
             <ul class="navbar-menu" id="navbarMenu">
-                <li><a href="{{ route('home') }}"><i class="fa-solid fa-house-medical"></i> Home</a></li>
-                <li><a href="{{ route('about') }}"><i class="fa-solid fa-user-doctor"></i> Tentang Kami</a></li>
-                <li><a href="{{ route('contact') }}"><i class="fa-solid fa-phone-volume"></i> Hubungi Kami</a></li>
-                <li><a href="{{ route('partners') }}"><i class="fa-solid fa-handshake-angle"></i> Mitra Kami</a></li>
+                <li><a href="<?php echo e(route('home')); ?>"><i class="fa-solid fa-house-medical"></i> Home</a></li>
+                <li><a href="<?php echo e(route('about')); ?>"><i class="fa-solid fa-user-doctor"></i> Tentang Kami</a></li>
+                <li><a href="<?php echo e(route('contact')); ?>"><i class="fa-solid fa-phone-volume"></i> Hubungi Kami</a></li>
+                <li><a href="<?php echo e(route('partners')); ?>"><i class="fa-solid fa-handshake-angle"></i> Mitra Kami</a></li>
 
-                @auth
-                    @if(auth()->user()->isAdmin())
-                        <li><a href="{{ route('admin.dashboard') }}" class="admin-link"><i class="fa-solid fa-chart-column"></i> Admin Panel</a></li>
+                <?php if(auth()->guard()->check()): ?>
+                    <?php if(auth()->user()->isAdmin()): ?>
+                        <li><a href="<?php echo e(route('admin.dashboard')); ?>" class="admin-link"><i class="fa-solid fa-chart-column"></i> Admin Panel</a></li>
                         <li>
-                            <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
-                                @csrf
+                            <form action="<?php echo e(route('logout')); ?>" method="POST" style="margin: 0;">
+                                <?php echo csrf_field(); ?>
                                 <button type="submit" class="logout-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
                             </form>
                         </li>
-                    @elseif(auth()->user()->isUser())
+                    <?php elseif(auth()->user()->isUser()): ?>
                         <li>
-                            <form action="{{ route('customer.logout') }}" method="POST" style="margin: 0;">
-                                @csrf
+                            <form action="<?php echo e(route('customer.logout')); ?>" method="POST" style="margin: 0;">
+                                <?php echo csrf_field(); ?>
                                 <button type="submit" class="logout-btn">
-                                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout ({{ auth()->user()->name }})
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout (<?php echo e(auth()->user()->name); ?>)
                                 </button>
                             </form>
                         </li>
-                    @endif
-                @endauth
+                    <?php endif; ?>
+                <?php endif; ?>
             </ul>
 
-            {{-- Cart button --}}
-            @if(Route::is(['products.*', 'medicines.show']))
-                <button class="cart-nav-btn" id="cartNavBtn" onclick="if(typeof openCart==='function'){openCart();}else{window.location.href='{{ route('products.apotek') }}#keranjang';}" title="Keranjang Belanja" style="display:none;">
+            
+            <?php if(Route::is(['products.*', 'medicines.show'])): ?>
+                <button class="cart-nav-btn" id="cartNavBtn" onclick="if(typeof openCart==='function'){openCart();}else{window.location.href='<?php echo e(route('products.apotek')); ?>#keranjang';}" title="Keranjang Belanja" style="display:none;">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span class="cart-badge" id="cartBadgeNav">0</span>
                 </button>
-            @endif
+            <?php endif; ?>
         </div>
     </nav>
 
     <!-- Content -->
     <main class="page-offset">
         <!-- Alert Messages -->
-        @if ($message = Session::get('success'))
+        <?php if($message = Session::get('success')): ?>
             <div class="container" style="padding-top:0.75rem;">
                 <div class="alert alert-success">
-                    {{ $message }}
+                    <?php echo e($message); ?>
+
                 </div>
             </div>
-        @endif
+        <?php endif; ?>
 
-        @if ($message = Session::get('error'))
+        <?php if($message = Session::get('error')): ?>
             <div class="container" style="padding-top:0.75rem;">
                 <div class="alert alert-error">
-                    {{ $message }}
+                    <?php echo e($message); ?>
+
                 </div>
             </div>
-        @endif
+        <?php endif; ?>
 
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
     </main>
 
     <!-- Footer -->
@@ -1318,7 +1320,7 @@
             <div class="footer-content">
                 <div>
                     <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
-                        <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Logo Apotek Medistra Farma" style="width:52px; height:52px; object-fit:contain; border-radius:12px; background:rgba(255,255,255,0.7); padding:0.35rem; box-shadow:0 8px 16px rgba(15,118,110,0.12);">
+                        <img src="<?php echo e(asset('logo apotek medistra farma.png')); ?>" alt="Logo Apotek Medistra Farma" style="width:52px; height:52px; object-fit:contain; border-radius:12px; background:rgba(255,255,255,0.7); padding:0.35rem; box-shadow:0 8px 16px rgba(15,118,110,0.12);">
                         <h3 style="margin:0;">Apotek Medistra Farma</h3>
                     </div>
                     <p>Apotek yang hadir untuk melayani kebutuhan kesehatan masyarakat dengan produk terpercaya dan layanan yang ramah.</p>
@@ -1326,8 +1328,8 @@
                 <div>
                     <h3>Informasi</h3>
                     <ul>
-                        <li><a href="{{ route('contact') }}"><i class="fa-solid fa-headset fa-fw footer-icon"></i>Hubungi Kami</a></li>
-                        <li><a href="{{ route('about') }}"><i class="fa-solid fa-circle-info fa-fw footer-icon"></i>Tentang Kami</a></li>
+                        <li><a href="<?php echo e(route('contact')); ?>"><i class="fa-solid fa-headset fa-fw footer-icon"></i>Hubungi Kami</a></li>
+                        <li><a href="<?php echo e(route('about')); ?>"><i class="fa-solid fa-circle-info fa-fw footer-icon"></i>Tentang Kami</a></li>
                     </ul>
                 </div>
                 <div>
@@ -1460,7 +1462,7 @@
                 <span class="float-label-mobile">TikTok</span>
                 <a href="https://www.tiktok.com/@apotekmedistrafarma" target="_blank" class="float-btn"
                    style="background:#000;color:white;box-shadow:0 4px 16px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
-                    <div style="width:24px;height:24px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logo tiktok.avif') }}" alt="TikTok" style="width:20px;height:20px;object-fit:cover;border-radius:4px;"></div>
+                    <div style="width:24px;height:24px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="<?php echo e(asset('logo tiktok.avif')); ?>" alt="TikTok" style="width:20px;height:20px;object-fit:cover;border-radius:4px;"></div>
                 </a>
             </div>
 
@@ -1470,7 +1472,7 @@
                 <span class="float-label-mobile">Shopee</span>
                 <a href="https://shopee.co.id/" target="_blank" class="float-btn"
                    style="background:#EE3131;color:white;box-shadow:0 4px 16px rgba(238,49,49,0.25);display:flex;align-items:center;justify-content:center;">
-                    <div style="width:24px;height:24px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logoshopee.jpeg') }}" alt="Shopee" style="width:20px;height:20px;object-fit:cover;border-radius:4px;"></div>
+                    <div style="width:24px;height:24px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="<?php echo e(asset('logoshopee.jpeg')); ?>" alt="Shopee" style="width:20px;height:20px;object-fit:cover;border-radius:4px;"></div>
                 </a>
             </div>
 
@@ -1526,11 +1528,11 @@
 
     <script>
         window.cartSettings = Object.assign({
-            storageKey: @json(auth()->check() ? 'sumberindofarmatama_cart_user_' . auth()->user()->id : 'sumberindofarmatama_cart')
+            storageKey: <?php echo json_encode(auth()->check() ? 'sumberindofarmatama_cart_user_' . auth()->user()->id : 'sumberindofarmatama_cart', 15, 512) ?>
         }, window.cartSettings || {});
     </script>
 
-    @yield('scripts')
+    <?php echo $__env->yieldContent('scripts'); ?>
 
     <script>
         // ===== SMOOTH SCROLL =====
@@ -1734,8 +1736,8 @@
     </script>
     
     <!-- Fix Cursor Script -->
-    <script src="{{ asset('js/fix-cursor-override.js') }}"></script>
-    <script src="{{ asset('js/fix-cursor.js') }}"></script>
+    <script src="<?php echo e(asset('js/fix-cursor-override.js')); ?>"></script>
+    <script src="<?php echo e(asset('js/fix-cursor.js')); ?>"></script>
 </body>
 </html>
 
@@ -1743,3 +1745,4 @@
 
 
 
+<?php /**PATH C:\Users\Ali Attaziri\medistrafarma\resources\views/layouts/frontend.blade.php ENDPATH**/ ?>
