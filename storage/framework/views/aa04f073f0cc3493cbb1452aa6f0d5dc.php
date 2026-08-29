@@ -63,10 +63,50 @@
     <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 
     <style>
+        :root {
+            --brand-primary: #0f766e;
+            --brand-primary-strong: #115e59;
+            --brand-secondary: #14b8a6;
+            --brand-accent: #f59e0b;
+            --brand-rose: #ef4444;
+            --brand-sky: #2563eb;
+            --brand-ink: #0f172a;
+            --brand-ink-soft: #475569;
+            --brand-bg: #edf9ff;
+            --brand-card: rgba(255, 255, 255, 0.88);
+            --brand-line: rgba(14, 165, 233, 0.18);
+            --brand-shadow: 0 18px 40px rgba(14, 116, 144, 0.18);
+        }
+
         /* ===== BOOTSTRAP GRID REPLACEMENT ===== */
         *, *::before, *::after { box-sizing: border-box; }
-        html, body { overflow-x: hidden; max-width: 100%; }        html { min-height: 100%; }
-        body { margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        html, body { overflow-x: hidden; max-width: 100%; }
+        html {
+            min-height: 100%;
+            background: linear-gradient(135deg, #041a2e 0%, #0a3155 18%, #0c5b8f 42%, #13a4b8 68%, #dffcff 100%) !important;
+        }
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(125, 211, 252, 0.34), transparent 22%),
+                radial-gradient(circle at 80% 18%, rgba(45, 212, 191, 0.22), transparent 24%),
+                radial-gradient(circle at center bottom, rgba(59, 130, 246, 0.16), transparent 28%),
+                linear-gradient(135deg, #041a2e 0%, #0a3155 18%, #0b6ea6 42%, #14b8a6 68%, #ebfeff 100%) !important;
+            color: var(--brand-ink);
+            background-attachment: fixed;
+            background-color: #071f36;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(120deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
+            z-index: 0;
+        }
         img, svg, video { max-width: 100%; height: auto; display: block; }
         button, input, textarea, select { max-width: 100%; }
         .container { width: 100%; max-width: 100%; padding-left: 1rem; padding-right: 1rem; margin-left: auto; margin-right: auto; }
@@ -384,11 +424,10 @@
             scroll-behavior: smooth;
             scroll-padding-top: var(--navbar-height, 65px);
             background:
-                radial-gradient(ellipse 80% 50% at 10% 0%,   rgba(253,232,232,0.85) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 40% at 90% 20%,  rgba(254,226,226,0.60) 0%, transparent 55%),
-                radial-gradient(ellipse 50% 60% at 50% 80%,  rgba(254,242,242,0.70) 0%, transparent 60%),
-                radial-gradient(ellipse 70% 40% at 80% 100%, rgba(253,232,232,0.50) 0%, transparent 55%),
-                #fff8f8;
+                radial-gradient(circle at top left, rgba(125, 211, 252, 0.30), transparent 18%),
+                radial-gradient(circle at 80% 12%, rgba(34, 211, 238, 0.28), transparent 22%),
+                radial-gradient(circle at center bottom, rgba(59, 130, 246, 0.18), transparent 26%),
+                linear-gradient(135deg, #041a2e 0%, #0a3155 18%, #0d5eb0 42%, #0aa3b8 68%, #dffcff 100%) !important;
             background-attachment: fixed;
             min-height: 100%;
         }
@@ -398,7 +437,11 @@
             flex-direction: column;
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: transparent;
+            background:
+                radial-gradient(circle at top left, rgba(125, 211, 252, 0.30), transparent 18%),
+                radial-gradient(circle at 80% 12%, rgba(34, 211, 238, 0.28), transparent 22%),
+                radial-gradient(circle at center bottom, rgba(59, 130, 246, 0.18), transparent 26%),
+                linear-gradient(135deg, #041a2e 0%, #0a3155 18%, #0d5eb0 42%, #0aa3b8 68%, #dffcff 100%) !important;
             color: var(--dark);
             padding-top: var(--navbar-height, 65px);
         }
@@ -406,6 +449,7 @@
         main {
             flex: 1 0 auto;
             padding: 1rem 0;
+            background: transparent !important;
         }
 
         /* Semua konten di atas canvas */
@@ -434,9 +478,9 @@
         .section-card, .feature-item, .value-item,
         .info-card, .detail-container, .news-detail-content,
         .about-image-main, .float-stat {
-            background: #ffffff !important;
-            border: 1px solid rgba(15, 118, 110, 0.08) !important;
-            box-shadow: 0 12px 30px rgba(15, 118, 110, 0.06) !important;
+            background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(239,246,255,0.9) 48%, rgba(236,254,255,0.92) 100%) !important;
+            border: 1px solid rgba(59, 130, 246, 0.12) !important;
+            box-shadow: 0 16px 34px rgba(15, 118, 110, 0.08), 0 8px 18px rgba(37, 99, 235, 0.05) !important;
             backdrop-filter: none !important;
         }
 
@@ -445,13 +489,15 @@
         .news-main, .about-main, .contact-main,
         .products-section, .features-section,
         .search-section-wrap {
-            background: #ffffff !important;
+            background: transparent !important;
+            border-radius: 0;
+            box-shadow: none !important;
         }
 
         /* Navbar */
         .navbar {
-            background: linear-gradient(135deg, #f6fffe 0%, #ebfffb 28%, #e6f8f4 52%, #eef7ff 100%);
-            box-shadow: 0 12px 28px rgba(15, 118, 110, 0.12), inset 0 1px 0 rgba(255,255,255,0.9);
+            background: linear-gradient(135deg, rgba(3, 19, 36, 0.97) 0%, rgba(10, 49, 85, 0.97) 26%, rgba(12, 95, 152, 0.96) 62%, rgba(19, 164, 184, 0.94) 100%);
+            box-shadow: 0 16px 32px rgba(7, 31, 54, 0.22), inset 0 1px 0 rgba(255,255,255,0.12);
             padding: 0.8rem 0;
             position: fixed;
             top: 0;
@@ -459,7 +505,7 @@
             right: 0;
             margin: 0 !important;
             z-index: 1100;
-            border-bottom: 1px solid rgba(15, 118, 110, 0.12);
+            border-bottom: 1px solid rgba(186, 230, 253, 0.18);
         }
 
         body {
@@ -500,16 +546,17 @@
             align-items: center;
             gap: 1rem;
             border-radius: 22px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(15, 118, 110, 0.12);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 10px 28px rgba(15, 118, 110, 0.08);
+            background: rgba(9, 35, 58, 0.58);
+            border: 1px solid rgba(186, 230, 253, 0.16);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 10px 28px rgba(7, 31, 54, 0.14);
+            backdrop-filter: blur(2px);
         }
 
         .navbar-brand {
             font-size: 1.22rem;
             font-weight: 800;
             letter-spacing: 0.02em;
-            color: #0f172a;
+            color: #f8fdff;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -517,7 +564,7 @@
             transition: transform 0.25s ease, filter 0.25s ease;
             flex-shrink: 0;
             white-space: nowrap;
-            text-shadow: none;
+            text-shadow: 0 2px 10px rgba(7, 31, 54, 0.32);
         }
 
         .navbar-brand:hover {
@@ -556,7 +603,7 @@
 
         .navbar-menu a,
         .navbar-menu .logout-btn {
-            color: #0f172a;
+            color: #eaf7ff;
             text-decoration: none;
             transition: transform 0.2s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
             font-weight: 700;
@@ -569,9 +616,9 @@
             white-space: nowrap;
             position: relative;
             overflow: hidden;
-            background: #ffffff;
-            border: 1px solid rgba(15, 118, 110, 0.12);
-            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.06);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(186, 230, 253, 0.18);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
         }
 
         .navbar-menu a i,
@@ -600,11 +647,11 @@
 
         .navbar-menu a:hover,
         .navbar-menu .logout-btn:hover {
-            background: #f0fdfa;
-            border-color: rgba(15, 118, 110, 0.16);
-            color: #0f766e;
+            background: rgba(20, 184, 166, 0.18);
+            border-color: rgba(125, 211, 252, 0.26);
+            color: #ffffff;
             transform: translateY(-1px);
-            box-shadow: 0 12px 22px rgba(15, 118, 110, 0.08);
+            box-shadow: 0 12px 22px rgba(14, 116, 144, 0.18);
         }
 
         .navbar-menu .logout-btn {
@@ -624,7 +671,7 @@
         }
 
         .navbar-menu .admin-link {
-            color: #0f766e;
+            color: #e0f2fe;
         }
 
         .footer-socials {

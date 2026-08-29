@@ -64,17 +64,24 @@
         * {
             font-family: 'Poppins', sans-serif;
         }
-        
-        body {
-            background-color: #f8f9fa;
-        }
-        
+
         :root {
-            --primary-color: #ef4444;
-            --secondary-color: #dc2626;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --border-color: #e5e7eb;
+            --primary-color: #0f766e;
+            --secondary-color: #14b8a6;
+            --accent-color: #f59e0b;
+            --text-dark: #0f172a;
+            --text-light: #475569;
+            --border-color: rgba(15, 118, 110, 0.14);
+            --bg-soft: #f4fbf9;
+            --panel-color: #ffffff;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top left, rgba(20, 184, 166, 0.12), transparent 24%),
+                radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.12), transparent 30%),
+                linear-gradient(180deg, #f8fffe 0%, #f3faf8 100%);
+            color: var(--text-dark);
         }
         
         /* Navbar */

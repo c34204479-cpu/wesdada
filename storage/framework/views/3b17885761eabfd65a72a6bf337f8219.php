@@ -1,8 +1,8 @@
-﻿@extends('layouts.frontend')
+﻿
 
-@section('title', 'Tentang Kami - Apotek Medistra Farma')
+<?php $__env->startSection('title', 'Tentang Kami - Apotek Medistra Farma'); ?>
 
-@section('styles')
+<?php $__env->startSection('styles'); ?>
 <style>
     main.page-offset { padding-top: 0 !important; }
 
@@ -121,9 +121,9 @@
         .hero-stat { min-width: 80px; }
     }
 </style>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <section style="padding: 0 0 5rem; background: linear-gradient(135deg, rgba(6, 26, 49, 0.9) 0%, rgba(10, 49, 85, 0.92) 32%, rgba(12, 95, 152, 0.88) 58%, rgba(19, 164, 184, 0.82) 100%);">
 <div class="container">
     <div class="about-hero">
@@ -149,8 +149,8 @@
             </div>
         </div>
         <div class="hero-btn-row">
-            <a href="{{ route('partners') }}" class="btn-hero-primary"><i class="fa-solid fa-handshake"></i> Lihat Mitra Kami</a>
-            <a href="{{ route('contact') }}" class="btn-hero-outline"><i class="fa-solid fa-phone"></i> Hubungi Kami</a>
+            <a href="<?php echo e(route('partners')); ?>" class="btn-hero-primary"><i class="fa-solid fa-handshake"></i> Lihat Mitra Kami</a>
+            <a href="<?php echo e(route('contact')); ?>" class="btn-hero-outline"><i class="fa-solid fa-phone"></i> Hubungi Kami</a>
         </div>
     </div>
 
@@ -239,7 +239,7 @@
         <h2 class="about-section-title">Tim Apotek Medistra Farma</h2>
         <p class="about-section-sub" style="margin-bottom:0;">Kami memiliki tim yang siap memberikan pelayanan terbaik, menjaga ketersediaan produk, serta mendukung kebutuhan kesehatan masyarakat secara konsisten.</p>
         <div class="abt-struktur-img">
-            <img src="{{ asset('TIM APOTEK MEDISTRA FARMA.jpeg') }}" alt="Tim Apotek Medistra Farma" loading="lazy">
+            <img src="<?php echo e(asset('TIM APOTEK MEDISTRA FARMA.jpeg')); ?>" alt="Tim Apotek Medistra Farma" loading="lazy">
         </div>
         <div class="abt-struktur-note">
             <i class="fa-solid fa-circle-info"></i>
@@ -253,27 +253,27 @@
     </div>
     <div class="abt-gallery-grid">
         <div class="abt-gallery-item">
-            <img src="{{ asset('APOTEK.jpeg') }}" alt="Tampak depan apotek Medistra Farma" loading="lazy">
+            <img src="<?php echo e(asset('APOTEK.jpeg')); ?>" alt="Tampak depan apotek Medistra Farma" loading="lazy">
             <div class="abt-gallery-caption"><i class="fa-solid fa-building"></i> Tampak Depan</div>
         </div>
         <div class="abt-gallery-item">
-            <img src="{{ asset('APOTEK (1).jpeg') }}" alt="Area dalam apotek Medistra Farma" loading="lazy">
+            <img src="<?php echo e(asset('APOTEK (1).jpeg')); ?>" alt="Area dalam apotek Medistra Farma" loading="lazy">
             <div class="abt-gallery-caption"><i class="fa-solid fa-store"></i> Area Dalam</div>
         </div>
         <div class="abt-gallery-item">
-            <img src="{{ asset('APOTEK (2).jpeg') }}" alt="Area pelayanan apotek Medistra Farma" loading="lazy">
+            <img src="<?php echo e(asset('APOTEK (2).jpeg')); ?>" alt="Area pelayanan apotek Medistra Farma" loading="lazy">
             <div class="abt-gallery-caption"><i class="fa-solid fa-user-nurse"></i> Area Pelayanan</div>
         </div>
         <div class="abt-gallery-item">
-            <img src="{{ asset('APOTEK (3).jpeg') }}" alt="Kawasan apotek Medistra Farma" loading="lazy">
+            <img src="<?php echo e(asset('APOTEK (3).jpeg')); ?>" alt="Kawasan apotek Medistra Farma" loading="lazy">
             <div class="abt-gallery-caption"><i class="fa-solid fa-house-medical"></i> Kawasan Apotek</div>
         </div>
         <div class="abt-gallery-item">
-            <img src="{{ asset('KAWASAN APOTEK (1).jpeg') }}" alt="Kawasan sekitar apotek Medistra Farma" loading="lazy">
+            <img src="<?php echo e(asset('KAWASAN APOTEK (1).jpeg')); ?>" alt="Kawasan sekitar apotek Medistra Farma" loading="lazy">
             <div class="abt-gallery-caption"><i class="fa-solid fa-location-dot"></i> Kawasan Sekitar</div>
         </div>
         <div class="abt-gallery-item">
-            <img src="{{ asset('TEMPAT PEGAWAI (1).jpeg') }}" alt="Area pegawai Apotek Medistra Farma" loading="lazy">
+            <img src="<?php echo e(asset('TEMPAT PEGAWAI (1).jpeg')); ?>" alt="Area pegawai Apotek Medistra Farma" loading="lazy">
             <div class="abt-gallery-caption"><i class="fa-solid fa-users"></i> Area Pegawai</div>
         </div>
     </div>
@@ -307,4 +307,6 @@
     </div>
 </div>
 </section>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.frontend', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\Ali Attaziri\medistrafarma\resources\views/about.blade.php ENDPATH**/ ?>

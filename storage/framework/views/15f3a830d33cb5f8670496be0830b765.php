@@ -1,8 +1,6 @@
-@extends('layouts.frontend')
+<?php $__env->startSection('title', 'Hubungi Kami - Apotek Medistra Farma'); ?>
 
-@section('title', 'Hubungi Kami - Apotek Medistra Farma')
-
-@section('styles')
+<?php $__env->startSection('styles'); ?>
 <style>
     /* Contact Header - Mobile First Responsive Design */
     .contact-header {
@@ -342,14 +340,14 @@
         .info-text h4 { font-size: 0.8rem; }
     }
 </style>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="contact-header">
     <div class="container">
         <div class="breadcrumb-custom">
-            <a href="{{ route('home') }}"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="<?php echo e(route('home')); ?>"><i class="fa-solid fa-house"></i> Home</a>
             <span>/</span>
             <span class="current">Hubungi Kami</span>
         </div>
@@ -365,9 +363,9 @@
     <div class="container">
         <div class="contact-grid">
 
-            {{-- KOLOM KIRI: Info Kontak --}}
+            
             <div>
-                {{-- Card Info Kontak --}}
+                
                 <div class="info-card">
                     <div class="info-item">
                         <div class="info-icon icon-blue"><i class="fa-solid fa-location-dot"></i></div>
@@ -406,14 +404,14 @@
                     <div class="social-row">
                         <a href="https://wa.me/6281234567890" target="_blank" class="social-btn" style="background:#25D366;" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                         <a href="https://www.instagram.com/medistrafarmaketapang/" target="_blank" class="social-btn" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@apotekmedistrafarma" target="_blank" class="social-btn" style="background:#000000;display:flex;align-items:center;justify-content:center;" title="TikTok"><div style="width:18px;height:18px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logo tiktok.avif') }}" alt="TikTok" style="width:14px;height:14px;object-fit:contain;"></div></a>
-                        <a href="https://shopee.co.id/" target="_blank" class="social-btn" style="background:#EE3131;display:flex;align-items:center;justify-content:center;" title="Shopee"><div style="width:18px;height:18px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logoshopee.jpeg') }}" alt="Shopee" style="width:14px;height:14px;object-fit:contain;"></div></a>
+                        <a href="https://www.tiktok.com/@apotekmedistrafarma" target="_blank" class="social-btn" style="background:#000000;display:flex;align-items:center;justify-content:center;" title="TikTok"><div style="width:18px;height:18px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="<?php echo e(asset('logo tiktok.avif')); ?>" alt="TikTok" style="width:14px;height:14px;object-fit:contain;"></div></a>
+                        <a href="https://shopee.co.id/" target="_blank" class="social-btn" style="background:#EE3131;display:flex;align-items:center;justify-content:center;" title="Shopee"><div style="width:18px;height:18px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="<?php echo e(asset('logoshopee.jpeg')); ?>" alt="Shopee" style="width:14px;height:14px;object-fit:contain;"></div></a>
                     </div>
                 </div>
 
             </div>
 
-            {{-- FORM --}}
+            
             <div>
                 <div class="form-card">
                     <h3><i class="fa-solid fa-paper-plane" style="color:#0f766e;margin-right:0.5rem;"></i> Kirim Pesan via WhatsApp</h3>
@@ -455,7 +453,7 @@
                     </button>
                 </div>
 
-                {{-- MAP --}}
+                
                 <div class="map-section">
                     <h3><i class="fa-solid fa-map-location-dot" style="color:#0f766e;"></i> Lokasi Kami</h3>
                     <p style="margin-bottom:0.75rem; font-size:0.95rem; color:#4b5563;">Gunakan rute langsung ke lokasi kami dengan Google Maps.</p>
@@ -477,9 +475,9 @@
     </div>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 <script>
 function kirimWA() {
     const nama   = document.getElementById('nama').value.trim();
@@ -507,9 +505,11 @@ ${pesan}`;
     window.open('https://wa.me/6281345559456?text=' + encodeURIComponent(teks), '_blank');
 }
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
 
 
+
+<?php echo $__env->make('layouts.frontend', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\Ali Attaziri\medistrafarma\resources\views/contact.blade.php ENDPATH**/ ?>

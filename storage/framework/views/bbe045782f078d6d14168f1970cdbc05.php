@@ -7,29 +7,53 @@
    ============================================== */
 </style>
 <style>
+    body, html {
+        background: linear-gradient(135deg, #041a2e 0%, #0a3155 18%, #0c5b8f 42%, #13a4b8 68%, #dffcff 100%) !important;
+    }
+
+    main, .page-shell, .container, .about-strip, .why-cards-section, .pbf-profile-section, .pbf-profile-wrap {
+        background: transparent !important;
+    }
+
+    .quick-section,
+    .promo-section,
+    .prod-section,
+    .why-cards-section,
+    .about-strip,
+    .pbf-profile-section {
+        background-image: linear-gradient(135deg, #041a2e 0%, #0a3155 18%, #0c5b8f 42%, #14b8a6 68%, #ebfeff 100%) !important;
+        background-color: transparent !important;
+    }
 </style>
 <style>
 /* QUICK CATEGORY */
-.quick-section { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 0; display: block; }
+.quick-section {
+    background: linear-gradient(135deg, rgba(8, 37, 61, 0.98) 0%, rgba(11, 92, 165, 0.95) 38%, rgba(20, 184, 166, 0.95) 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    padding: 0.6rem 0 0.75rem;
+    display: block;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 14px 30px rgba(5, 29, 53, 0.18);
+}
 .quick-row { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 4px; }
 .quick-row::-webkit-scrollbar { height: 3px; }
-.quick-row::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 2px; }
+.quick-row::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 2px; }
 .quick-btn {
     display: flex; flex-direction: column; align-items: center; gap: 0.35rem;
-    padding: 0.5rem 1rem; border-radius: 12px; text-decoration: none;
-    color: #374151; white-space: nowrap; flex-shrink: 0;
-    border: 1.5px solid #e5e7eb; background: #fff; min-width: 75px;
+    padding: 0.55rem 0.9rem; border-radius: 12px; text-decoration: none;
+    color: #ecfeff; white-space: nowrap; flex-shrink: 0;
+    border: 1.5px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.08); min-width: 75px;
     transition: all 0.2s; font-size: 0;
+    backdrop-filter: blur(4px);
 }
-.quick-btn:hover { background: #ecfeff; border-color: #99f6e4; color: #0f766e; }
-.quick-btn.active { background: linear-gradient(135deg,#0f766e,#2563eb); border-color: transparent; color: #fff; }
+.quick-btn:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.28); color: #fff; }
+.quick-btn.active { background: linear-gradient(135deg,#f8fafc,#dbeafe); border-color: transparent; color: #0f172a; box-shadow: 0 10px 20px rgba(148,163,184,0.25); }
 .quick-btn i { font-size: 1.25rem; }
-.quick-btn span { font-size: 0.7rem; font-weight: 600; }
+.quick-btn span { font-size: 0.7rem; font-weight: 700; }
 
 /* PROMO CARDS */
 .promo-section { 
     padding: calc(var(--navbar-height, 65px) + 0.02rem) 0 0;
-    background: linear-gradient(135deg, #0f766e 0%, #0ea5e9 50%, #2563eb 100%);
+    background: linear-gradient(135deg, #061d35 0%, #0a2e4d 18%, #0d5ca5 42%, #14b8a6 100%);
     width: 100%;
     margin: 0;
     position: relative;
@@ -231,7 +255,7 @@
     position: relative;
     overflow: hidden;
     padding: 1.5rem 0;
-    background: linear-gradient(180deg, #fff4ea 0%, #ebfff6 34%, #edf6ff 100%);
+    background: transparent !important;
 }
 .prod-section::before {
     content: "";
@@ -311,9 +335,9 @@
 .why-section {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(180deg, #fff7f0 0%, #eefff7 38%, #edf5ff 100%);
-    border-top: 1px solid rgba(15, 118, 110, 0.12);
-    border-bottom: 1px solid rgba(15, 118, 110, 0.12);
+    background: transparent !important;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     padding: 1.25rem 0;
 }
 .why-section::before {
@@ -336,7 +360,7 @@
     position: relative;
     overflow: hidden;
     padding: 1.25rem 0;
-    background: linear-gradient(135deg, #fff2e8 0%, #eafff4 28%, #ebf6ff 100%);
+    background: transparent !important;
 }
 .cta-section::before {
     content: "";
@@ -348,7 +372,7 @@
     pointer-events: none;
 }
 .cta-box {
-    background: linear-gradient(135deg, rgba(255,247,238,1), rgba(234,255,248,0.98));
+    background: rgba(255,255,255,0.9);
     border: 1.5px solid rgba(15, 118, 110, 0.12);
     border-radius: 34px;
     padding: 2rem 2.5rem 1.7rem;
@@ -405,7 +429,7 @@
     position: relative;
     overflow: hidden;
     padding: 1.5rem 0 1rem;
-    background: linear-gradient(180deg, #fffdf9 0%, #f4fff8 26%, #f5f9ff 100%);
+    background: transparent !important;
 }
 .cat-section::before {
     content: "";
@@ -431,25 +455,24 @@
 .about-strip {
     position: relative;
     overflow: hidden;
-    padding: 1rem 0 2.5rem;
-    background: linear-gradient(180deg, #fffaf3 0%, #f2fff9 24%, #f0f8ff 100%);
+    padding: 0.75rem 0 2rem;
+    background: transparent !important;
 }
 .about-strip::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 18% 22%, rgba(45,212,191,0.10), transparent 18%),
-                radial-gradient(circle at 80% 35%, rgba(251,146,60,0.08), transparent 18%);
+    background: transparent;
     pointer-events: none;
 }
 .about-box {
     background: linear-gradient(135deg, rgba(255,250,245,0.97), rgba(240,253,250,0.96)) !important;
-    border-radius: 20px;
-    padding: 1.75rem 2rem;
+    border-radius: 22px;
+    padding: 1.4rem 1.6rem;
     border: 2px solid rgba(15,118,110,0.18) !important;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
     box-shadow: 0 10px 24px rgba(15, 118, 110, 0.12) !important;
     position: relative;
@@ -485,18 +508,17 @@
     position: relative;
     overflow: hidden;
     padding: 0.2rem 0 3rem;
-    background: linear-gradient(180deg, #fffdf8 0%, #f1fff8 26%, #f4f9ff 100%);
+    background: transparent !important;
 }
 .pbf-profile-section::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 18% 18%, rgba(45,212,191,0.10), transparent 20%),
-                radial-gradient(circle at 82% 20%, rgba(251,146,60,0.07), transparent 22%);
+    background: transparent;
     pointer-events: none;
 }
 .pbf-profile-wrap {
-    background: linear-gradient(135deg, rgba(255,252,247,0.96), rgba(240,253,250,0.94)) !important;
+    background: rgba(255,255,255,0.88) !important;
     border: 1px solid rgba(20,184,166,0.18) !important;
     border-radius: 24px;
     padding: 1.8rem;
@@ -1174,15 +1196,15 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- APP ACCESS CTA -->
-<section style="padding: 0.2rem 0 0; margin-top: -0.1rem; background: linear-gradient(135deg, #f8efe7 0%, #ecfff8 32%, #e8f5ff 100%); position: relative; overflow: hidden;">
+<section style="padding: 0.2rem 0 0; margin-top: -0.1rem; background: linear-gradient(135deg, rgba(3, 19, 36, 0.96) 0%, rgba(10, 49, 85, 0.94) 28%, rgba(12, 95, 152, 0.92) 62%, rgba(19, 164, 184, 0.9) 100%); position: relative; overflow: hidden; border-top: 1px solid rgba(148, 163, 184, 0.15);">
     <div class="container" style="max-width: 1500px; margin: 0 auto; padding: 0 1rem; position: relative; z-index: 1;">
-        <a href="https://play.google.com/store/apps/details?id=com.canggihsoftware.b2btokopro" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 0.85rem; width: min(100%, 540px); margin: 0 auto; padding: 0.8rem 1.1rem; border-radius: 18px; text-decoration: none; background: linear-gradient(135deg, #ffffff 0%, #ecfeff 50%, #dbeafe 100%); border: 1px solid rgba(14, 116, 144, 0.15); box-shadow: 0 16px 36px rgba(15, 118, 110, 0.12); transition: transform 0.22s ease, box-shadow 0.22s ease;">
+        <a href="https://play.google.com/store/apps/details?id=com.canggihsoftware.b2btokopro" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 0.85rem; width: min(100%, 540px); margin: 0 auto; padding: 0.8rem 1.1rem; border-radius: 18px; text-decoration: none; background: linear-gradient(135deg, rgba(255,255,255,0.14) 0%, rgba(191,219,254,0.18) 46%, rgba(255,255,255,0.12) 100%); border: 1px solid rgba(186, 230, 253, 0.32); box-shadow: 0 16px 36px rgba(14, 116, 144, 0.18); transition: transform 0.22s ease, box-shadow 0.22s ease; backdrop-filter: blur(2px);">
             <img src="<?php echo e(asset('logo b2b.png')); ?>" alt="Logo TokoPro B2B" style="width: 48px; height: 48px; object-fit: contain; border-radius: 12px; background: rgba(255,255,255,0.9); padding: 0.35rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);">
             <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; flex: 1; min-width: 0;">
-                <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: #0f766e; text-transform: uppercase;">Akses aplikasi</span>
-                <span style="font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight: 800; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">B2B TokoPro</span>
+                <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: #dbeafe; text-transform: uppercase;">Akses aplikasi</span>
+                <span style="font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight: 800; color: #f8fdff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">B2B TokoPro</span>
             </div>
-            <span style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #0f766e, #2563eb); color: white; font-size: 1.1rem; box-shadow: 0 10px 18px rgba(37, 99, 235, 0.25);">
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #0ea5e9, #14b8a6); color: white; font-size: 1.1rem; box-shadow: 0 10px 18px rgba(14, 165, 233, 0.25);">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </span>
         </a>
@@ -1190,15 +1212,15 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- NEWS SECTION -->
-<section style="padding: 2.75rem 0 3.25rem; background: linear-gradient(135deg, #fdf1e7 0%, #ecfff7 26%, #edf7ff 60%, #fff7ef 100%); position: relative; overflow: hidden; border-top: 1px solid rgba(14, 116, 144, 0.12);">
-    <div style="position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(45, 212, 191, 0.18), transparent 24%), radial-gradient(circle at 80% 18%, rgba(59, 130, 246, 0.18), transparent 22%), radial-gradient(circle at 50% 85%, rgba(13, 148, 136, 0.10), transparent 26%); pointer-events: none;"></div>
+<section style="padding: 2.75rem 0 3.25rem; background: linear-gradient(135deg, rgba(3, 19, 36, 0.92) 0%, rgba(10, 49, 85, 0.94) 25%, rgba(12, 95, 152, 0.92) 58%, rgba(19, 164, 184, 0.9) 100%); position: relative; overflow: hidden; border-top: 1px solid rgba(148, 163, 184, 0.2);">
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(125, 211, 252, 0.24), transparent 24%), radial-gradient(circle at 82% 18%, rgba(45, 212, 191, 0.22), transparent 22%), radial-gradient(circle at 50% 85%, rgba(191, 219, 254, 0.18), transparent 26%); pointer-events: none;"></div>
     <div class="container" style="max-width: 1500px; margin: 0 auto; padding: 0 1rem; position: relative; z-index: 1;">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
             <div>
-                <p style="margin: 0 0 0.35rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: #0f766e; text-transform: uppercase;">Latest</p>
-                <h2 style="font-size: clamp(1.6rem, 2vw, 2.2rem); font-weight: 800; color: #0f172a; margin: 0;">Berita & Update</h2>
+                <p style="margin: 0 0 0.35rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: #bae6fd; text-transform: uppercase;">Latest</p>
+                <h2 style="font-size: clamp(1.6rem, 2vw, 2.2rem); font-weight: 800; color: #f8fdff; margin: 0;">Berita & Update</h2>
             </div>
-            <a href="<?php echo e(route('news.index')); ?>" style="text-decoration: none; color: #0f172a; font-weight: 700; font-size: 0.9rem; padding: 0.75rem 1.1rem; border: 2px solid rgba(15,118,110,0.20); border-radius: 999px; background: #ffffff; box-shadow: 0 10px 20px rgba(15,118,110,0.12);">Lihat Semua</a>
+            <a href="<?php echo e(route('news.index')); ?>" style="text-decoration: none; color: #edf6ff; font-weight: 700; font-size: 0.9rem; padding: 0.75rem 1.1rem; border: 1px solid rgba(186, 230, 253, 0.35); border-radius: 999px; background: linear-gradient(135deg, rgba(14, 116, 144, 0.55), rgba(59, 130, 246, 0.45)); box-shadow: 0 10px 20px rgba(14, 116, 144, 0.25);">Lihat Semua</a>
         </div>
 
         <?php
@@ -1206,8 +1228,8 @@ document.addEventListener('DOMContentLoaded', function() {
         ?>
 
         <?php if($latestNews->count() > 0): ?>
-            <div style="position: relative; border-radius: 28px; padding: 1.15rem 1.15rem 0.9rem; background: linear-gradient(135deg, rgba(255,248,241,0.96), rgba(224,255,240,0.95), rgba(232,246,255,0.95)); border: 1px solid rgba(15,118,110,0.15); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 18px 45px rgba(15,118,110,0.14); backdrop-filter: blur(2px);" class="news-shell">
-                <div style="position: absolute; inset: 0; border-radius: 28px; background: radial-gradient(circle at 15% 15%, rgba(45,212,191,0.18), transparent 26%), radial-gradient(circle at 85% 10%, rgba(96,165,250,0.16), transparent 24%), linear-gradient(135deg, rgba(255,255,255,0.45), rgba(221,244,241,0.18)); pointer-events: none;"></div>
+            <div style="position: relative; border-radius: 28px; padding: 1.15rem 1.15rem 0.9rem; background: linear-gradient(135deg, rgba(11, 77, 117, 0.72), rgba(17, 94, 89, 0.58), rgba(37, 99, 235, 0.48)); border: 1px solid rgba(191, 219, 254, 0.24); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 20px 45px rgba(15, 118, 110, 0.18); backdrop-filter: blur(2px);" class="news-shell">
+                <div style="position: absolute; inset: 0; border-radius: 28px; background: radial-gradient(circle at 15% 15%, rgba(125, 211, 252, 0.2), transparent 26%), radial-gradient(circle at 85% 10%, rgba(45, 212, 191, 0.18), transparent 24%), linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02)); pointer-events: none;"></div>
                 <div style="display: flex; gap: 1rem; overflow-x: auto; overflow-y: hidden; white-space: nowrap; padding: 0.3rem 0.2rem 0.5rem; scroll-snap-type: x proximity; -ms-overflow-style: none; scrollbar-width: none; position: relative; z-index: 1;" class="news-scroll">
                 <style>
                     .news-shell::before {
@@ -1235,14 +1257,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     .news-scroll { width: 100%; }
                     .news-scroll::-webkit-scrollbar { display: none; }
                     .news-card {
-                        flex: 0 0 calc((100% - 4rem) / 5);
-                        min-width: 180px;
-                        max-width: 280px;
+                        flex: 0 0 300px;
+                        min-width: 240px;
+                        max-width: 320px;
                         width: auto;
-                        background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(239,253,250,0.94) 100%) !important;
-                        border: 1.5px solid rgba(15,118,110,0.18) !important;
+                        background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(233,251,255,0.96) 100%) !important;
+                        border: 1.5px solid rgba(255,255,255,0.4) !important;
                         border-radius: 18px !important;
-                        box-shadow: 0 14px 35px rgba(15, 118, 110, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+                        box-shadow: 0 14px 35px rgba(7, 30, 51, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
                         position: relative;
                         isolation: isolate;
                         overflow: hidden !important;
@@ -1255,7 +1277,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         left: 0;
                         right: 0;
                         height: 4px;
-                        background: linear-gradient(90deg, #0f766e 0%, #14b8a6 50%, #2563eb 100%);
+                        background: linear-gradient(90deg, #0f766e 0%, #38bdf8 55%, #2563eb 100%);
                         border-radius: 18px 18px 0 0;
                         z-index: 10;
                     }
@@ -1407,7 +1429,7 @@ document.addEventListener('DOMContentLoaded', function() {
    ============================================= */
 .promo-products-section {
     padding: 3rem 0;
-    background: linear-gradient(135deg, #0f766e 0%, #0ea5e9 42%, #2563eb 100%);
+    background: transparent !important;
     position: relative;
     overflow: hidden;
     border-top: none;
@@ -1417,9 +1439,7 @@ document.addEventListener('DOMContentLoaded', function() {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 20% 15%, rgba(255,255,255,0.18), transparent 18%),
-                radial-gradient(circle at 78% 28%, rgba(255,255,255,0.12), transparent 20%),
-                linear-gradient(135deg, rgba(255,255,255,0.06), transparent 55%);
+    background: transparent;
     pointer-events: none;
 }
 .promo-products-section::after {
@@ -1429,7 +1449,7 @@ document.addEventListener('DOMContentLoaded', function() {
     height: 420px;
     right: -120px;
     bottom: -140px;
-    background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+    background: transparent;
     border-radius: 50%;
     pointer-events: none;
 }
@@ -1634,8 +1654,8 @@ document.addEventListener('DOMContentLoaded', function() {
    ============================================= */
 .why-cards-section {
     margin-top: 0;
-    padding: 5rem 0 5.5rem;
-    background: linear-gradient(160deg, #fff2e5 0%, #edfdf4 40%, #edf5ff 100%);
+    padding: 3.25rem 0 4rem;
+    background: transparent !important;
     position: relative;
     overflow: hidden;
 }
@@ -1675,14 +1695,17 @@ document.addEventListener('DOMContentLoaded', function() {
 .why-section-title {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 900;
-    color: #0f172a;
+    color: #f8fdff !important;
     margin: 0 0 .5rem;
     line-height: 1.2;
+    letter-spacing: -0.03em;
+    text-shadow: 0 2px 8px rgba(2, 12, 20, 0.22);
 }
 .why-section-sub {
     font-size: .95rem;
-    color: #64748b;
+    color: #eaf7ff !important;
     margin: 0;
+    font-weight: 600;
 }
 
 /* Grid */
@@ -1696,11 +1719,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Card */
 .why-card {
-    background: linear-gradient(180deg, rgba(255,250,245,1), rgba(235,255,245,1)) !important;
+    background: rgba(255,255,255,0.9) !important;
     border-radius: 20px;
-    padding: 2.25rem 2rem;
-    border: 2px solid rgba(20,184,166,0.22) !important;
-    box-shadow: 0 10px 24px rgba(15, 118, 110, 0.12) !important;
+    padding: 2.1rem 1.8rem;
+    border: 2px solid rgba(20,184,166,0.16) !important;
+    box-shadow: 0 12px 28px rgba(15, 118, 110, 0.08) !important;
     display: flex;
     flex-direction: column;
     gap: 0;
