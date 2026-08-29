@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,7 +25,14 @@ class AppServiceProvider extends ServiceProvider
         // Vite build directory langsung di root public_html/build
         Vite::useBuildDirectory('build');
 
-        $this->ensureRequiredDatabaseTables();
+        // Pada server/hosting, gunakan symlink public/storage => storage/app/public
+        // agar file upload nantinya dapat diakses tanpa perlu custom route.
+        $storageLink = public_path('storage');
+        $targetLink = storage_path('app/public');
+
+        if (!file_exists($storageLink) && is_dir($targetLink)) {
+            @symlink($targetLink, $storageLink);
+        }
 
         // Pastikan folder storage selalu ada
         $dirs = [
@@ -36,61 +41,16 @@ class AppServiceProvider extends ServiceProvider
             storage_path('framework/sessions'),
             storage_path('app/public'),
             storage_path('app/public/medicines'),
+            storage_path('app/public/banners'),
+            storage_path('app/public/promos'),
+            storage_path('app/public/principellogos'),
+            storage_path('app/public/news'),
         ];
 
         foreach ($dirs as $dir) {
             if (!is_dir($dir)) {
                 mkdir($dir, 0775, true);
             }
-        }
-
-        // Buat folder storage/medicines di public path (untuk hosting tanpa symlink)
-        $publicStorageMedicines = public_path('storage/medicines');
-        if (!is_dir($publicStorageMedicines)) {
-            @mkdir($publicStorageMedicines, 0775, true);
-        }
-    }
-
-    protected function ensureRequiredDatabaseTables(): void
-    {
-        if (!Schema::hasTable('banners')) {
-            Schema::create('banners', function (Blueprint $table) {
-                $table->id();
-                $table->string('judul');
-                $table->string('subjudul')->nullable();
-                $table->string('gambar');
-                $table->string('url_tujuan')->nullable();
-                $table->string('label_tombol')->nullable()->default('Lihat Sekarang');
-                $table->boolean('aktif')->default(true);
-                $table->integer('urutan')->default(0);
-                $table->timestamps();
-            });
-        }
-
-        if (!Schema::hasTable('promo_products')) {
-            Schema::create('promo_products', function (Blueprint $table) {
-                $table->id();
-                $table->string('judul');
-                $table->string('subjudul')->nullable();
-                $table->string('gambar');
-                $table->string('url_tujuan')->nullable();
-                $table->string('label_tombol')->nullable()->default('Lihat Sekarang');
-                $table->boolean('aktif')->default(true);
-                $table->integer('urutan')->default(0);
-                $table->timestamps();
-            });
-        }
-
-        if (Schema::hasTable('banners') && !Schema::hasColumn('banners', 'label_tombol')) {
-            Schema::table('banners', function (Blueprint $table) {
-                $table->string('label_tombol')->nullable()->default('Lihat Sekarang')->after('url_tujuan');
-            });
-        }
-
-        if (Schema::hasTable('promo_products') && !Schema::hasColumn('promo_products', 'label_tombol')) {
-            Schema::table('promo_products', function (Blueprint $table) {
-                $table->string('label_tombol')->nullable()->default('Lihat Sekarang')->after('url_tujuan');
-            });
         }
     }
 }
