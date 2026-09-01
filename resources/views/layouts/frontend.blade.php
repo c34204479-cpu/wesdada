@@ -13,8 +13,8 @@
     <meta property="og:image:secure_url" content="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}?v=20260901-2">
     <meta name="twitter:image" content="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}?v=20260901-2">
     <title>@yield('title', 'Apotek Medistra Farma - Apotik Online')</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
-    <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v={{ $faviconV }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v={{ $faviconV }}">
     
     <!-- FIX CURSOR - MUST BE FIRST TO OVERRIDE EVERYTHING -->
     <style>

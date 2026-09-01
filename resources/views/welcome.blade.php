@@ -6,11 +6,11 @@
         @php
             $faviconV = @filemtime(public_path('favicon.ico')) ?: '20260804-01';
         @endphp
-        <meta name="theme-color" content="#991B1B">
+        <meta name="theme-color" content="#0F766E">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
-        <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
+        <title>{{ config('app.name', 'Apotek Medistra Farma') }}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v={{ $faviconV }}">
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v={{ $faviconV }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

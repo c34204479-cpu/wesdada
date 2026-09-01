@@ -8,8 +8,8 @@
     @endphp
     <meta name="theme-color" content="#0F766E">
     <title>Admin Login - Apotek Medistra Farma</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
-    <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v={{ $faviconV }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v={{ $faviconV }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 

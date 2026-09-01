@@ -332,7 +332,7 @@
 <div class="products-header">
     <div class="container">
         <div class="hero-panel">
-            <img src="{{ asset('logo pt sumber indo farma tama.png') }}" alt="Sumberindo Farma" class="brand-logo" />
+            <img src="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}" alt="Apotek Medistra Farma" class="brand-logo" />
             <div class="brand-copy">
                 <div class="breadcrumb-custom" style="margin:0 0 0.75rem;">
                     <a href="{{ route('home') }}"><i class="fa-solid fa-house"></i> Home</a>

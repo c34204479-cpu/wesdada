@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#991B1B">
     <meta name="msapplication-TileColor" content="#991B1B">
-    <meta property="og:image" content="{{ asset('logo pt sumber indo farma tama.png') }}?v=20260803-8">
-    <meta property="og:image:secure_url" content="{{ asset('logo pt sumber indo farma tama.png') }}?v=20260803-8">
-    <meta name="twitter:image" content="{{ asset('logo pt sumber indo farma tama.png') }}?v=20260803-8">
+    <meta property="og:image" content="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}?v=20260901-2">
+    <meta property="og:image:secure_url" content="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}?v=20260901-2">
+    <meta name="twitter:image" content="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}?v=20260901-2">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @php
         $faviconV = @filemtime(public_path('favicon.ico')) ?: '20260803-13';
     @endphp
     <title>@yield('title', 'Admin - Apotek Medistra Farma')</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
-    <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v={{ $faviconV }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v={{ $faviconV }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 

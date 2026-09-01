@@ -6,10 +6,10 @@
     @php
         $faviconV = @filemtime(public_path('favicon.ico')) ?: '20260804-01';
     @endphp
-    <meta name="theme-color" content="#991B1B">
-    <title>@yield('title', 'Sumberindo Farma Tama - Apotik Online Terpercaya')</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
-    <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
+    <meta name="theme-color" content="#0F766E">
+    <title>@yield('title', 'Apotek Medistra Farma - Apotik Online Terpercaya')</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v={{ $faviconV }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v={{ $faviconV }}">
     
     <!-- FIX CURSOR - MUST BE FIRST TO OVERRIDE EVERYTHING -->
     <style>
@@ -311,7 +311,7 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('logo pt sumber indo farma tama.png') }}" alt="Sumberindo Farma Logo" style="height: 30px; width: auto; margin-right: 0.5rem;">
+                <img src="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}" alt="Apotek Medistra Farma Logo" style="height: 30px; width: auto; margin-right: 0.5rem;">
                 PT SUMBERINDO FARMA TAMA
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
