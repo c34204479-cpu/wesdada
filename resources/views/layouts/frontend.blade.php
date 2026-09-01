@@ -9,9 +9,9 @@
     @php
         $faviconV = @filemtime(public_path('favicon.ico')) ?: '20260803-13';
     @endphp
-    <meta property="og:image" content="{{ asset('logo apotek medistra farma.png') }}?v=20260803-8">
-    <meta property="og:image:secure_url" content="{{ asset('logo apotek medistra farma.png') }}?v=20260803-8">
-    <meta name="twitter:image" content="{{ asset('logo apotek medistra farma.png') }}?v=20260803-8">
+    <meta property="og:image" content="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}?v=20260901-2">
+    <meta property="og:image:secure_url" content="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}?v=20260901-2">
+    <meta name="twitter:image" content="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}?v=20260901-2">
     <title>@yield('title', 'Apotek Medistra Farma - Apotik Online')</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
     <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
@@ -1288,7 +1288,7 @@
     <nav class="navbar">
         <div class="navbar-container">
             <a href="{{ route('login') }}" class="navbar-brand" title="Login Admin Apotek Medistra Farma">
-                <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Apotek Medistra Farma Logo">
+                <img src="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}" alt="Apotek Medistra Farma Logo">
                 APOTEK MEDISTRA FARMA
             </a>
             
@@ -1365,7 +1365,7 @@
             <div class="footer-content">
                 <div>
                     <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
-                        <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Logo Apotek Medistra Farma" style="width:52px; height:52px; object-fit:contain; border-radius:12px; background:rgba(255,255,255,0.7); padding:0.35rem; box-shadow:0 8px 16px rgba(15,118,110,0.12);">
+                        <img src="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}" alt="Logo Apotek Medistra Farma" style="width:52px; height:52px; object-fit:contain; border-radius:12px; background:rgba(255,255,255,0.7); padding:0.35rem; box-shadow:0 8px 16px rgba(15,118,110,0.12);">
                         <h3 style="margin:0;">Apotek Medistra Farma</h3>
                     </div>
                     <p>Apotek yang hadir untuk melayani kebutuhan kesehatan masyarakat dengan produk terpercaya dan layanan yang ramah.</p>
@@ -1505,7 +1505,7 @@
             <div class="float-item">
                 <span class="float-tooltip">TikTok</span>
                 <span class="float-label-mobile">TikTok</span>
-                <a href="https://www.tiktok.com/@apotekmedistrafarma" target="_blank" class="float-btn"
+                <a href="https://www.tiktok.com/@apotek_medistra_farma" target="_blank" class="float-btn"
                    style="background:#000;color:white;box-shadow:0 4px 16px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;padding:0;">
                     <img src="{{ asset('logo tiktok.avif') }}" alt="TikTok" style="width:20px;height:20px;object-fit:contain;display:block;border-radius:4px;">
                 </a>

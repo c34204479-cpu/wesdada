@@ -15,6 +15,7 @@ class News extends Model
         'judul',
         'deskripsi',
         'konten',
+        'tanggal',
         'tipe',
         'tags',
         'ratio',
@@ -29,6 +30,7 @@ class News extends Model
     ];
 
     protected $casts = [
+        'tanggal' => 'date',
         'is_published' => 'boolean',
         'views' => 'integer',
         'like_count' => 'integer',

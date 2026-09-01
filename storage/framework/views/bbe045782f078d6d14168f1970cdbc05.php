@@ -1885,7 +1885,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="about-strip" style="background: rgba(15,118,110,0.04);">
   <div class="container">
     <div class="about-box">
-      <img src="<?php echo e(asset('logo apotek medistra farma.png')); ?>" alt="Apotek Medistra Farma" class="about-logo">
+      <img src="<?php echo e(asset('logo_apotek_medistrafarma-removebg-preview copy.png')); ?>" alt="Apotek Medistra Farma" class="about-logo">
       <div class="about-info">
         <h3>Apotek Medistra Farma — Layanan Kesehatan Yang Ramah & Terpercaya</h3>
         <p>Apotek Medistra Farma menghadirkan produk kesehatan, obat-obatan, dan layanan yang siap membantu kebutuhan sehari-hari masyarakat dengan pelayanan yang cepat, aman, dan profesional.</p>

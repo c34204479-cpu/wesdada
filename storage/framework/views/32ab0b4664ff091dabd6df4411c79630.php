@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @php
+    <?php
         $faviconV = @filemtime(public_path('favicon.ico')) ?: '20260804-01';
-    @endphp
+    ?>
     <meta name="theme-color" content="#0F766E">
     <title>Admin Login - Apotek Medistra Farma</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
-    <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=<?php echo e($faviconV); ?>">
+    <link rel="shortcut icon" href="/favicon.ico?v=<?php echo e($faviconV); ?>">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 
     <style>
         * {
@@ -168,26 +168,28 @@
     <div class="login-container">
         <div class="login-header">
             <div class="login-logo">
-                <img src="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}" alt="Apotek Medistra Farma" style="max-height: 110px; max-width: 170px; object-fit: contain; border-radius: 18px; background: rgba(255,255,255,0.9); padding: 0.6rem; box-shadow: 0 10px 20px rgba(15,118,110,0.12);">
+                <img src="<?php echo e(asset('logo_apotek_medistrafarma-removebg-preview copy.png')); ?>" alt="Apotek Medistra Farma" style="max-height: 110px; max-width: 170px; object-fit: contain; border-radius: 18px; background: rgba(255,255,255,0.9); padding: 0.6rem; box-shadow: 0 10px 20px rgba(15,118,110,0.12);">
             </div>
             <h1>Apotek Medistra Farma</h1>
             <p>Masuk ke panel administrasi</p>
         </div>
 
-        @if ($message = Session::get('error'))
+        <?php if($message = Session::get('error')): ?>
             <div class="alert alert-error">
-                ✕ {{ $message }}
-            </div>
-        @endif
+                ✕ <?php echo e($message); ?>
 
-        @if ($message = Session::get('success'))
+            </div>
+        <?php endif; ?>
+
+        <?php if($message = Session::get('success')): ?>
             <div class="alert alert-info">
-                ✓ {{ $message }}
-            </div>
-        @endif
+                ✓ <?php echo e($message); ?>
 
-        <form action="{{ route('login.post') }}" method="POST">
-            @csrf
+            </div>
+        <?php endif; ?>
+
+        <form action="<?php echo e(route('login.post')); ?>" method="POST">
+            <?php echo csrf_field(); ?>
 
             <div class="form-group">
                 <label class="form-label" for="email">Email</label>
@@ -195,14 +197,28 @@
                     type="email" 
                     id="email"
                     name="email" 
-                    class="form-control @error('email') is-invalid @enderror"
+                    class="form-control <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                     placeholder="admin@medistrafarma.com"
                     required
-                    value="{{ old('email') }}"
+                    value="<?php echo e(old('email')); ?>"
                 >
-                @error('email')
-                    <span class="form-errors">{{ $message }}</span>
-                @enderror
+                <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                    <span class="form-errors"><?php echo e($message); ?></span>
+                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
             </div>
 
             <div class="form-group">
@@ -211,13 +227,27 @@
                     type="password" 
                     id="password"
                     name="password" 
-                    class="form-control @error('password') is-invalid @enderror"
+                    class="form-control <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                     placeholder="••••••••"
                     required
                 >
-                @error('password')
-                    <span class="form-errors">{{ $message }}</span>
-                @enderror
+                <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                    <span class="form-errors"><?php echo e($message); ?></span>
+                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
             </div>
 
             <button type="submit" class="btn-login">Masuk</button>
@@ -225,7 +255,7 @@
 
         <div class="login-footer">
             <p style="margin-top: 1.5rem;">
-                <a href="{{ route('home') }}">← Kembali ke home</a>
+                <a href="<?php echo e(route('home')); ?>">← Kembali ke home</a>
             </p>
         </div>
     </div>
@@ -235,3 +265,4 @@
 
 
 
+<?php /**PATH C:\Users\Ali Attaziri\medistrafarma\resources\views/admin/login.blade.php ENDPATH**/ ?>

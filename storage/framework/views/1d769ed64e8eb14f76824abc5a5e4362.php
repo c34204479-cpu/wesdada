@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#991B1B">
     <meta name="msapplication-TileColor" content="#991B1B">
-    <meta property="og:image" content="{{ asset('logo pt sumber indo farma tama.png') }}?v=20260803-8">
-    <meta property="og:image:secure_url" content="{{ asset('logo pt sumber indo farma tama.png') }}?v=20260803-8">
-    <meta name="twitter:image" content="{{ asset('logo pt sumber indo farma tama.png') }}?v=20260803-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    @php
+    <meta property="og:image" content="<?php echo e(asset('logo pt sumber indo farma tama.png')); ?>?v=20260803-8">
+    <meta property="og:image:secure_url" content="<?php echo e(asset('logo pt sumber indo farma tama.png')); ?>?v=20260803-8">
+    <meta name="twitter:image" content="<?php echo e(asset('logo pt sumber indo farma tama.png')); ?>?v=20260803-8">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    <?php
         $faviconV = @filemtime(public_path('favicon.ico')) ?: '20260803-13';
-    @endphp
-    <title>@yield('title', 'Admin - Apotek Medistra Farma')</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v={{ $faviconV }}">
-    <link rel="shortcut icon" href="/favicon.ico?v={{ $faviconV }}">
+    ?>
+    <title><?php echo $__env->yieldContent('title', 'Admin - Apotek Medistra Farma'); ?></title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=<?php echo e($faviconV); ?>">
+    <link rel="shortcut icon" href="/favicon.ico?v=<?php echo e($faviconV); ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 
     <style>
         :root {
@@ -604,7 +604,7 @@
         }
     </style>
 
-    @yield('styles')
+    <?php echo $__env->yieldContent('styles'); ?>
 </head>
 <body>
     <div class="admin-container">
@@ -614,39 +614,39 @@
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-brand">
-                <img src="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}" alt="Apotek Medistra Farma" style="height: 38px; width: 38px; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.9); padding: 0.22rem;">
+                <img src="<?php echo e(asset('logo_apotek_medistrafarma-removebg-preview copy.png')); ?>" alt="Apotek Medistra Farma" style="height: 38px; width: 38px; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.9); padding: 0.22rem;">
                 <span style="white-space: nowrap; line-height:1.2;">Apotek Medistra<br><small style="font-size:0.7rem; opacity:0.8;">Admin</small></span>
             </div>
             <ul class="sidebar-menu">
                 <li>
-                    <a href="{{ route('admin.dashboard') }}" class="@if(Route::current()->getName() == 'admin.dashboard') active @endif">
+                    <a href="<?php echo e(route('admin.dashboard')); ?>" class="<?php if(Route::current()->getName() == 'admin.dashboard'): ?> active <?php endif; ?>">
                         <i class="fa-solid fa-gauge"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
-                @if(!auth()->user()->isSuperAdmin())
+                <?php if(!auth()->user()->isSuperAdmin()): ?>
                 <li>
-                    <a href="{{ route('admin.produk.index') }}" class="@if(str_contains(Route::current()->getName() ?? '', 'admin.produk')) active @endif">
+                    <a href="<?php echo e(route('admin.produk.index')); ?>" class="<?php if(str_contains(Route::current()->getName() ?? '', 'admin.produk')): ?> active <?php endif; ?>">
                         <i class="fa-solid fa-pills"></i>
                         <span>Principle Logo</span>
                     </a>
                 </li>
-                @endif
+                <?php endif; ?>
                 <li>
-                    <a href="{{ route('admin.banners.index') }}" class="@if(str_contains(Route::current()->getName() ?? '', 'admin.banners')) active @endif">
+                    <a href="<?php echo e(route('admin.banners.index')); ?>" class="<?php if(str_contains(Route::current()->getName() ?? '', 'admin.banners')): ?> active <?php endif; ?>">
                         <i class="fa-solid fa-image"></i>
                         <span>Banner Slideshow</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.news.index') }}" class="@if(str_contains(Route::current()->getName() ?? '', 'admin.news')) active @endif">
+                    <a href="<?php echo e(route('admin.news.index')); ?>" class="<?php if(str_contains(Route::current()->getName() ?? '', 'admin.news')): ?> active <?php endif; ?>">
                         <i class="fa-solid fa-newspaper"></i>
                         <span>Berita</span>
                     </a>
                 </li>
                 
                 <li>
-                    <a href="{{ route('home') }}">
+                    <a href="<?php echo e(route('home')); ?>">
                         <i class="fa-solid fa-arrow-left"></i>
                         <span>Kembali ke Home</span>
                     </a>
@@ -660,7 +660,7 @@
             <div class="topbar">
                 <div style="display:flex; align-items:center; gap:0.75rem;">
                     <button class="hamburger-btn" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
-                    <h1 class="topbar-title">@yield('page-title', 'Dashboard')</h1>
+                    <h1 class="topbar-title"><?php echo $__env->yieldContent('page-title', 'Dashboard'); ?></h1>
                 </div>
                 <div class="topbar-right">
                     <div class="user-info">
@@ -670,43 +670,45 @@
                             <div style="font-size: 0.875rem; color: #6b7280;">Admin</div>
                         </div>
                     </div>
-                    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                        @csrf
+                    <form action="<?php echo e(route('logout')); ?>" method="POST" style="display: inline;">
+                        <?php echo csrf_field(); ?>
                         <button type="submit" class="logout-btn">Logout</button>
                     </form>
                 </div>
             </div>
 
             <!-- Alert Messages -->
-            @if ($message = Session::get('success'))
+            <?php if($message = Session::get('success')): ?>
                 <div class="alert alert-success">
-                    <i class="fa-solid fa-circle-check"></i> {{ $message }}
-                </div>
-            @endif
+                    <i class="fa-solid fa-circle-check"></i> <?php echo e($message); ?>
 
-            @if ($message = Session::get('error'))
+                </div>
+            <?php endif; ?>
+
+            <?php if($message = Session::get('error')): ?>
                 <div class="alert alert-error">
-                    <i class="fa-solid fa-circle-xmark"></i> {{ $message }}
-                </div>
-            @endif
+                    <i class="fa-solid fa-circle-xmark"></i> <?php echo e($message); ?>
 
-            @if (isset($errors) && $errors->any())
+                </div>
+            <?php endif; ?>
+
+            <?php if(isset($errors) && $errors->any()): ?>
                 <div class="alert alert-error" style="margin-bottom:1rem;">
                     <strong><i class="fa-solid fa-triangle-exclamation"></i> Terdapat kesalahan:</strong>
                     <ul style="margin:0.5rem 0 0 1.25rem;padding:0;">
-                        @foreach ($errors->all() as $error)
-                            <li style="font-size:0.875rem;">{{ $error }}</li>
-                        @endforeach
+                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li style="font-size:0.875rem;"><?php echo e($error); ?></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                 </div>
-            @endif
+            <?php endif; ?>
 
             <!-- Content -->
-            @yield('content')
+            <?php echo $__env->yieldContent('content'); ?>
         </main>
     </div>
 
-    @yield('scripts')
+    <?php echo $__env->yieldContent('scripts'); ?>
 
     <script>
         function toggleSidebar() {
@@ -723,19 +725,19 @@
     <!-- Bottom Navigation (mobile only) -->
     <nav class="bottom-nav">
         <div class="bottom-nav-items">
-            <a href="{{ route('admin.dashboard') }}" class="bottom-nav-item @if(Route::current()->getName() == 'admin.dashboard') active @endif">
+            <a href="<?php echo e(route('admin.dashboard')); ?>" class="bottom-nav-item <?php if(Route::current()->getName() == 'admin.dashboard'): ?> active <?php endif; ?>">
                 <i class="fa-solid fa-gauge"></i>
                 <span>Dashboard</span>
             </a>
-            <a href="{{ route('admin.produk.index') }}" class="bottom-nav-item @if(str_contains(Route::current()->getName() ?? '', 'admin.produk')) active @endif">
+            <a href="<?php echo e(route('admin.produk.index')); ?>" class="bottom-nav-item <?php if(str_contains(Route::current()->getName() ?? '', 'admin.produk')): ?> active <?php endif; ?>">
                 <i class="fa-solid fa-pills"></i>
                 <span>Principle Logo</span>
             </a>
-            <a href="{{ route('admin.news.index') }}" class="bottom-nav-item @if(str_contains(Route::current()->getName() ?? '', 'admin.news')) active @endif">
+            <a href="<?php echo e(route('admin.news.index')); ?>" class="bottom-nav-item <?php if(str_contains(Route::current()->getName() ?? '', 'admin.news')): ?> active <?php endif; ?>">
                 <i class="fa-solid fa-newspaper"></i>
                 <span>Berita</span>
             </a>
-            <a href="{{ route('home') }}" class="bottom-nav-item">
+            <a href="<?php echo e(route('home')); ?>" class="bottom-nav-item">
                 <i class="fa-solid fa-house"></i>
                 <span>Home</span>
             </a>
@@ -746,3 +748,4 @@
 
 
 
+<?php /**PATH C:\Users\Ali Attaziri\medistrafarma\resources\views/layouts/admin.blade.php ENDPATH**/ ?>

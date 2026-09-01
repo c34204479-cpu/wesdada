@@ -9,7 +9,7 @@
         <!-- Header Bar -->
         <div style="padding: 0.75rem 1rem 0.5rem; display: flex; justify-content: space-between; align-items: center; z-index: 10; position: relative;">
             <a href="{{ route('news.index') }}" style="color: #fbbf24; text-decoration: none; font-weight: 700; font-size: 1.2rem; background: none; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 999px; background: rgba(255,255,255,0.06);">←</a>
-            <span style="color: #9ca3af; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">{{ $news->created_at->translatedFormat('d M Y') }}</span>
+            <span style="color: #9ca3af; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">{{ optional($news->tanggal)->translatedFormat('d M Y') ?? $news->created_at->translatedFormat('d M Y') }}</span>
         </div>
 
         <!-- Media Container -->

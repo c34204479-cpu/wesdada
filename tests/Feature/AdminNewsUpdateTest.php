@@ -76,4 +76,21 @@ class AdminNewsUpdateTest extends TestCase
         $this->assertEquals(['medicines/test1.jpg', 'medicines/test2.jpg'], $updated->gallery);
         $this->assertEquals('medicines/test.jpg', $updated->file);
     }
+
+    public function test_admin_can_set_news_date_manually()
+    {
+        $customDate = '2026-01-15';
+
+        $response = $this->post(route('admin.news.store'), [
+            'deskripsi' => 'Berita dengan tanggal manual',
+            'tanggal' => $customDate,
+            'is_published' => '1',
+        ]);
+
+        $response->assertRedirect(route('admin.news.index'));
+
+        $news = News::query()->latest('id')->first();
+        $this->assertNotNull($news);
+        $this->assertEquals($customDate, $news->tanggal->format('Y-m-d'));
+    }
 }

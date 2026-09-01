@@ -73,7 +73,7 @@
                         <a href="https://wa.me/6285248965590" target="_blank" class="btn btn-primary" style="border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; background: #25D366; border: none;">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@apotekmedistrafarma" target="_blank" class="btn btn-primary" style="border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; background: #000000; border: none;">
+                        <a href="https://www.tiktok.com/@apotek_medistra_farma" target="_blank" class="btn btn-primary" style="border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; background: #000000; border: none;">
                             <div style="width:24px;height:24px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;"><img src="{{ asset('logo tiktok.avif') }}" alt="TikTok" style="width:20px;height:20px;object-fit:contain;"></div>
                         </a>
                         <a href="#" class="btn btn-primary" style="border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; background: #EE3131; border: none;">

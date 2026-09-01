@@ -1,4 +1,5 @@
 
+# Environment files
 .env
 .env.*
 !.env.example
@@ -7,9 +8,6 @@
 # Local database and runtime files
 /database/*.sqlite
 /database/*.sqlite-journal
-/storage/*.key
-/storage/*.pem
-/storage/*.crt
 
 # Dependency / build output
 /vendor/
@@ -26,6 +24,43 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Optional: keep Laravel logs local
-/storage/logs/*.log
+# IMPORTANT: uploaded CRUD files and runtime storage data must stay on server
+# and MUST NOT be managed by Git.
+/storage/*
+!/storage/.gitignore
+!/storage/app/
+!/storage/app/public/
+!/storage/framework/
+!/storage/logs/
+!/storage/medicines/
+!/storage/banners/
+!/storage/promos/
+!/storage/principellogos/
+!/storage/news/
 
+# Keep placeholder files only; actual uploaded files stay local/server-only
+/storage/app/*
+!/storage/app/.gitignore
+!/storage/app/public/.gitignore
+/storage/framework/*
+!/storage/framework/.gitignore
+/storage/logs/*
+!/storage/logs/.gitignore
+/storage/medicines/*
+!/storage/medicines/.gitignore
+/storage/banners/*
+!/storage/banners/.gitignore
+/storage/promos/*
+!/storage/promos/.gitignore
+/storage/principellogos/*
+!/storage/principellogos/.gitignore
+/storage/news/*
+!/storage/news/.gitignore
+
+# Keep Laravel cache/session folders but not generated runtime data files
+!/storage/framework/cache/
+!/storage/framework/sessions/
+!/storage/framework/views/
+!/storage/framework/cache/.gitignore
+!/storage/framework/sessions/.gitignore
+!/storage/framework/views/.gitignore

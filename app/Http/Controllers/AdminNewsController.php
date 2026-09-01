@@ -110,6 +110,7 @@ class AdminNewsController extends Controller
 
         $data = $request->validate([
             'deskripsi'     => 'required|string',
+            'tanggal'       => ['nullable', 'date'],
             'file'          => 'nullable|file|mimes:jpeg,jpg,png,gif,webp,mp4,webm,mov|max:512000',
             'gallery'       => 'nullable|array',
             'gallery.*'     => 'file|mimes:jpeg,jpg,png,gif,webp|max:512000',
@@ -119,6 +120,7 @@ class AdminNewsController extends Controller
 
         // Jangan pakai judul dummy atau hashtag default; simpan deskripsi sebagai konten utama.
         $data['judul'] = !empty(trim($data['deskripsi'])) ? Str::limit(strip_tags($data['deskripsi']), 60) : null;
+        $data['tanggal'] = $data['tanggal'] ?? now()->toDateString();
         $data['konten'] = $data['deskripsi'];
         $data['tipe'] = 'artikel';
         $data['ratio'] = '3:4';
@@ -176,6 +178,7 @@ class AdminNewsController extends Controller
 
         $data = $request->validate([
             'deskripsi'      => 'required|string',
+            'tanggal'        => ['nullable', 'date'],
             'file'           => 'nullable|file|mimes:jpeg,jpg,png,gif,webp,mp4,webm,mov|max:512000',
             'gallery'        => 'nullable|array',
             'gallery.*'      => 'file|mimes:jpeg,jpg,png,gif,webp|max:512000',
@@ -185,6 +188,7 @@ class AdminNewsController extends Controller
 
         // Keep existing values for removed fields tanpa judul/hashtag placeholder
         $data['tags'] = $news->tags ?? [];
+        $data['tanggal'] = $data['tanggal'] ?? $news->tanggal ?? now()->toDateString();
         $data['judul'] = !empty(trim($data['deskripsi'])) ? Str::limit(strip_tags($data['deskripsi']), 60) : null;
         $data['konten'] = $data['deskripsi'];
         $data['tipe'] = $news->tipe ?? 'artikel';

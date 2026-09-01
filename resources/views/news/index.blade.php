@@ -203,7 +203,7 @@
 
                                 <div style="display:flex; align-items:center; gap:0.4rem; color:#e2e8f0; font-size:0.72rem;">
                                     <span>🔊</span>
-                                    <span>{{ $item->created_at->translatedFormat('d M Y') }}</span>
+                                    <span>{{ optional($item->tanggal)->translatedFormat('d M Y') ?? $item->created_at->translatedFormat('d M Y') }}</span>
                                 </div>
                             </div>
 

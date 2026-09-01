@@ -1402,7 +1402,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         <div style="padding: 1.1rem 1rem 1.25rem; background: #ffffff; position: relative; z-index: 2; border-top: 1px solid rgba(15, 118, 110, 0.08);">
                             <div class="news-meta">
-                                <div class="news-date">{{ $news->created_at->translatedFormat('d M Y') }}</div>
+                                <div class="news-date">{{ optional($news->tanggal)->translatedFormat('d M Y') ?? $news->created_at->translatedFormat('d M Y') }}</div>
                             </div>
                             <p class="news-desc">{{ $news->deskripsi }}</p>
                         </div>
@@ -1885,7 +1885,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="about-strip" style="background: rgba(15,118,110,0.04);">
   <div class="container">
     <div class="about-box">
-      <img src="{{ asset('logo apotek medistra farma.png') }}" alt="Apotek Medistra Farma" class="about-logo">
+      <img src="{{ asset('logo_apotek_medistrafarma-removebg-preview copy.png') }}" alt="Apotek Medistra Farma" class="about-logo">
       <div class="about-info">
         <h3>Apotek Medistra Farma — Layanan Kesehatan Yang Ramah & Terpercaya</h3>
         <p>Apotek Medistra Farma menghadirkan produk kesehatan, obat-obatan, dan layanan yang siap membantu kebutuhan sehari-hari masyarakat dengan pelayanan yang cepat, aman, dan profesional.</p>

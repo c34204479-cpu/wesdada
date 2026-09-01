@@ -41,6 +41,16 @@
             @enderror
         </div>
 
+        <div style="margin-bottom: 1.5rem;">
+            <label for="tanggal" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">
+                Tanggal Berita
+            </label>
+            <input type="date" id="tanggal" name="tanggal" value="{{ old('tanggal', now()->toDateString()) }}" style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.375rem; font-family: inherit;">
+            @error('tanggal')
+                <p style="color: #ef4444; font-size: 0.875rem; margin-top: 0.25rem;">{{ $message }}</p>
+            @enderror
+        </div>
+
         <!-- File Media -->
         <div style="margin-bottom: 1.5rem;">
             <label for="file" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">
