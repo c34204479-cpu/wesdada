@@ -60,7 +60,7 @@
                     <th>Deskripsi</th>
                     <th>Status</th>
                     <th>Dilihat</th>
-                    <th>Dibuat</th>
+                    <th>Tanggal Berita</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -94,7 +94,7 @@
                             @endif
                         </td>
                         <td style="text-align: center;">{{ $item->views }}</td>
-                        <td style="font-size: 0.875rem; color: #6b7280;">{{ $item->created_at->format('d M Y') }}</td>
+                        <td style="font-size: 0.875rem; color: #6b7280;">{{ optional($item->tanggal)->format('d M Y') ?? $item->created_at->format('d M Y') }}</td>
                         <td style="white-space: nowrap;">
                             <a href="{{ route('admin.news.edit', $item->id) }}" class="btn btn-sm" style="padding: 0.375rem 0.75rem; margin-right: 0.5rem; background: #3b82f6; color: white; text-decoration: none; border-radius: 0.375rem; font-size: 0.875rem;">✏️ Edit</a>
                             <form action="{{ route('admin.news.destroy', $item->id) }}" method="POST" style="display: inline;">

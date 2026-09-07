@@ -1369,6 +1369,14 @@
                         <h3 style="margin:0;">Apotek Medistra Farma</h3>
                     </div>
                     <p>Apotek yang hadir untuk melayani kebutuhan kesehatan masyarakat dengan produk terpercaya dan layanan yang ramah.</p>
+                    <h3 style="margin-top:1.25rem; margin-bottom:0.25rem;">Ikuti Kami</h3>
+                    <div class="footer-socials" aria-label="Ikuti Apotek Medistra Farma">
+                        <a href="https://www.instagram.com/medistrafarmaketapang/" target="_blank" rel="noopener noreferrer" class="social-circle social-instagram" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@apotek_medistrafarma" target="_blank" rel="noopener noreferrer" class="social-circle social-tiktok" aria-label="TikTok" title="TikTok"><img src="{{ asset('logo tiktok.avif') }}" alt="TikTok"></a>
+                        <a href="https://shopee.co.id/" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="Shopee" title="Shopee" style="background:#ee3131;"><img src="{{ asset('logoshopee.jpeg') }}" alt="Shopee" style="width:20px;height:20px;object-fit:contain;border-radius:4px;"></a>
+                        <a href="https://pin.it/6ftnrpzmH" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="Pinterest" title="Pinterest" style="background:#e60023;"><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="https://youtube.com/@medistrafarma?si=MeN8NMLlAl2ZOkto" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="YouTube" title="YouTube" style="background:#ff0000;"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
                 </div>
                 <div>
                     <h3>Informasi</h3>
@@ -1417,6 +1425,17 @@
             font-size:1.1rem;
         }
         .float-btn:hover { transform:scale(1.13); }
+
+        .float-whatsapp-note {
+            position:absolute; right:72px; bottom:12px; display:flex; align-items:center; gap:0.35rem;
+            padding:0.35rem 0.45rem 0.35rem 0.65rem; border-radius:999px; background:#ffffff; color:#166534;
+            font-size:0.72rem; font-weight:800; white-space:nowrap; box-shadow:0 8px 20px rgba(15,23,42,0.18);
+            border:1px solid rgba(34,197,94,0.2);
+        }
+        .float-whatsapp-note button {
+            width:18px; height:18px; padding:0; border:0; border-radius:50%; background:#dcfce7; color:#166534;
+            font-size:0.8rem; line-height:1; cursor:pointer;
+        }
 
         /* WhatsApp lebih besar */
         .float-btn-wa {
@@ -1475,6 +1494,7 @@
             .float-btn-wa {
                 width:40px !important; height:40px !important; font-size:1.2rem !important; margin-top:0;
             }
+            .float-whatsapp-note { right:48px; bottom:5px; font-size:0.66rem; padding-left:0.5rem; }
             .float-toggle {
                 display:none !important;
             }
@@ -1489,67 +1509,34 @@
     </style>
 
     <div class="float-wrap">
-        <!-- Links (semua tombol) -->
+        <!-- Hanya WhatsApp yang ditampilkan sebagai floating action -->
         <div class="float-links" id="floatLinks">
-            <!-- Instagram -->
-            <div class="float-item">
-                <span class="float-tooltip">Instagram</span>
-                <span class="float-label-mobile">Instagram</span>
-                <a href="https://www.instagram.com/medistrafarmaketapang/" target="_blank" class="float-btn"
-                   style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:white;font-size:1.4rem;box-shadow:0 4px 16px rgba(220,39,67,0.45);">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-            </div>
-
-            <!-- TikTok -->
-            <div class="float-item">
-                <span class="float-tooltip">TikTok</span>
-                <span class="float-label-mobile">TikTok</span>
-                <a href="https://www.tiktok.com/@apotek_medistra_farma" target="_blank" class="float-btn"
-                   style="background:#000;color:white;box-shadow:0 4px 16px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;padding:0;">
-                    <img src="{{ asset('logo tiktok.avif') }}" alt="TikTok" style="width:20px;height:20px;object-fit:contain;display:block;border-radius:4px;">
-                </a>
-            </div>
-
-            <!-- Shopee -->
-            <div class="float-item">
-                <span class="float-tooltip">Shopee</span>
-                <span class="float-label-mobile">Shopee</span>
-                <a href="https://shopee.co.id/" target="_blank" class="float-btn"
-                   style="background:#EE3131;color:white;box-shadow:0 4px 16px rgba(238,49,49,0.25);display:flex;align-items:center;justify-content:center;padding:0;">
-                    <img src="{{ asset('logoshopee.jpeg') }}" alt="Shopee" style="width:20px;height:20px;object-fit:contain;display:block;border-radius:4px;">
-                </a>
-            </div>
-
             <!-- WhatsApp -->
             <div class="float-item">
-                <span class="float-tooltip">Chat WhatsApp</span>
-                <span class="float-label-mobile">WhatsApp</span>
+                <div class="float-whatsapp-note" id="floatWhatsappNote">
+                    <span>Hubungi kami</span>
+                    <button type="button" onclick="closeWhatsappNote(event)" aria-label="Tutup pesan">&times;</button>
+                </div>
                 <a href="https://wa.me/6281345559456?text=Halo%20Apotek%20Medistra%20Farma%2C%20saya%20ingin%20bertanya%20tentang%20produk%20obat."
-                   target="_blank" class="float-btn float-btn-wa"
+                   target="_blank" rel="noopener noreferrer" class="float-btn float-btn-wa"
+                   aria-label="Hubungi kami melalui WhatsApp" title="Hubungi kami"
                    style="background:#25D366;color:white;font-size:1.9rem;box-shadow:0 6px 24px rgba(37,211,102,0.55);">
                     <i class="fa-brands fa-whatsapp"></i>
                 </a>
             </div>
         </div>
-
-        <!-- Toggle button (mobile only) -->
-        <button class="float-toggle" id="floatToggle" onclick="toggleFloat()" aria-label="Buka menu cepat">
-            <i class="fa-solid fa-bolt"></i>
-        </button>
     </div>
 
     <script>
-        function toggleFloat() {
-            const links  = document.getElementById('floatLinks');
-            const toggle = document.getElementById('floatToggle');
-            links.classList.toggle('open');
-            toggle.classList.toggle('open');
+        function closeWhatsappNote(event) {
+            event.stopPropagation();
+            const note = document.getElementById('floatWhatsappNote');
+            if (note) note.remove();
         }
+
         // Desktop: selalu tampil - jangan pakai inline style agar tidak override CSS
         function checkFloatDesktop() {
             const links = document.getElementById('floatLinks');
-            const toggle = document.getElementById('floatToggle');
 
             if (window.innerWidth > 768) {
                 links.style.maxHeight = '';
@@ -1557,14 +1544,12 @@
                 links.style.overflow  = '';
                 links.style.display   = '';
                 links.classList.remove('open');
-                if (toggle) toggle.style.display = 'none';
             } else {
                 links.style.maxHeight = 'none';
                 links.style.opacity   = '1';
                 links.style.overflow  = 'visible';
                 links.style.display   = 'flex';
                 links.classList.add('open');
-                if (toggle) toggle.style.display = 'none';
             }
         }
         checkFloatDesktop();

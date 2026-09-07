@@ -83,7 +83,7 @@ class AdminNewsController extends Controller
             $query->where('is_published', false);
         }
 
-        $news = $query->orderBy('created_at', 'desc')->paginate(20);
+        $news = $query->orderByDesc('tanggal')->orderByDesc('created_at')->paginate(20);
 
         return view('admin.news.index', compact('news', 'search', 'tipe', 'status'));
     }

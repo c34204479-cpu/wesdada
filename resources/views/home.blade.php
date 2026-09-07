@@ -1213,15 +1213,76 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- NEWS SECTION -->
+<style>
+    .home-news-actions {
+        min-width: 0;
+    }
+
+    @media (max-width: 576px) {
+        .home-news-heading {
+            margin-bottom: 1rem !important;
+        }
+
+        .home-news-heading > div:first-child {
+            width: 100%;
+        }
+
+        .home-news-actions {
+            width: 100%;
+            justify-content: center !important;
+            gap: 0.45rem !important;
+            padding: 0.65rem !important;
+            border-radius: 1.25rem !important;
+        }
+
+        .home-news-actions .home-news-share,
+        .home-news-actions .home-news-social {
+            width: 32px !important;
+            height: 32px !important;
+            flex: 0 0 32px;
+        }
+
+        .home-news-actions .home-news-social img {
+            width: 18px !important;
+            height: 18px !important;
+        }
+
+        .home-news-actions .home-news-follow-label {
+            font-size: 0.78rem !important;
+            margin-right: 0 !important;
+        }
+
+        .home-news-actions .home-news-divider {
+            height: 20px !important;
+        }
+
+        .home-news-actions .home-news-view-all {
+            flex: 0 0 100%;
+            text-align: center;
+            padding: 0.6rem 1rem !important;
+            margin-top: 0.15rem;
+        }
+    }
+</style>
 <section style="padding: 2.75rem 0 3.25rem; background: linear-gradient(135deg, rgba(3, 19, 36, 0.92) 0%, rgba(10, 49, 85, 0.94) 25%, rgba(12, 95, 152, 0.92) 58%, rgba(19, 164, 184, 0.9) 100%); position: relative; overflow: hidden; border-top: 1px solid rgba(148, 163, 184, 0.2);">
     <div style="position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(125, 211, 252, 0.24), transparent 24%), radial-gradient(circle at 82% 18%, rgba(45, 212, 191, 0.22), transparent 22%), radial-gradient(circle at 50% 85%, rgba(191, 219, 254, 0.18), transparent 26%); pointer-events: none;"></div>
     <div class="container" style="max-width: 1500px; margin: 0 auto; padding: 0 1rem; position: relative; z-index: 1;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <div class="home-news-heading" style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
             <div>
                 <p style="margin: 0 0 0.35rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: #bae6fd; text-transform: uppercase;">Latest</p>
                 <h2 style="font-size: clamp(1.6rem, 2vw, 2.2rem); font-weight: 800; color: #f8fdff; margin: 0;">Berita & Update</h2>
             </div>
-            <a href="{{ route('news.index') }}" style="text-decoration: none; color: #edf6ff; font-weight: 700; font-size: 0.9rem; padding: 0.75rem 1.1rem; border: 1px solid rgba(186, 230, 253, 0.35); border-radius: 999px; background: linear-gradient(135deg, rgba(14, 116, 144, 0.55), rgba(59, 130, 246, 0.45)); box-shadow: 0 10px 20px rgba(14, 116, 144, 0.25);">Lihat Semua</a>
+            <div class="home-news-actions" style="display:flex; align-items:center; justify-content:flex-end; gap:0.6rem; flex-wrap:wrap; padding:0.45rem 0.55rem 0.45rem 0.45rem; border:1px solid rgba(186,230,253,0.28); border-radius:999px; background:linear-gradient(135deg,rgba(255,255,255,0.12),rgba(14,116,144,0.3)); box-shadow:0 12px 24px rgba(3,19,36,0.16);">
+                <button class="home-news-share" type="button" id="homeNewsShareBtn" onclick="shareHomeNews(event)" aria-label="Bagikan berita" title="Bagikan berita" style="width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:50%;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#fff;cursor:pointer;box-shadow:0 7px 15px rgba(245,158,11,0.35);font-size:0.95rem;transition:transform 0.2s ease,box-shadow 0.2s ease;"><i class="fa-solid fa-share-nodes"></i></button>
+                <span class="home-news-follow-label" style="color:#f8fdff; font-size:0.84rem; font-weight:900; letter-spacing:0.01em; margin-right:0.15rem; white-space:nowrap;">Ikuti Kami</span>
+                <span class="home-news-divider" style="width:1px;height:24px;background:rgba(219,234,254,0.3);"></span>
+                <a class="home-news-social" href="https://www.instagram.com/medistrafarmaketapang/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram" style="width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;text-decoration:none;box-shadow:0 7px 15px rgba(220,39,67,0.27);"><i class="fa-brands fa-instagram"></i></a>
+                <a class="home-news-social" href="https://www.tiktok.com/@apotek_medistrafarma" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok" style="width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#050505;color:#fff;text-decoration:none;box-shadow:0 7px 15px rgba(0,0,0,0.25);"><img src="{{ asset('logo tiktok.avif') }}" alt="TikTok" style="width:20px;height:20px;object-fit:contain;border-radius:5px;"></a>
+                <a class="home-news-social" href="https://shopee.co.id/" target="_blank" rel="noopener noreferrer" aria-label="Shopee" title="Shopee" style="width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#ee3131;color:#fff;text-decoration:none;box-shadow:0 7px 15px rgba(238,49,49,0.27);"><img src="{{ asset('logoshopee.jpeg') }}" alt="Shopee" style="width:20px;height:20px;object-fit:contain;border-radius:4px;"></a>
+                <a class="home-news-social" href="https://pin.it/6ftnrpzmH" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" title="Pinterest" style="width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#e60023;color:#fff;text-decoration:none;box-shadow:0 7px 15px rgba(230,0,35,0.27);"><i class="fa-brands fa-pinterest-p"></i></a>
+                <a class="home-news-social" href="https://youtube.com/@medistrafarma?si=MeN8NMLlAl2ZOkto" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube" style="width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#ff0000;color:#fff;text-decoration:none;box-shadow:0 7px 15px rgba(255,0,0,0.27);"><i class="fa-brands fa-youtube"></i></a>
+                <a class="home-news-view-all" href="{{ route('news.index') }}" style="text-decoration: none; color: #edf6ff; font-weight: 700; font-size: 0.9rem; padding: 0.75rem 1.1rem; border: 1px solid rgba(186, 230, 253, 0.35); border-radius: 999px; background: linear-gradient(135deg, rgba(14, 116, 144, 0.55), rgba(59, 130, 246, 0.45)); box-shadow: 0 10px 20px rgba(14, 116, 144, 0.25);">Lihat Semua</a>
+            </div>
         </div>
 
         @php
@@ -1420,6 +1481,30 @@ document.addEventListener('DOMContentLoaded', function() {
         @endif
     </div>
 </section>
+
+<script>
+    function shareHomeNews(event) {
+        event.preventDefault();
+        const shareData = {
+            title: 'Berita Apotek Medistra Farma',
+            text: 'Lihat berita terbaru dari Apotek Medistra Farma.',
+            url: '{{ route("news.index") }}'
+        };
+
+        if (navigator.share) {
+            navigator.share(shareData).catch(() => {});
+            return;
+        }
+
+        navigator.clipboard?.writeText(shareData.url).then(() => {
+            const button = document.getElementById('homeNewsShareBtn');
+            if (button) {
+                button.title = 'Tautan berhasil disalin';
+                setTimeout(() => { button.title = 'Bagikan berita'; }, 1800);
+            }
+        });
+    }
+</script>
 
 {{-- PROMO PRODUK --}}
 @if(isset($promoProducts) && $promoProducts->count())

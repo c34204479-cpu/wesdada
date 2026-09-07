@@ -49,7 +49,7 @@ class News extends Model
     // Scope untuk urutan terbaru
     public function scopeLatest($query)
     {
-        return $query->orderBy('created_at', 'desc');
+        return $query->orderByDesc('tanggal')->orderByDesc('created_at');
     }
 
     // Get tipe badge
